@@ -11,7 +11,7 @@ export const Hero = () => {
         display: 'flex',
         alignItems: 'center',
         backgroundColor: 'background.default',
-        color: 'text.secondary',
+        color: 'text.primary',
         pb: 4,
         pt:0,
         mt:2
