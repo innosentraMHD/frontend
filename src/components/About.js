@@ -44,7 +44,7 @@ export const About = () => {
   {/* Left side: text */}
   <Box sx={{ flex: 1, textAlign: { xs: 'center', md: 'left' } }}>
 
-        <Typography variant="h2" sx={{color: 'text.primary', mb: 3 }} >
+        <Typography variant="h2" sx={{color: 'text.third', mb: 1 }} >
       About Us
     </Typography>
  
