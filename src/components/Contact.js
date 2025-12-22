@@ -129,7 +129,7 @@ export const Contact = () => {
         <Box  sx={{ textAlign: 'center', mb: { xs: 4, sm: 5, md: 6 }  }}>
          
         <Typography 
-          variant="h2" 
+          variant="h3" 
           sx={{ 
             mb: 1,
             textAlign: 'center',

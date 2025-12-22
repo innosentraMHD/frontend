@@ -40,7 +40,7 @@ export const Solutions = () => {
     >
       <Container maxWidth="lg">
         <Typography 
-          variant="h2" 
+          variant="h3" 
           sx={{ 
             textAlign: 'center',
             mb: 6,

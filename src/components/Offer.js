@@ -14,7 +14,7 @@ export const Offer = () => {
   return (
     <Box id="solutions" sx={{ py: 8, bgcolor: 'background.dark' }}>
       <Container  maxWidth="lg">
-        <Typography variant="h2" align="center" sx={{ mb: 6, color: 'text.white' }} > What we offer ? </Typography>
+        <Typography variant="h3" align="center" sx={{ mb: 6, color: 'text.white' }} > What we offer ? </Typography>
         <Box spacing={4} display="flex" justifyContent="space-evenly" sx={{ bgcolor: 'background.dark'}} gap={2} flexDirection={{ xs: 'column', md: 'row' }}>
           {solutions.map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index} >

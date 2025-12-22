@@ -22,7 +22,7 @@ export const Hero = () => {
         {/* العنوان الرئيسي */}
         <Box sx={{ textAlign: 'center', maxWidth: '800px', mx: 'auto', mb: 4,mt:2 }}>
           <Typography 
-            variant="h2" 
+            variant="h3" 
             sx={{ mb: 3 }}
             className="fade-in-up"
           >

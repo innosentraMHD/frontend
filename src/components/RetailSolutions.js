@@ -157,7 +157,7 @@ const videoRef = useLazyVideo();
         background: 'linear-gradient(135deg, #11152f 0%, #1b1f4a 100%)'
       }}>
         <Container maxWidth="md">
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
+          <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
             Innosentra Retail Analytics
           </Typography>
           <Typography variant="h5" sx={{ opacity: 0.8, fontWeight: 300, maxWidth: '800px', mx: 'auto' }}>
