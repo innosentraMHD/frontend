@@ -53,9 +53,7 @@ export const About = () => {
       variant="body1"  
       sx={{ mb: 0, fontSize: '1.1rem', color: 'text.secondary'}}
     >
-      Innosentra is a computer vision and AI company delivering actionable insights from visual 
-data. Our solutions integrate with existing camera systems, respect privacy, and support 
-smarter decision-making across retail, security, and other industries. 
+    More than 15 years of experience in technical solutions, Innosentra is a computer vision and AI company delivering actionable insights from visual data. Our solutions integrate with existing camera systems, respect privacy, and support smarter decision-making across retail, security, and other industries.
     </Typography>
   </Box>
 

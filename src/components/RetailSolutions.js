@@ -31,12 +31,16 @@ import videoThumb2 from '../videos/output_tracked4.webm';
 import videoThumb3 from '../videos/mivolo_yolo8fp_only_person.webm'; 
 import tracking_customer_on_map from '../videos/tracking_customer_on_map.webm';
 import mobileDashboardVideo from '../videos/Screenrecorder-application.mp4';
-
-
 // --- 1. مكون المعرض (The Gallery) ---
 
 const useLazyVideo = () => {
   const videoRef = useRef(null);
+
+useEffect(() => {
+   
+    window.scrollTo(0, 0);
+  }, []);
+
 
   useEffect(() => {
     const video = videoRef.current;
@@ -68,7 +72,7 @@ const useLazyVideo = () => {
 // --- 2. مكون القسم (Feature Section) ---
 const FeatureSection = ({ title, subtitle, features, importance, mediaItems, icon, reverse }) => {
   return (
-    <Box sx={{ py: { xs: 8, md: 12 }, borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
+    <Box id='retail' sx={{ py: { xs: 8, md: 12 }, borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
       <Container maxWidth="lg">
         <Box sx={{
           display: 'flex',

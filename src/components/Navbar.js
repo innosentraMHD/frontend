@@ -165,7 +165,7 @@ export const Navbar = () => {
               onClose={handleMenuClose}
               MenuListProps={{ 'aria-labelledby': 'solutions-button' }}
             >
-              <MenuItem onClick={() => handleNavigation('/retail-solutions')}>
+              <MenuItem onClick={() =>{handleNavigation('/retail-solutions')} }>
                 Retail Solutions
               </MenuItem>
               
