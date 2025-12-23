@@ -19,7 +19,7 @@ const HomePage = () => (
     <Offer />
     <Chart />
     <Steps />
-    <Contact />
+   
   </>
 );
 
@@ -33,7 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/retail-solutions" element={<RetailSolutions />} />
-          <Route path="/analitic-supermarket" element={<AnaliticsAPK />} />
+          <Route path="/contact" element={<Contact />} />
 
         </Routes>
 

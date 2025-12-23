@@ -194,7 +194,7 @@ export const Navbar = () => {
               </Button>
               <Button 
                 variant="outlined"
-                onClick={() => handleNavigation('#contact')}
+                onClick={() => handleNavigation('/contact')}
               >
                 Contact
               </Button>
