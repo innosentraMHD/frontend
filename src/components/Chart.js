@@ -4,13 +4,12 @@ import {
   Box, 
   Typography 
 } from '@mui/material';
-import onei from '../images/1.png'; 
-import twoi from '../images/2.png';
-import threei from '../images/3.png';
-import fouri from '../images/4.png';
-import fivei from '../images/5.png';
-import one from '../images/gfgdf.png'; // الصورة للخطوة الثانية
-import two from '../images/ertfdg.webp'; // قد تكون غير مستخدمة ولكن تركتها حسب الاستيراد
+import onei from '../images/1.webp'; 
+import twoi from '../images/2.webp';
+import threei from '../images/3.webp';
+import fouri from '../images/4.webp';
+import fivei from '../images/5.webp';
+import one from '../images/gfgdf.webp'; // الصورة للخطوة الثانية // قد تكون غير مستخدمة ولكن تركتها حسب الاستيراد
 import three from '../images/fgder.webp'; // الصورة للخطوة الثالثة
 import arrow from '../images/arrow.webp'; 
 
