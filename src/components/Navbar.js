@@ -116,7 +116,7 @@ export const Navbar = () => {
             variant="contained"
             color="secondary"
             fullWidth
-            onClick={() => handleNavigation('#contact')}
+            onClick={() => handleNavigation('/contact')}
           >
             Contact
           </Button>
