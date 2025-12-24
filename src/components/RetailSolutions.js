@@ -13,7 +13,7 @@ import {
   Button,
 
 } from '@mui/material';
-
+import videoThumbnail from '../images/y.webp'
 import MediaGallery from './MediaGallery';
 import dashboard1 from '../images/dashboard1_.webp'; 
 import dashboard2 from '../images/dashboard2_.webp'; 
@@ -300,8 +300,8 @@ const videoRef = useLazyVideo();
       width: '280px',
       height: '640px',          // ⬅️ أطول بوضوح
       borderRadius: '28px',
+      border:'solid 4px black',
       overflow: 'hidden',
-     
       bgcolor: 'black',
     }}
   >
@@ -310,6 +310,7 @@ const videoRef = useLazyVideo();
       data-src={mobileDashboardVideo}
       controls
       playsInline
+      poster={videoThumbnail}
       muted
       preload="metadata"
       style={{
