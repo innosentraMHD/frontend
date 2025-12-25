@@ -119,6 +119,19 @@ export const Navbar = () => {
       </Box>
       <Divider sx={{ mb: 2 }} />
       <List>
+
+        <ListItem sx={{ mt: 2, p: 0 }}>
+          <Button 
+            variant="contained"
+            
+            backgroundColor="background.dark"
+            fullWidth
+            onClick={() => handleNavigation('/contact')}
+          >
+            Contact
+          </Button>
+        </ListItem>
+
         <ListItem disablePadding>
             <ListItemButton onClick={() => handleNavigation('#home')}>
                 <ListItemText primary="Home" />
@@ -130,6 +143,8 @@ export const Navbar = () => {
                 <ListItemText primary="About" />
             </ListItemButton>
         </ListItem>
+
+        
 
         {/* --- قسم Solutions المنسدل في الموبايل --- */}
         <ListItem disablePadding>
@@ -143,23 +158,27 @@ export const Navbar = () => {
         <Collapse in={mobileSolutionsOpen} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
                 <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/retail-solutions')}>
-                    <ListItemText primary="Retail Solutions" secondary="AI Analytics" />
+                    <ListItemText primary="Supermarket" />
                 </ListItemButton>
+                {/* <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/traffic')}>
+                    <ListItemText primary="Traffic" />
+                </ListItemButton>
+                <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/security')}>
+                    <ListItemText primary="Security" />
+                </ListItemButton>
+                <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/industry')}>
+                    <ListItemText primary="Industry" />
+                </ListItemButton>
+                <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/construction')}>
+                    <ListItemText primary="Construction Sites" />
+                </ListItemButton> */}
+                
                 {/* يمكنك إضافة المزيد من الحلول هنا */}
             </List>
         </Collapse>
         {/* ------------------------------------- */}
 
-        <ListItem sx={{ mt: 2, p: 0 }}>
-          <Button 
-            variant="contained"
-            color="secondary"
-            fullWidth
-            onClick={() => handleNavigation('/contact')}
-          >
-            Contact
-          </Button>
-        </ListItem>
+        
       </List>
     </Box>
   );
@@ -208,8 +227,20 @@ export const Navbar = () => {
                     MenuListProps={{ 'aria-labelledby': 'solutions-button' }}
                     >
                     <MenuItem onClick={() =>{handleNavigation('/retail-solutions')} }>
-                        Retail Solutions
+                        Supermarket
                     </MenuItem>
+                    {/* <MenuItem onClick={() =>{handleNavigation('/traffic')} }>
+                        Traffic
+                    </MenuItem>
+                    <MenuItem onClick={() =>{handleNavigation('/security')} }>
+                        Security
+                    </MenuItem>
+                    <MenuItem onClick={() =>{handleNavigation('/industry')} }>
+                        Industry
+                    </MenuItem>
+                    <MenuItem onClick={() =>{handleNavigation('/construction')} }>
+                        Construction Sites
+                    </MenuItem> */}
                     </Menu>
                 </Box>
             )}
