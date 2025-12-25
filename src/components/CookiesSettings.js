@@ -1,8 +1,12 @@
-import React from 'react';
+
+import React  ,{useEffect} from 'react';
 import { Container, Typography, Box, Divider } from '@mui/material';
 
+
+
 export const CookiesSettings = () => (
-  <Container sx={{ py: 10 }}>
+
+  <Container sx={{ py: 10, minHeight:'100vh'}}>
     <Typography variant="h3" gutterBottom>Cookies Settings & Policy</Typography>
     <Divider sx={{ mb: 4 }} />
     <Box sx={{ mb: 4 }}>

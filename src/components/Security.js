@@ -13,6 +13,7 @@ export const Security = () => {
       <Box sx={{ 
         bgcolor: '#0f1220', color: 'white', py: { xs: 8, md: 12 }, textAlign: 'center',
         background: 'linear-gradient(135deg, #1a0a0a 0%, #11152f 100%)' 
+        ,minHeight:'100vh'
       }}>
         <Container maxWidth="md">
           <Typography variant="h3" sx={{ fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>

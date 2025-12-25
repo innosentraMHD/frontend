@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography, Divider } from '@mui/material';
 
 export const PrivacyPolicy = () => (
-  <Container sx={{ py: 10 }}>
+  <Container sx={{ py: 10 ,minHeight:'100vh'}}>
     <Typography variant="h3" gutterBottom>Privacy Policy</Typography>
     <Divider sx={{ mb: 4 }} />
     <Typography variant="h6">Data Collection</Typography>

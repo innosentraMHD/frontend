@@ -1,7 +1,7 @@
 import { Container, Typography, Box, Divider, Paper } from '@mui/material';
 
 export const SiteInfo = () => (
-  <Container sx={{ py: 10 }}>
+  <Container sx={{ py: 10 ,minHeight:'100vh'}}>
     <Paper elevation={0} sx={{ p: 4, bgcolor: '#f9f9f9' }}>
       <Typography variant="h3" color="primary" gutterBottom>Site Information</Typography>
       <Divider sx={{ mb: 4 }} />

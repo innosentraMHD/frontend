@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography, Divider, Box } from '@mui/material';
 
 export const SecurityInfo = () => (
-  <Container sx={{ py: 10 }}>
+  <Container sx={{ py: 10 ,minHeight:'100vh'}}>
     <Typography variant="h3" color="error" gutterBottom>Security Standards</Typography>
     <Divider sx={{ mb: 4 }} />
     <Box sx={{ bgcolor: '#f0f4f8', p: 3, borderRadius: 2 }}>

@@ -19,7 +19,7 @@ export const LegalMenu = ({ direction = 'column', color = '#b0bec5' }) => { // Ø
         {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding sx={{ width: 'auto' }}>
             <ListItemButton 
-              onClick={() => navigate(item.path)}
+              onClick={() =>{window.scrollTo(0, 0); navigate(item.path);} }
               sx={{ '&:hover': { backgroundColor: 'rgba(255,255,255,0.05)' } }}
             >
               <ListItemText 
