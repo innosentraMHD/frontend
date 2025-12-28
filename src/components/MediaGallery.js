@@ -5,27 +5,20 @@ import {
   CircularProgress,
   Paper,
 } from '@mui/material';
-
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-
 import PauseIcon from '@mui/icons-material/Pause';
-
-// استيراد الصور
-
-
-
+import { useTranslation } from 'react-i18next'; // استيراد الترجمة
 
 const MediaGallery = ({ mediaItems }) => {
+  const { t } = useTranslation(); // تفعيل الترجمة (للاستخدام المستقبلي أو الألتس)
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showControls, setShowControls] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   
-  // نستخدم مصفوفة مراجع لعناصر الفيديو
   const videoRefs = useRef([]);
   const controlsTimeoutRef = useRef(null);
 
-  // دالة لإخفاء أدوات التحكم تلقائياً
   const startControlsTimer = () => {
     if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
     controlsTimeoutRef.current = setTimeout(() => {
@@ -34,11 +27,10 @@ const MediaGallery = ({ mediaItems }) => {
   };
 
   const activateMedia = (index) => {
-    // 1. إيقاف أي فيديو يعمل حالياً قبل الانتقال
     videoRefs.current.forEach((video, i) => {
       if (video && i !== index) {
         video.pause();
-        video.currentTime = 0; // إعادة الفيديو للبداية عند تركه
+        video.currentTime = 0;
       }
     });
 
@@ -47,11 +39,9 @@ const MediaGallery = ({ mediaItems }) => {
 
     if (newItem.type === 'video') {
       setIsLoading(true);
-      // تأخير بسيط لضمان استجابة المتصفح (خاصة Safari)
       setTimeout(() => {
         const currentVideo = videoRefs.current[index];
         if (currentVideo) {
-          // محاولة التشغيل ومعالجة الـ Promise
           currentVideo.play()
             .then(() => {
               setIsPlaying(true);
@@ -124,7 +114,7 @@ const MediaGallery = ({ mediaItems }) => {
               <Box
                 component="img"
                 src={item.image}
-                alt={item.label}
+                alt={item.label} // هنا يتم تمرير النص المترجم من الأب
                 sx={{ width: '100%', height: '100%', objectFit: 'contain' }}
               />
             ) : (
@@ -132,12 +122,10 @@ const MediaGallery = ({ mediaItems }) => {
                 ref={(el) => (videoRefs.current[index] = el)}
                 src={item.videoSrc}
                 poster={item.image}
-                // --- إعدادات Safari الحرجة ---
                 playsInline
                 webkit-playsinline="true"
-                muted={false} // غيّرها لـ true إذا أردت ضمان التشغيل التلقائي 100%
+                muted={false}
                 preload="auto"
-                // ---------------------------
                 style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                 onWaiting={() => setIsLoading(true)}
                 onPlaying={() => setIsLoading(false)}
@@ -147,14 +135,12 @@ const MediaGallery = ({ mediaItems }) => {
           </Box>
         ))}
 
-        {/* مؤشر التحميل */}
         {isLoading && (
           <Box sx={{ position: 'absolute', zIndex: 3 }}>
             <CircularProgress color="secondary" size={60} thickness={4} />
           </Box>
         )}
 
-        {/* أيقونات التشغيل/الإيقاف الوسطى */}
         {!isLoading && mediaItems[selectedIndex].type === 'video' && (showControls || !isPlaying) && (
           <Box
             sx={{
@@ -190,7 +176,7 @@ const MediaGallery = ({ mediaItems }) => {
           }}
         >
           <Typography variant="h6" fontWeight="bold">
-            {mediaItems[selectedIndex].label}
+            {mediaItems[selectedIndex].label} {/* النص المترجم القادم من Parent */}
           </Typography>
         </Box>
       </Paper>

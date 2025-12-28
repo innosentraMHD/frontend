@@ -1,8 +1,9 @@
 import React from 'react';
 import { Container, Typography, Box } from '@mui/material';
+import { useTranslation } from 'react-i18next'; // استيراد الترجمة
 
 export const Footer = () => {
-  // متغير يحمل قيمة السنة الحالية
+  const { t } = useTranslation(); // تفعيل الترجمة
   const currentYear = new Date().getFullYear();
 
   return (
@@ -17,8 +18,7 @@ export const Footer = () => {
     >
       <Container maxWidth="lg">
         <Typography variant="body1">
-          {/* تم استبدال 2023 بالمتغير currentYear */}
-          &copy; {currentYear} Innosentra Solutions. All rights reserved.
+          &copy; {currentYear} Innosentra Solutions. {t('footer_all_rights')}
         </Typography>
       </Container>
     </Box>

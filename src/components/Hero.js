@@ -1,27 +1,25 @@
 import React from 'react';
 import { Container, Typography, Box } from '@mui/material';
-// تأكد من تعديل مسارات الصور التالية لتتناسب مع أسماء ملفاتك ومواقعها الحقيقية
-import headImage from '../images/head.webp'; //  head.png
-import writeImage from '../images/write.webp'; //  write.png
+import { useTranslation } from 'react-i18next'; // استيراد الترجمة
+import headImage from '../images/head.webp';
+import writeImage from '../images/write.webp';
 
 export const Hero = () => {
+  const { t } = useTranslation(); // تفعيل الترجمة
 
-  // تعريف حركات الـ CSS (Keyframes) - لم تتغير
   const keyframesStyle = `
-    /* حركة طفو خفيفة للرأس */
     @keyframes floatBob {
       0% { transform: translateY(0px); }
       50% { transform: translateY(-15px); }
       100% { transform: translateY(0px); }
     }
 
-    /* حركة لمعان تمر فوق الصورة */
     @keyframes shinePass {
       0% { left: -100%; opacity: 0; }
-      10% { opacity: 1; } /* يظهر اللمعان بسرعة */
-      40% { left: 120%; opacity: 1; } /* يمر فوق الصورة */
-      41% { opacity: 0; } /* يختفي */
-      100% { left: 120%; opacity: 0; } /* انتظار حتى نهاية الـ 3 ثواني */
+      10% { opacity: 1; }
+      40% { left: 120%; opacity: 1; }
+      41% { opacity: 0; }
+      100% { left: 120%; opacity: 0; }
     }
   `;
 
@@ -29,68 +27,62 @@ export const Hero = () => {
     <Box
       id="home"
       sx={{
-        minHeight:{xs: '70vh', md: '90vh'}, // زيادة الارتفاع قليلاً لاستيعاب المحتوى الجديد
+        minHeight:{xs: '70vh', md: '90vh'},
         display: 'flex',
         alignItems: 'center',
         backgroundColor: 'background.default',
         color: 'text.primary',
         pb: 4,
-        pt: 0, // إضافة مسافة علوية
+        pt: 2,
         overflow: 'hidden'
       }}
     >
-      {/* إضافة الـ Keyframes إلى الصفحة */}
       <style>{keyframesStyle}</style>
 
       <Container maxWidth="lg">
-        
-        {/* الحاوية الرئيسية التي تقسم الشاشة نصفين */}
         <Box
           sx={{
             display: 'flex',
-            flexDirection: { xs: 'column-reverse', md: 'row' }, // على الموبايل النصوص تحت الصور، على الديسكتوب النصوص يسار والصور يمين
-            alignItems: 'center', // محاذاة عمودية في الوسط
+            flexDirection: { xs: 'column', md: 'row' },
+            alignItems: 'center',
             justifyContent: 'space-between',
-            gap: {xs: 6, md: 8} // مسافة بين العمودين
+            gap: {xs: 6, md: 8}
           }}
         >
-          {/* ================= العمود الأيسر: النصوص ================= */}
+          {/* العمود الأيسر: النصوص */}
           <Box sx={{ 
               flex: 1, 
-              textAlign: { xs: 'center', md: 'left' }, // توسيط على الموبايل، محاذاة لليسار على الديسكتوب
-              maxWidth: {md: '600px'} // تحديد عرض أقصى للنصوص على الشاشات الكبيرة
+              textAlign: { xs: 'center', md: 'left' },
+              maxWidth: {md: '600px'}
             }}>
             
-            {/* العنوان الرئيسي الكبير */}
-             <Typography
-              variant="h2" // تكبير الخط قليلاً ليناسب التصميم الجديد (يمكن إعادته لـ h3)
-              component="h1"
+            <Typography
+              variant="h2"
+              component="h2"
               sx={{ 
                 mb: 3, 
                 fontWeight: 700,
-                fontSize: {xs: '2rem', md: '3rem'} // تجاوب حجم الخط
+                fontSize: {xs: '2rem', md: '3rem'}
               }}
               className="fade-in-up"
             >
-              AI & Computer Vision Solutions for Data-Driven Decisions
+              {t('hero_title')} {/* العنوان المترجم */}
             </Typography>
 
-            {/* العنوان الفرعي الصغير */}
             <Typography
               variant="h5"
               sx={{
-                color: 'text.secondary', // استخدام لون النص الثانوي من الثيم
+                color: 'text.secondary',
                 fontWeight: 400,
                 fontSize: {xs: '1.1rem', md: '1.5rem'},
                 lineHeight: 1.6
               }}
             >
-              Turning visual data into actionable business insights with cutting-edge technology.
+              {t('hero_subtitle')} {/* العنوان الفرعي المترجم */}
             </Typography>
           </Box>
 
-
-          {/* ================= العمود الأيمن: الصور (لم يتغير داخلياً) ================= */}
+          {/* العمود الأيمن: الصور (بقي كما هو تماماً) */}
           <Box
             sx={{
               flex: 1,
@@ -100,33 +92,30 @@ export const Hero = () => {
               justifyContent: 'center',
               position: 'relative',
               width: '100%',
-              maxWidth: 500, // الحجم الأقصى لحاوية الصور
+              maxWidth: 500,
             }}
           >
-            {/* 1. صورة الرأس (Head Image) مع أنيميشن الحركة */}
             <Box
               component="img"
               src={headImage}
               alt="AI Head"
               sx={{
-                width: '55%', // تعديل طفيف للحجم ليتناسب مع التصميم الجانبي
+                width: '55%',
                 height: 'auto',
                 objectFit: 'contain',
                 zIndex: 2,
-                marginBottom: '-25px', // زيادة التداخل قليلاً
+                marginBottom: '-25px',
                 animation: 'floatBob 4s ease-in-out infinite',
-                filter: 'drop-shadow(0px 10px 10px rgba(0,0,0,0.2))' // إضافة ظل خفيف للرأس لزيادة العمق
               }}
             />
 
-            {/* 2. حاوية صورة الكتابة (Write Image Container) مع تأثير اللمعان */}
             <Box
                sx={{
                  position: 'relative',
                  width: '100%',
                  overflow: 'hidden',
-                 borderRadius: 3, // زيادة التدوير قليلاً
-                 boxShadow: 3, // إضافة ظل للصورة السفلية
+                 borderRadius: 3,
+                 boxShadow: 3,
                  '&::after': {
                    content: '""',
                    position: 'absolute',
@@ -134,13 +123,12 @@ export const Hero = () => {
                    left: '-100%',
                    width: '50%',
                    height: '100%',
-                   background: 'linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.7) 50%, transparent 100%)', // زيادة سطوع اللمعان قليلاً
+                   background: 'linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.7) 50%, transparent 100%)',
                    transform: 'skewX(-25deg)',
                    animation: 'shinePass 3s infinite',
                  }
                }}
             >
-              {/* صورة الكتابة الثابتة */}
               <Box
                 component="img"
                 src={writeImage}
@@ -153,7 +141,6 @@ export const Hero = () => {
               />
             </Box>
           </Box>
-
         </Box>
       </Container>
     </Box>
