@@ -27,7 +27,7 @@ export const Hero = () => {
     <Box
       id="home"
       sx={{
-        minHeight:{xs: '70vh', md: '70vh'},
+        minHeight:{xs: '90vh', md: '70vh'},
         display: 'flex',
         alignItems: 'center',
         backgroundColor: 'background.default',
