@@ -32,7 +32,7 @@ export const Hero = () => {
         alignItems: 'center',
         backgroundColor: 'background.default',
         color: 'text.primary',
-        pb: 0,
+        pb: {xs:4 , md:0},
         pt: 4,
         overflow: 'hidden'
       }}
