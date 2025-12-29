@@ -123,9 +123,9 @@ export const Navbar = () => {
           <List component="div" disablePadding>
             <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/retail-solutions')}><ListItemText primary={t('nav_supermarket')} /></ListItemButton>
             <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/traffic')}><ListItemText primary={t('nav_traffic')} /></ListItemButton>
-            <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/security')}><ListItemText primary={t('nav_security')} /></ListItemButton>
+            {/* <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/security')}><ListItemText primary={t('nav_security')} /></ListItemButton>
             <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/industry')}><ListItemText primary={t('nav_industry')} /></ListItemButton>
-            <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/construction')}><ListItemText primary={t('nav_construction')} /></ListItemButton>
+            <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/construction')}><ListItemText primary={t('nav_construction')} /></ListItemButton> */}
           </List>
         </Collapse>
       </List>
@@ -161,9 +161,9 @@ export const Navbar = () => {
                 <Menu anchorEl={anchorEl} open={openMenu} onClose={handleMenuClose}>
                   <MenuItem onClick={() => handleNavigation('/retail-solutions')}>{t('nav_supermarket')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/traffic')}>{t('nav_traffic')}</MenuItem>
-                  <MenuItem onClick={() => handleNavigation('/security')}>{t('nav_security')}</MenuItem>
+                  {/* <MenuItem onClick={() => handleNavigation('/security')}>{t('nav_security')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/industry')}>{t('nav_industry')}</MenuItem>
-                  <MenuItem onClick={() => handleNavigation('/construction')}>{t('nav_construction')}</MenuItem>
+                  <MenuItem onClick={() => handleNavigation('/construction')}>{t('nav_construction')}</MenuItem> */}
                 </Menu>
 
                 <Button onClick={() => handleNavigation('#home')} sx={{ color: 'text.primary', fontWeight: 500 }}>{t('nav_home')}</Button>
