@@ -27,13 +27,13 @@ export const Hero = () => {
     <Box
       id="home"
       sx={{
-        minHeight:{xs: '70vh', md: '90vh'},
+        minHeight:{xs: '70vh', md: '70vh'},
         display: 'flex',
         alignItems: 'center',
         backgroundColor: 'background.default',
         color: 'text.primary',
-        pb: 4,
-        pt: 2,
+        pb: 0,
+        pt: 4,
         overflow: 'hidden'
       }}
     >
@@ -62,7 +62,7 @@ export const Hero = () => {
               sx={{ 
                 mb: 3, 
                 fontWeight: 700,
-                fontSize: {xs: '2rem', md: '3rem'}
+                fontSize: {xs: '2rem', md: '2.5rem'}
               }}
               className="fade-in-up"
             >
@@ -110,37 +110,39 @@ export const Hero = () => {
             />
 
             <Box
-               sx={{
-                 position: 'relative',
-                 width: '100%',
-                 overflow: 'hidden',
-                 borderRadius: 3,
-                 boxShadow: 3,
-                 '&::after': {
-                   content: '""',
-                   position: 'absolute',
-                   top: 0,
-                   left: '-100%',
-                   width: '50%',
-                   height: '100%',
-                   background: 'linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.7) 50%, transparent 100%)',
-                   transform: 'skewX(-25deg)',
-                   animation: 'shinePass 3s infinite',
-                 }
-               }}
-            >
-              <Box
-                component="img"
-                src={writeImage}
-                alt="Writing"
-                sx={{
-                  width: '100%',
-                  height: 'auto',
-                  display: 'block',
-                }}
-              />
-            </Box>
-          </Box>
+  sx={{
+    position: 'relative',
+    width: '100%',
+    overflow: 'hidden',
+    borderRadius: 3,
+    // تم التعديل هنا: استبدال القيمة الرقمية بظل مخصص لونه برتقالي خفيف
+    // القيمة: إزاحة أفقية 0، إزاحة عمودية 4px، ضبابية 15px، لون برتقالي بشفافية 0.5
+    boxShadow: '0px 2px 2px rgba(255, 132, 0, 1)',
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: '-100%',
+      width: '50%',
+      height: '100%',
+      background: 'linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.7) 50%, transparent 100%)',
+      transform: 'skewX(-25deg)',
+      animation: 'shinePass 3s infinite',
+    }
+  }}
+>
+  <Box
+    component="img"
+    src={writeImage}
+    alt="Writing"
+    sx={{
+      width: '100%',
+      height: 'auto',
+      display: 'block',
+    }}
+  />
+</Box>
+</Box>
         </Box>
       </Container>
     </Box>
