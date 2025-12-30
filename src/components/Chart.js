@@ -4,7 +4,8 @@ import {
   Box, 
   Typography 
 } from '@mui/material';
-import { useTranslation } from 'react-i18next'; // استيراد الترجمة
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion'; // استيراد motion
 import onei from '../images/1.webp'; 
 import twoi from '../images/2.webp';
 import threei from '../images/3.webp';
@@ -14,41 +15,18 @@ import one from '../images/gfgdf.webp';
 import three from '../images/fgder.webp'; 
 import arrow from '../images/arrow.webp'; 
 
-export const Chart = () => {
-  const { t } = useTranslation(); // تفعيل الترجمة
+// إعداد مكون يدعم الحركة
+const MotionBox = motion(Box);
 
-  // --- بيانات الصور للشبكة (القسم الأول) المترجمة ---
+export const Chart = () => {
+  const { t } = useTranslation();
+
   const items = [
-    {
-      id: 1,
-      src: onei,
-      gridColumn: 'span 2', 
-      label: t('chart_item_1'), 
-    },
-    {
-      id: 2,
-      src: twoi,
-      gridColumn: 'span 1', 
-      label: t('chart_item_2'), 
-    },
-    {
-      id: 3,
-      src: threei,
-      gridColumn: 'span 1',
-      label: t('chart_item_3'), 
-    },
-    {
-      id: 4,
-      src: fouri,
-      gridColumn: 'span 1',
-      label: t('chart_item_4'), 
-    },
-    {
-      id: 5,
-      src: fivei,
-      gridColumn: 'span 1',
-      label: t('chart_item_5'), 
-    },
+    { id: 1, src: onei, gridColumn: 'span 2', label: t('chart_item_1') },
+    { id: 2, src: twoi, gridColumn: 'span 1', label: t('chart_item_2') },
+    { id: 3, src: threei, gridColumn: 'span 1', label: t('chart_item_3') },
+    { id: 4, src: fouri, gridColumn: 'span 1', label: t('chart_item_4') },
+    { id: 5, src: fivei, gridColumn: 'span 1', label: t('chart_item_5') },
   ];
 
   const largeImageStyle = {
@@ -83,6 +61,14 @@ export const Chart = () => {
     justifyContent: 'flex-start',
   };
 
+  // إعدادات الحركة الموحدة (الظهور للأعلى)
+  const fadeInUp = {
+    initial: { opacity: 0, y: 40 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: 0.6, ease: "easeOut" }
+  };
+
   return (
     <Box id="about" sx={{ py: 6 }}>
       <Container maxWidth="lg">
@@ -96,7 +82,7 @@ export const Chart = () => {
           }}
         >
           {/* ======================= الخطوة 1: شبكة الصور ======================= */}
-          <Box sx={stepContainerStyle}>
+          <MotionBox sx={stepContainerStyle} {...fadeInUp}>
             <Box
               sx={{
                 display: 'grid',
@@ -144,10 +130,14 @@ export const Chart = () => {
                 </Box>
               ))}
             </Box>
-          </Box>
+          </MotionBox>
           
           {/* ======================= الخطوة 2 ======================= */}
-          <Box sx={stepContainerStyle}>
+          <MotionBox 
+            sx={stepContainerStyle} 
+            {...fadeInUp} 
+            transition={{ ...fadeInUp.transition, delay: 0.2 }} // تأخير بسيط
+          >
             <Box component="img" src={one} alt="Server Processing" sx={largeImageStyle} />
             <Box sx={textStyle}>
               <Typography variant="h6" fontWeight="bold" gutterBottom>
@@ -157,9 +147,10 @@ export const Chart = () => {
                 {t('chart_step2_desc')}
               </Typography>
             </Box>
-          </Box>
+          </MotionBox>
 
           {/* ======================= سهم 2 ======================= */}
+          
           <Box 
             component="img" 
             src={arrow} 
@@ -171,7 +162,11 @@ export const Chart = () => {
           />
 
           {/* ======================= الخطوة 3 ======================= */}
-          <Box sx={stepContainerStyle}>
+          <MotionBox 
+            sx={stepContainerStyle} 
+            {...fadeInUp} 
+            transition={{ ...fadeInUp.transition, delay: 0.4 }} // تأخير أطول قليلاً
+          >
             <Box component="img" src={three} alt="Results Dashboard" sx={largeImageStyle} />
             <Box sx={textStyle}>
               <Typography variant="h6" fontWeight="bold" gutterBottom>
@@ -181,7 +176,7 @@ export const Chart = () => {
                 {t('chart_step3_desc')}
               </Typography>
             </Box>
-          </Box>
+          </MotionBox>
         </Box>
       </Container>
     </Box>

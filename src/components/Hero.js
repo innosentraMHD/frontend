@@ -30,7 +30,7 @@ export const Hero = () => {
         minHeight:{xs: '90vh', md: '70vh'},
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: 'background.default',
+        backgroundImage: 'linear-gradient(to bottom, #81b8f8ff 0%,#f8f7f7ff 20%,#f8f7f7ff 50%, #ffffffff 100%)',
         color: 'text.primary',
         pb: {xs:4 , md:0},
         pt: 4,

@@ -5,12 +5,15 @@ import PsychologyIcon from '@mui/icons-material/Psychology';
 import MemoryIcon from '@mui/icons-material/Memory';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import stepsimg from '../images/steps.webp';
-import { useTranslation } from 'react-i18next'; // استيراد الترجمة
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion'; // استيراد motion
+
+// إعداد Box يدعم الحركة
+const MotionBox = motion(Box);
 
 export const Steps = () => {
-  const { t } = useTranslation(); // تفعيل الترجمة
+  const { t } = useTranslation();
 
-  // نقل المصفوفة لداخل المكون لاستخدام دالة t()
   const stepsData = [
     {
       icon: <SearchIcon fontSize="large" />,
@@ -37,18 +40,26 @@ export const Steps = () => {
   return (
     <Box sx={{ py: 8, backgroundColor: 'background.gray' }} id="how-we-work">
       <Container maxWidth="lg">
-        <Typography 
-          variant="h3" 
-          align="center" 
-          sx={{ 
-            mb: 3, 
-            fontWeight: 800,
-            fontSize: { xs: '2rem', md: '3rem' },
-            color: 'primary.main'
-          }}
+        {/* تأثير الظهور للعنوان الرئيسي */}
+        <MotionBox
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          {t('steps_main_title')}
-        </Typography>
+          <Typography 
+            variant="h3" 
+            align="center" 
+            sx={{ 
+              mb: 8, // زيادة المسافة قليلاً للتنسيق
+              fontWeight: 800,
+              fontSize: { xs: '2rem', md: '3rem' },
+              color: 'primary.main'
+            }}
+          >
+            {t('steps_main_title')}
+          </Typography>
+        </MotionBox>
 
         <Box 
           sx={{ 
@@ -60,10 +71,15 @@ export const Steps = () => {
         >
           {/* قسم النصوص (اليسار) */}
           <Box sx={{ width: { xs: '100%', md: '70%' }, flexGrow: 1 }}>
-            <Grid container spacing={2}>
+            <Grid container spacing={4}>
               {stepsData.map((step, index) => (
                 <Grid item xs={12} sm={6} key={index}>
-                  <Box
+                  {/* تأثير الصعود المتسلسل للخطوات */}
+                  <MotionBox
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.15 }}
                     sx={{
                       height: '100%',
                       p: 1,
@@ -91,17 +107,21 @@ export const Steps = () => {
                     <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.6 }}>
                       {step.description}
                     </Typography>
-                  </Box>
+                  </MotionBox>
                 </Grid>
               ))}
             </Grid>
           </Box>
 
-          {/* قسم الصورة (اليمين) */}
-          <Box 
+          {/* قسم الصورة (اليمين) مع تأثير الانسحاب من اليمين */}
+          <MotionBox 
+            initial={{ opacity: 0, x: 100 }} // تبدأ من اليمين (100) وتكون مخفية
+            whileInView={{ opacity: 1, x: 0 }}  // تتحرك لمكانها الأصلي وتظهر
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             sx={{ 
               py: 2,
-              display: { xs: 'none', md: 'block' },
+              display: { xs: 'none', md: 'block' }, // مخفية في الموبايل كما طلبت
               width: { md: '45%', height: '80%' },
               flexShrink: 0 
             }} 
@@ -119,7 +139,7 @@ export const Steps = () => {
                 '&:hover': { transform: 'scale(1.05)' },
               }}
             />
-          </Box>
+          </MotionBox>
         </Box> 
       </Container>
     </Box>
