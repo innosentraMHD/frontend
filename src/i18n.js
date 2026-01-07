@@ -209,6 +209,50 @@ const resources = {
 "security_info_protection_header": "Data Protection",
 "security_info_protection_text": "We employ industry-standard encryption to ensure your data is safe during transit and at rest.",
 
+// --- Industry Section ---
+"industry_hero_title": "Industrial AI Vision",
+"industry_hero_subtitle": "Automated Quality Assurance for Modern Factories.",
+"industry_section_title": "Automated Inspection",
+"industry_section_subtitle": "Achieving zero-defect manufacturing with high-speed visual processing.",
+"industry_analyze_label": "WHAT WE ANALYZE",
+"industry_matters_label": "WHY IT MATTERS",
+"industry_a1": "Surface Defect Detection",
+"industry_a2": "Assembly Verification",
+"industry_a3": "Packaging Accuracy",
+"industry_a4": "Product Sorting",
+"industry_m1": "Reduced Production Waste",
+"industry_m2": "Increased Throughput",
+"industry_m3": "Lower Operational Costs",
+
+// --- Security Section ---
+"security_hero_title": "Advanced Surveillance",
+"security_hero_subtitle": "Autonomous Security for Critical Infrastructure.",
+"security_section_title": "Proactive Threat Detection",
+"security_section_subtitle": "Moving beyond passive recording to real-time incident prevention.",
+"security_cap_label": "CORE CAPABILITIES",
+"security_val_label": "BUSINESS VALUE",
+"security_c1": "Facial Recognition",
+"security_c2": "Intrusion Detection",
+"security_c3": "Abandoned Object Alerts",
+"security_c4": "Loitering Analysis",
+"security_v1": "24/7 Automated Guarding",
+"security_v2": "Reduced Response Time",
+"security_v3": "High-Precision Access",
+
+// --- Construction Section ---
+"construction_hero_title": "Construction Safety",
+"construction_hero_subtitle": "Protecting Workforce with Vision AI.",
+"construction_section_title": "Safety Compliance",
+"construction_section_subtitle": "Ensuring on-site safety protocols are followed automatically.",
+"construction_site_label": "SITE ANALYSIS",
+"construction_benefit_label": "BENEFITS",
+"construction_s1": "PPE (Helmet/Vest) Detection",
+"construction_s2": "Hazard Zone Monitoring",
+"construction_s3": "Worker Fall Alerts",
+"construction_s4": "Machine Interaction",
+"construction_b1": "Fewer On-site Accidents",
+"construction_b2": "Legal Compliance",
+"construction_b3": "Remote Project Oversight",
 }
 
 
@@ -415,7 +459,50 @@ const resources = {
 "security_info_protection_header": "Datenschutz",
 "security_info_protection_text": "Wir setzen Verschlüsselung nach Industriestandard ein, um sicherzustellen, dass Ihre Daten während der Übertragung und im Ruhezustand sicher sind.",
 
+// --- Industry Section ---
+"industry_hero_title": "Industrielle KI-Vision",
+"industry_hero_subtitle": "Automatisierte Qualitätssicherung für moderne Fabriken.",
+"industry_section_title": "Automatisierte Inspektion",
+"industry_section_subtitle": "Erreichung einer Null-Fehler-Produktion durch visuelle Hochgeschwindigkeitsverarbeitung.",
+"industry_analyze_label": "WAS WIR ANALYSIEREN",
+"industry_matters_label": "WARUM ES WICHTIG IST",
+"industry_a1": "Erkennung von Oberflächendefekten",
+"industry_a2": "Montageüberprüfung",
+"industry_a3": "Verpackungsgenauigkeit",
+"industry_a4": "Produktsortierung",
+"industry_m1": "Reduzierter Produktionsabfall",
+"industry_m2": "Erhöhter Durchsatz",
+"industry_m3": "Geringere Betriebskosten",
 
+// --- Security Section ---
+"security_hero_title": "Erweiterte Überwachung",
+"security_hero_subtitle": "Autonome Sicherheit für kritische Infrastrukturen.",
+"security_section_title": "Proaktive Bedrohungserkennung",
+"security_section_subtitle": "Vom passiven Aufzeichnen zur Echtzeit-Vorfallverhütung.",
+"security_cap_label": "KERNFUNKTIONEN",
+"security_val_label": "GESCHÄFTSWERT",
+"security_c1": "Gesichtserkennung",
+"security_c2": "Eindringlingserkennung",
+"security_c3": "Warnung bei herrenlosen Objekten",
+"security_c4": "Analyse von Herumlungern",
+"security_v1": "24/7 Automatisierte Bewachung",
+"security_v2": "Reduzierte Reaktionszeit",
+"security_v3": "Hochpräziser Zugang",
+
+// --- Construction Section ---
+"construction_hero_title": "Baustellensicherheit",
+"construction_hero_subtitle": "Schutz der Belegschaft durch Vision AI.",
+"construction_section_title": "Sicherheitskonformität",
+"construction_section_subtitle": "Sicherstellen, dass Sicherheitsprotokolle vor Ort automatisch eingehalten werden.",
+"construction_site_label": "STANDORTANALYSE",
+"construction_benefit_label": "VORTEILE",
+"construction_s1": "PSA-Erkennung (Helm/Weste)",
+"construction_s2": "Gefahrenzonenüberwachung",
+"construction_s3": "Sturzerkennung bei Arbeitern",
+"construction_s4": "Maschineninteraktion",
+"construction_b1": "Weniger Unfälle vor Ort",
+"construction_b2": "Rechtliche Konformität",
+"construction_b3": "Fernüberwachung von Projekten",
 
 }
   }
