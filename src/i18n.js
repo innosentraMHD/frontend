@@ -253,6 +253,18 @@ const resources = {
 "construction_b1": "Fewer On-site Accidents",
 "construction_b2": "Legal Compliance",
 "construction_b3": "Remote Project Oversight",
+
+
+
+
+
+
+  "contact_address": "Address",
+  "contact_address_line1": "Georgstr. 47",
+  "contact_address_line2": "51145 Cologne",
+  "contact_address_line3": "Germany"
+
+
 }
 
 
@@ -504,6 +516,11 @@ const resources = {
 "construction_b2": "Rechtliche Konformität",
 "construction_b3": "Fernüberwachung von Projekten",
 
+
+"contact_address": "Adresse",
+  "contact_address_line1": "Georgstr. 47",
+  "contact_address_line2": "51145 Köln",
+  "contact_address_line3": "Deutschland"
 }
   }
 };

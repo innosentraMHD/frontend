@@ -10,6 +10,7 @@ import emailjs from '@emailjs/browser';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next'; // استيراد الترجمة
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const COLOR_PALETTE = {
   primary: '#3B82F6',
@@ -85,9 +86,29 @@ export const Contact = () => {
   });
 
   const contactInfo = [
-    { icon: <PhoneIcon />, title: t('contact_phone'), details: ['0049 163 977 0059'], color: COLOR_PALETTE.primary },
-    { icon: <EmailIcon />, title: t('contact_email'), details: ['manar.bakro@innosentra.com'], color: COLOR_PALETTE.secondary }
-  ];
+  {
+    icon: <PhoneIcon />,
+    title: t('contact_phone'),
+    details: [t('contact_phone_value')],
+    color: COLOR_PALETTE.primary
+  },
+  {
+    icon: <EmailIcon />,
+    title: t('contact_email'),
+    details: [t('contact_email_value')],
+    color: COLOR_PALETTE.secondary
+  },
+  {
+    icon: <LocationOnIcon />,
+    title: t('contact_address'),
+    details: [
+      t('contact_address_line1'),
+      t('contact_address_line2'),
+      t('contact_address_line3')
+    ],
+    color: '#10B981' // أخضر رسمي هادئ
+  }
+];
 
   return (
     <Box id="contact" sx={{ bgcolor: 'background.dark', py: { xs: 4, sm: 6, md: 8 }, position: 'relative', overflow: 'hidden', color: 'white' }}>
