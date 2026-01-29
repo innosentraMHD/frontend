@@ -30,7 +30,7 @@ export const LegalMenu = ({ direction = 'column', color = '#0c3478ff' }) => {
                 primaryTypographyProps={{ 
                   color: color, 
                   fontWeight: 300,
-                  fontSize: { xs: '1.2rem', md: '1.5rem' }, 
+                  fontSize: { xs: '1.2rem', md: '1.65rem', lg: '1.8rem' }, 
                   textAlign: 'center',
                   letterSpacing: '0.5px',
                 }} 

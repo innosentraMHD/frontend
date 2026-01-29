@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Offer } from './components/Offer';
+import { SolutionsList } from './components/SolutionsList';
 import { About } from './components/About';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -31,6 +32,7 @@ const HomePage = () => (
     <About />
     <Offer />
     <Chart />
+    <SolutionsList />
     <Steps />
     <LegalMenu />
   </>

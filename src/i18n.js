@@ -19,8 +19,8 @@ const resources = {
       "lang_de": "Deutsch",
       "about_title": "About Us",
       "about_desc": "More than 15 years of experience in technical solutions, Innosentra is a computer vision and AI company delivering actionable insights from visual data. Our solutions integrate with existing camera systems, respect privacy, and support smarter decision-making across retail, security, and other industries.",
-      "hero_title": "AI & Computer Vision Solutions for Data-Driven Decisions",
-      "hero_subtitle": "Turning visual data into actionable business insights with cutting-edge technology.",
+      "hero_title": "Intelligent Software Solutions Powered by AI",
+      "hero_subtitle": "Transforming visual data into actionable business insights through advanced software engineering. We specialize in AI and machine learning, computer vision systems, web and mobile application development, database architecture, and comprehensive technical software solutions powered by artificial intelligence.",
     // offer
     "offer_main_title": "What we offer ?",
     "offer_sol1_title": "AI Engineering & Deep Learning",
@@ -29,6 +29,21 @@ const resources = {
     "offer_sol2_desc": "From multi-camera re-identification to complex object tracking, we deliver sophisticated visual analysis.",
     "offer_sol3_title": "Data Analytics & Dashboards",
     "offer_sol3_desc": "Raw video feeds are transformed into actionable KPIs and visualized on intuitive, real-time dashboards.",
+    "offer_sol4_title": "Software Development Solutions",
+    "offer_sol4_desc": "Comprehensive web and mobile application development with robust database architecture, from concept to deployment.",
+
+    "solutions_section_title": "Explore Our Solutions",
+    "solution_retail_title": "Retail & Supermarket Solutions",
+    "solution_retail_desc": "Smart retail analytics, people counting, and in-store behavioral insights.",
+    "solution_traffic_title": "Smart Traffic & Parking",
+    "solution_traffic_desc": "Traffic flow monitoring, parking management, and vehicle analytics.",
+    "solution_security_title": "Security & Surveillance",
+    "solution_security_desc": "Real-time threat detection, intrusion alerts, and automated surveillance.",
+    "solution_industry_title": "Industrial Vision",
+    "solution_industry_desc": "Automated inspection, quality assurance, and process optimization.",
+    "solution_construction_title": "Construction Site Monitoring",
+    "solution_construction_desc": "Worker safety, PPE compliance, and site activity monitoring.",
+
     //  steps
     "steps_main_title": "How We Work?",
     "steps_s1_title": "Analyze Needs",
@@ -258,7 +273,8 @@ const resources = {
 
 
 
-
+  "contact_email_value":"manar.bakro@innosentra.com",
+  "contact_phone_value":"0049 163 997 0059",
   "contact_address": "Address",
   "contact_address_line1": "Georgstr. 47",
   "contact_address_line2": "51145 Cologne",
@@ -284,8 +300,8 @@ const resources = {
       "lang_de": "Deutsch",
       "about_title": "Über uns",
       "about_desc": "Mit mehr als 15 Jahren Erfahrung in technischen Lösungen ist Innosentra ein Unternehmen für Computer Vision und KI, das umsetzbare Erkenntnisse aus visuellen Daten liefert. Unsere Lösungen lassen sich in bestehende Kamerasysteme integrieren, wahren die Privatsphäre und unterstützen eine intelligentere Entscheidungsfindung in den Bereichen Einzelhandel, Sicherheit und anderen Branchen.",
-      "hero_title": "KI- & Computer-Vision-Lösungen für datengesteuerte Entscheidungen",
-      "hero_subtitle": "Umwandlung visueller Daten in umsetzbare Geschäftserkenntnisse mit modernster Technologie.",
+      "hero_title": "Intelligente Softwarelösungen mit KI-Antrieb",
+      "hero_subtitle": "Umwandlung visueller Daten in umsetzbare Geschäftseinblicke durch fortschrittliche Softwaretechnik. Wir spezialisieren uns auf KI und maschinelles Lernen, Computer-Vision-Systeme, Web- und Mobile-Anwendungsentwicklung, Datenbankarchitektur und umfassende technische Softwarelösungen powered by künstlicher Intelligenz.",
       // offer
       "offer_main_title": "Was wir anbieten?",
 "offer_sol1_title": "KI-Engineering & Deep Learning",
@@ -294,7 +310,22 @@ const resources = {
 "offer_sol2_desc": "Von der Re-Identifizierung über mehrere Kameras bis hin zur komplexen Objektverfolgung liefern wir anspruchsvolle visuelle Analysen.",
 "offer_sol3_title": "Datenanalyse & Dashboards",
 "offer_sol3_desc": "Rohvideostreams werden in aussagekräftige KPIs umgewandelt und auf intuitiven Echtzeit-Dashboards visualisiert.",
-    //  steps
+"offer_sol4_title": "Softwarebau",
+"offer_sol4_desc": "Umfassende Web- und Mobile-Anwendungsentwicklung mit robuster Datenbankarchitektur, vom Konzept bis zur Bereitstellung.",
+
+"solutions_section_title": "Entdecken Sie unsere Lösungen",
+"solution_retail_title": "Einzelhandel- & Supermarkt-Lösungen",
+"solution_retail_desc": "Intelligente Einzelhandelsanalysen, Personenzählung und Einblicke in das Kundenverhalten im Laden.",
+"solution_traffic_title": "Intelligenter Verkehr & Parken",
+"solution_traffic_desc": "Verkehrsflussüberwachung, Parkraummanagement und Fahrzeuganalysen.",
+"solution_security_title": "Sicherheit & Überwachung",
+"solution_security_desc": "Echtzeit-Bedrohungserkennung, Eindringlingswarnungen und automatisierte Überwachung.",
+"solution_industry_title": "Industrielle Vision",
+"solution_industry_desc": "Automatisierte Inspektion, Qualitätssicherung und Prozessoptimierung.",
+"solution_construction_title": "Baustellenüberwachung",
+"solution_construction_desc": "Arbeitersicherheit, PSA-Konformität und Überwachung der Standortaktivitäten.",
+
+  //  steps
     "steps_main_title": "Wie wir arbeiten?",
 "steps_s1_title": "Bedarfsanalyse",
 "steps_s1_desc": "Wir beginnen mit der Analyse Ihrer Anforderungen und Ihres Systems, um einen technischen Fahrplan zu erstellen, der auf Ihre Ziele abgestimmt ist.",
@@ -516,7 +547,8 @@ const resources = {
 "construction_b2": "Rechtliche Konformität",
 "construction_b3": "Fernüberwachung von Projekten",
 
-
+"contact_email_value":"manar.bakro@innosentra.com",
+  "contact_phone_value":"0049 163 997 0059",
 "contact_address": "Adresse",
   "contact_address_line1": "Georgstr. 47",
   "contact_address_line2": "51145 Köln",

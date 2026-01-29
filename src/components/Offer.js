@@ -3,6 +3,7 @@ import { Container, Typography, Card, CardContent, Box, Grid } from '@mui/materi
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
 import InsightsIcon from '@mui/icons-material/Insights';
+import CodeIcon from '@mui/icons-material/Code';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion'; // 1. استيراد motion
 
@@ -42,6 +43,11 @@ export const Offer = () => {
       icon: <InsightsIcon fontSize="large" />, 
       title: t('offer_sol3_title'), 
       desc: t('offer_sol3_desc') 
+    },
+    { 
+      icon: <CodeIcon fontSize="large" />, 
+      title: t('offer_sol4_title'), 
+      desc: t('offer_sol4_desc') 
     }
   ];
 
@@ -51,7 +57,7 @@ export const Offer = () => {
         
         {/* 3. تطبيق الحركة على العنوان الرئيسي */}
         <ScrollReveal>
-          <Typography variant="h3" align="center" sx={{ mb: 6, color: 'text.white' }}>
+          <Typography variant="h3" align="center" sx={{ mb: 6, color: 'text.white', fontSize: { xs: '1.8rem', md: '2.5rem', lg: '2.8rem' } }}>
             {t('offer_main_title')}
           </Typography>
         </ScrollReveal>
@@ -65,19 +71,19 @@ export const Offer = () => {
         >
           {solutions.map((item, index) => (
             // ملاحظة: نضع الـ Key هنا في العنصر الخارجي للحلقة
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid item xs={12} sm={6} md={3} key={index}>
               
               {/* 4. تطبيق الحركة على كل كارت مع تأخير زمني بناءً على الـ index */}
               <ScrollReveal delay={index * 0.2}>
-                <Card sx={{ height: '100%', textAlign: 'center', bgcolor:'#001c39ff' , p: 2 }}>
+                <Card sx={{ height: '100%', textAlign: 'center', bgcolor:'#001c39ff'  , p:4, py: 2}}>
                   <Box sx={{ color: 'text.white', bgcolor: '#001c39ff', my: 2 }}>
                     {item.icon}
                   </Box>
                   <CardContent>
-                    <Typography color="text.white" variant="h5" gutterBottom fontWeight="bold">
+                    <Typography color="text.white" variant="h5" gutterBottom fontWeight="bold" sx={{ fontSize: { xs: '1.2rem', md: '1.35rem', lg: '1.5rem' } }}>
                       {item.title}
                     </Typography>
-                    <Typography color="text.white">
+                    <Typography color="text.white" sx={{ fontSize: { xs: '0.95rem', md: '1.05rem', lg: '1.1rem' } }}>
                       {item.desc}
                     </Typography>
                   </CardContent>

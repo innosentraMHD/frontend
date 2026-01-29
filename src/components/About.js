@@ -59,13 +59,13 @@ export const About = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             sx={{ flex: 1, textAlign: { xs: 'center', md: 'left' } }}
           >
-            <Typography variant="h3" sx={{ color: 'text.third', mb: 1 }}>
+            <Typography variant="h3" sx={{ color: 'text.third', mb: 1, fontSize: { xs: '1.8rem', md: '2.2rem', lg: '2.5rem' } }}>
               {t('about_title')}
             </Typography>
 
             <Typography 
               variant="body1"  
-              sx={{ mb: 0, fontSize: '1.1rem', color: 'text.secondary'}}
+              sx={{ mb: 0, fontSize: { xs: '1.1rem', md: '1.25rem', lg: '1.4rem' }, color: 'text.secondary'}}
             >
               {t('about_desc')}
             </Typography>

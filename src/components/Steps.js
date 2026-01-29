@@ -53,7 +53,7 @@ export const Steps = () => {
             sx={{ 
               mb: 8, // زيادة المسافة قليلاً للتنسيق
               fontWeight: 800,
-              fontSize: { xs: '2rem', md: '3rem' },
+              fontSize: { xs: '2rem', md: '3.2rem', lg: '3.5rem' },
               color: 'primary.main'
             }}
           >
@@ -100,11 +100,11 @@ export const Steps = () => {
                       >
                         {step.icon}
                       </Box>
-                      <Typography variant="h6" fontWeight="bold" color="text.primary" gutterBottom>
+                      <Typography variant="h6" fontWeight="bold" color="text.primary" gutterBottom sx={{ fontSize: { xs: '1.1rem', md: '1.3rem', lg: '1.45rem' } }}>
                         {step.title}
                       </Typography>
                     </Box>
-                    <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                    <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.6, fontSize: { xs: '0.95rem', md: '1.1rem', lg: '1.2rem' } }}>
                       {step.description}
                     </Typography>
                   </MotionBox>

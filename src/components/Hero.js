@@ -33,7 +33,7 @@ export const Hero = () => {
         backgroundImage: 'linear-gradient(to bottom, #81b8f8ff 0%,#f8f7f7ff 20%,#f8f7f7ff 50%, #ffffffff 100%)',
         color: 'text.primary',
         pb: {xs:4 , md:0},
-        pt: 4,
+        pt: 10,
         overflow: 'hidden'
       }}
     >
@@ -62,7 +62,7 @@ export const Hero = () => {
               sx={{ 
                 mb: 3, 
                 fontWeight: 700,
-                fontSize: {xs: '2rem', md: '2.5rem'}
+                fontSize: {xs: '2rem', md: '2.8rem', lg: '3rem'}
               }}
               className="fade-in-up"
             >
@@ -74,7 +74,7 @@ export const Hero = () => {
               sx={{
                 color: 'text.secondary',
                 fontWeight: 400,
-                fontSize: {xs: '1.1rem', md: '1.5rem'},
+                fontSize: {xs: '1.1rem', md: '1.65rem', lg: '1.8rem'},
                 lineHeight: 1.6
               }}
             >

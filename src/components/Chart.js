@@ -140,10 +140,10 @@ export const Chart = () => {
           >
             <Box component="img" src={one} alt="Server Processing" sx={largeImageStyle} />
             <Box sx={textStyle}>
-              <Typography variant="h6" fontWeight="bold" gutterBottom>
+              <Typography variant="h6" fontWeight="bold" gutterBottom sx={{ fontSize: { xs: '1rem', md: '1.2rem', lg: '1.35rem' } }}>
                 {t('chart_step2_title')}
               </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mt: 1, mb: 2 }}>
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 1, mb: 2, fontSize: { xs: '0.9rem', md: '1rem', lg: '1.1rem' } }}>
                 {t('chart_step2_desc')}
               </Typography>
             </Box>
@@ -169,10 +169,10 @@ export const Chart = () => {
           >
             <Box component="img" src={three} alt="Results Dashboard" sx={largeImageStyle} />
             <Box sx={textStyle}>
-              <Typography variant="h6" fontWeight="bold" gutterBottom>
+              <Typography variant="h6" fontWeight="bold" gutterBottom sx={{ fontSize: { xs: '1rem', md: '1.2rem', lg: '1.35rem' } }}>
                 {t('chart_step3_title')}
               </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{mt:1 , mb:2}}>
+              <Typography variant="body2" color="text.secondary" sx={{mt:1 , mb:2, fontSize: { xs: '0.9rem', md: '1rem', lg: '1.1rem' } }}>
                 {t('chart_step3_desc')}
               </Typography>
             </Box>
