@@ -23,16 +23,17 @@ export const LegalMenu = ({ direction = 'column', color = '#0c3478ff' }) => {
           <ListItem key={item.path} disablePadding sx={{ width: 'auto' }}>
             <ListItemButton 
               onClick={() => { window.scrollTo(0, 0); navigate(item.path); }}
-              sx={{ '&:hover': { backgroundColor: 'rgba(255,255,255,0.05)' } }}
+              sx={{ '&:hover': { backgroundColor: 'rgba(255,255,255,0.05)' } ,p:0 }}
             >
               <ListItemText 
                 primary={item.text} 
                 primaryTypographyProps={{ 
                   color: color, 
-                  fontWeight: 300,
-                  fontSize: { xs: '1.2rem', md: '1.65rem', lg: '1.8rem' }, 
+                  fontWeight: 200,
+                  fontSize: { xs: '1rem', md: '1rem', lg: '1rem' }, 
                   textAlign: 'center',
                   letterSpacing: '0.5px',
+                  
                 }} 
               />
             </ListItemButton>
