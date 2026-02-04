@@ -10,30 +10,14 @@ const colors = {
 
 let theme = createTheme({
   palette: {
-    primary: {
-      main: colors.blue,
-      dark: '#013878ff',
-    },
-    secondary: {
-      main: colors.orange, // تم التعديل للبرتقالي ليكون متناسقاً
-      dark: '#d35400',
-    },
-    background: {
-      default: colors.white,
-      gray: colors.gray,
-      dark: '#013878ff',
-    },
-    text: {
-      primary: colors.blue,
-      secondary: colors.black,
-      third: colors.orange,
-      white: colors.white,
-
-    },
-    
+    primary: { main: colors.blue, dark: '#013878ff' },
+    secondary: { main: colors.orange, dark: '#d35400' },
+    background: { default: colors.white, gray: colors.gray, dark: '#013878ff' },
+    text: { primary: colors.blue, secondary: colors.black, third: colors.orange, white: colors.white },
   },
   typography: {
-    fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+    // التعديل الوحيد هنا: إضافة خط "Cairo" في البداية لدعم العربية
+    fontFamily: '"Cairo", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
     h1: { fontWeight: 700 },
     h2: { fontWeight: 700 },
   },
@@ -52,6 +36,7 @@ let theme = createTheme({
     MuiContainer: {
       styleOverrides: {
         root: {
+          // بما أننا لا نستخدم القلب التلقائي، سنستخدم الخصائص المنطقية للأمان
           paddingLeft: '16px',
           paddingRight: '16px',
         }
@@ -60,7 +45,5 @@ let theme = createTheme({
   },
 });
 
-// تفعيل تغيير حجم الخطوط تلقائياً بناءً على حجم الشاشة
 theme = responsiveFontSizes(theme);
-
 export { theme };

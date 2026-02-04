@@ -3,10 +3,12 @@ import { Container, Typography, Divider, Box } from '@mui/material';
 import { useTranslation } from 'react-i18next'; // استيراد الترجمة
 
 export const SecurityInfo = () => {
-  const { t } = useTranslation(); // تفعيل الترجمة
+  const { t, i18n} = useTranslation();
+  const isAr = i18n.language === 'ar'; // تفعيل الترجمة
 
   return (
-    <Container sx={{ py: 10, minHeight: '100vh' }}>
+    <Container dir={isAr ? 'rtl' : 'ltr'} 
+    sx={{ py: 10, minHeight: '100vh', textAlign: { xs: 'center', md: isAr ? 'right' : 'left' } }}>
       <Typography variant="h3" color="error" gutterBottom>
         {t('security_info_title')}
       </Typography>

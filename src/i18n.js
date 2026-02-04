@@ -4,6 +4,301 @@ import { initReactI18next } from "react-i18next";
 
 const resources = {
     // i18n.js
+
+ar: {
+  translation: {
+    "nav_home": "الرئيسية",
+    "nav_about": "من نحن",
+    "nav_solutions": "حلولنا",
+    "nav_contact": "اتصل بنا",
+    "nav_supermarket": "السوبر ماركت",
+    "nav_traffic": "حركة المرور",
+    "nav_security": "الأمن",
+    "nav_industry": "الصناعة",
+    "nav_construction": "مواقع البناء",
+    "lang_en": "English",
+    "lang_de": "Deutsch",
+    "lang_ar": "العربية",
+    "about_title": "من نحن",
+    "about_desc": "مع أكثر من 15 عاماً من الخبرة في الحلول التقنية، Innosentra هي شركة متخصصة في الرؤية الحاسوبية والذكاء الاصطناعي، تقدم رؤى قابلة للتنفيذ من البيانات المرئية. تتكامل حلولنا مع أنظمة الكاميرات الحالية، وتحترم الخصوصية، وتدعم اتخاذ قرارات أذكى في قطاعات التجزئة والأمن وغيرها.",
+    "hero_title": "حلول برمجية مدعومة بالذكاء الاصطناعي",
+    "hero_subtitle": "تحويل البيانات المرئية إلى رؤى تجارية قابلة للتنفيذ من خلال هندسة البرمجيات المتقدمة. نحن متخصصون في الذكاء الاصطناعي والتعلم الآلي، أنظمة الرؤية الحاسوبية، تطوير تطبيقات الويب والجوال، وهندسة قواعد البيانات.",
+    
+    // offer
+    "offer_main_title": "ماذا نقدم؟",
+    "offer_sol1_title": "هندسة الذكاء الاصطناعي والتعلم العميق",
+    "offer_sol1_desc": "نقوم ببناء وتدريب نماذج تعلم عميق مخصصة لمهام الكشف والتعرف بدقة عالية",
+    "offer_sol2_title": "الرؤية الحاسوبية المتقدمة",
+    "offer_sol2_desc": "من التعرف على الأشخاص عبر كاميرات متعددة إلى تتبع الأجسام المعقدة، نقدم تحليلاً مرئياً متطوراً",
+    "offer_sol3_title": "تحليل البيانات ولوحات العرض",
+    "offer_sol3_desc": "يتم تحويل بث الفيديو الخام إلى مؤشرات أداء رئيسية (KPIs) وعرضها على لوحات تحكم فورية وبديهية",
+    "offer_sol4_title": "حلول تطوير البرمجيات",
+    "offer_sol4_desc": "تطوير شامل لتطبيقات الويب والجوال مع بنية قواعد بيانات قوية، من المفهوم إلى التنفيذ",
+
+    "solutions_section_title": "استكشف حلولنا",
+    "solution_retail_title": "حلول التجزئة والسوبر ماركت",
+    "solution_retail_desc": "تحليلات التجزئة الذكية، عد الأشخاص، ورؤى حول سلوك المتسوقين داخل المتجر",
+    "solution_traffic_title": "المرور والمواقف الذكية",
+    "solution_traffic_desc": "مراقبة تدفق حركة المرور، إدارة المواقف، وتحليلات المركبات",
+    "solution_security_title": "الأمن والمراقبة",
+    "solution_security_desc": "كشف التهديدات في الوقت الفعلي، تنبيهات التسلل، والمراقبة المؤتمتة",
+    "solution_industry_title": "الرؤية الصناعية",
+    "solution_industry_desc": "الفحص الآلي، ضمان الجودة، وتحسين العمليات",
+    "solution_construction_title": "مراقبة مواقع البناء",
+    "solution_construction_desc": "سلامة العمال، الامتثال لمعدات الوقاية الشخصية، ومراقبة نشاط الموقع",
+
+    // steps
+    "steps_main_title": "كيف نعمل؟",
+    "steps_s1_title": "تحليل الاحتياجات",
+    "steps_s1_desc": "نبدأ بتحليل احتياجاتك ونظامك لرسم خارطة طريق تقنية تتماشى مع أهدافك.",
+    "steps_s2_title": "بناء خوارزميات الذكاء الاصطناعي",
+    "steps_s2_desc": "بناء وضبط خوارزميات الذكاء الاصطناعي والرؤية الحاسوبية المصممة خصيصاً لحالتك.",
+    "steps_s3_title": "النشر على الأجهزة",
+    "steps_s3_desc": "تشغيل الحل على أجهزة مخصصة للحصول على أداء فوري وتحليل مباشر في موقعك.",
+    "steps_s4_title": "لوحات عرض مباشرة",
+    "steps_s4_desc": "لوحات تحكم تفاعلية توفر رؤية تشغيلية مع إحصائيات وتنبيهات فورية.",
+
+    // legal
+    "legal_site_info": "معلومات الموقع",
+    "legal_privacy": "سياسة الخصوصية",
+    "legal_cookies": "إعدادات الكوكيز",
+    "legal_terms": "شروط الاستخدام",
+    "legal_security": "الأمن",
+    "footer_all_rights": "جميع الحقوق محفوظة.",
+
+    "chart_item_1": "تحليل المركبات واللوحات",
+    "chart_item_2": "كشف الأسلحة",
+    "chart_item_3": "كشف الحوادث",
+    "chart_item_4": "كشف الحرائق",
+    "chart_item_5": "تحليلات التجزئة",
+    "chart_step2_title": "كشف الذكاء الاصطناعي ومعالجة البيانات",
+    "chart_step2_desc": "تحدد الكاميرات الذكية الأحداث الرئيسية (مركبات، تهديدات، ديموغرافيا)، بينما يجمع الخادم الآمن البيانات وينظمها فوراً",
+    "chart_step3_title": "عرض نتائج سهلة القراءة",
+    "chart_step3_desc": "شاهد رسوماً بيانية وأرقاماً واضحة على لوحة التحكم للحصول على رؤى واتخاذ قرارات أفضل",
+
+    "contact_title": "اتصل بنا",
+    "contact_subtitle": "لديك سؤال أو مشروع؟ دعنا نناقش كيف يمكن لـ Innosentra مساعدتك في تحويل البيانات المرئية إلى رؤى.",
+    "contact_info_title": "معلومات الاتصال",
+    "contact_form_title": "أرسل لنا رسالة",
+    "contact_label_name": "الاسم الكامل",
+    "contact_label_email": "البريد الإلكتروني",
+    "contact_label_phone": "رقم الهاتف (اختياري)",
+    "contact_label_message": "رسالتك",
+    "contact_placeholder_message": "أخبرنا عن مشروعك أو استفسارك...",
+    "contact_btn_send": "إرسال الرسالة",
+    "contact_btn_sending": "جاري الإرسال...",
+    "contact_secure_text": "معلوماتك آمنة وسرية للغاية",
+    "contact_success_msg": "تم إرسال الرسالة بنجاح! سنتواصل معك قريباً.",
+    "contact_error_msg": "فشل إرسال الرسالة. يرجى المحاولة مرة أخرى.",
+    "contact_phone": "الهاتف",
+    "contact_email": "البريد الإلكتروني",
+
+    // Validation
+    "val_name_min": "يجب أن يكون الاسم حرفين على الأقل",
+    "val_name_req": "الاسم مطلوب",
+    "val_email_valid": "أدخل بريداً إلكترونياً صحيحاً",
+    "val_email_req": "البريد الإلكتروني مطلوب",
+    "val_phone_valid": "يرجى إدخال رقم هاتف صحيح",
+    "val_msg_min": "يجب أن تكون الرسالة 10 أحرف على الأقل",
+    "val_msg_req": "الرسالة مطلوبة",
+
+    "gallery_label_people_counting": "عد الأشخاص والتعرف عليهم",
+    "gallery_label_tracking": "مثال على التتبع",
+    "gallery_label_gender_age": "تصنيف الجنس والعمر",
+    "gallery_label_heatmap": "الخريطة الحرارية للمتجر",
+    "gallery_label_journey": "رحلة العميل",
+
+    // Retail Section
+    "retail_hero_title": "تحليلات Innosentra للتجزئة",
+    "retail_hero_subtitle": "حوّل كاميرات المراقبة إلى أذكى مستشار لأعمالك.",
+    "retail_analyze_label": "ماذا نحلل؟",
+    "retail_matters_label": "لماذا هذا مهم؟",
+
+    // Section 1
+    "retail_s1_title": "تحليلات العملاء الذكية",
+    "retail_s1_subtitle": "افهم من هم عملاؤك وكيف يتصرفون في الوقت الفعلي.",
+    "retail_s1_f1": "عد العملاء حسب الوقت واليوم",
+    "retail_s1_f2": "تصنيف (بالغ ضد طفل)",
+    "retail_s1_f3": "تحليل الجنس",
+    "retail_s1_f4": "متوسط وقت البقاء",
+    "retail_s1_f5": "التفاعل مع واجهة المحل قبل الدخول",
+    "retail_s1_f6": "تحليل المشاعر",
+    "retail_s1_i1": "تحسين توزيع الموظفين والعمليات",
+    "retail_s1_i2": "معرفة ما يجذب عملائك",
+    "retail_s1_i3": "فهم الاهتمام الحقيقي للعملاء",
+
+    // Section 2
+    "retail_s2_title": "رحلة العميل والخرائط الحرارية",
+    "retail_s2_subtitle": "شاهد متجرك من خلال عيون عملائك.",
+    "retail_s2_f1": "خرائط حرارية للمناطق النشطة والباردة",
+    "retail_s2_f2": "المناطق ذات وقت البقاء الطويل",
+    "retail_s2_f3": "رحلات العملاء عبر كاميرات متعددة",
+    "retail_s2_i1": "تحسين تصميم وتنسيق المتجر",
+    "retail_s2_i2": "تحسين أماكن وضع المنتجات",
+    "retail_s2_i3": "زيادة التفاعل ومعدل التحويل",
+
+    // Section 3
+    "retail_s3_title": "لوحة تحليلات البيانات",
+    "retail_s3_subtitle": "يتم تقديم جميع الرؤى عبر لوحة تحكم نظيفة وبديهية.",
+    "retail_s3_f1": "مؤشرات الأداء في الوقت الفعلي والتاريخي",
+    "retail_s3_f2": "اتجاهات الحركة والمقارنات",
+    "retail_s3_f3": "رسوم بيانية وخرائط حرارية مرئية",
+    "retail_s3_f4": "شاهد جميع بياناتك في مكان واحد",
+    "retail_s3_i1": "اتخاذ قرارات أسرع",
+    "retail_s3_i2": "تتبع أداء واضح",
+    "retail_s3_i3": "بيانات يمكن للجميع فهمها",
+
+    // Mobile App
+    "retail_mobile_title": "التحليلات في أي مكان وزمان عبر التطبيق",
+    "retail_mobile_desc": "وصول إلى كافة رؤى التجزئة مباشرة من هاتفك. يركز التطبيق على عرض البيانات بوضوح دون تعقيد.",
+    "retail_mobile_f1": "أعداد العملاء والاتجاهات الحالية",
+    "retail_mobile_f2": "الخرائط الحرارية وتصورات الرحلة",
+    "retail_mobile_f3": "تتبع الحركة بناءً على الخريطة",
+    "retail_mobile_f4": "عرض مبسط لمؤشرات الأداء للقرارات السريعة",
+    "retail_mobile_f5": "مثالي للمديرين أثناء التنقل",
+
+    // Gallery Labels
+    "gallery_reid": "عد الأشخاص والتعرف المتكرر",
+    "gallery_tracking": "نموذج التتبع",
+    "gallery_gender": "تصنيف الجنس والعمر",
+    "gallery_heatmap": "خريطة المتجر الحرارية",
+    "gallery_journey": "رحلة المتسوق",
+    "gallery_dashboard": "لوحة التحكم الرئيسية",
+    "gallery_report": "عرض التقارير",
+
+    // Traffic Section
+    "traffic_hero_title": "المرور والمواقف الذكية",
+    "traffic_hero_subtitle": "تحويل الكاميرات إلى عيون ذكية للطرق ومباني المواقف.",
+    "traffic_section_title": "تحليلات التدفق الذكي",
+    "traffic_section_subtitle": "نظام بسيط يفهم نشاط الطريق ويدير مساحات المواقف تلقائياً.",
+    "traffic_track_label": "ماذا نتتبع؟",
+    "traffic_matters_label": "لماذا هذا مهم؟",
+
+    // Features
+    "traffic_f1": "عد السيارات في الشوارع ومواقف السيارات",
+    "traffic_f2": "التحكم الآلي في بوابات الدخول والخروج",
+    "traffic_f3": "توفر أماكن الوقوف في الوقت الفعلي",
+    "traffic_f4": "رصد الازدحام المروري والطرق المسدودة",
+    "traffic_f5": "قراءة لوحات الأرقام عند البوابات والطرق",
+
+    // Importance
+    "traffic_i1": "العثور على مواقف أسرع دون توتر",
+    "traffic_i2": "انسيابية حركة المرور داخل وخارج المباني",
+    "traffic_i3": "أمان أفضل للسائقين والمشاة",
+
+    // Site Info Section
+    "site_info_title": "معلومات الموقع",
+    "site_info_about_title": "حول منصة INNOSENTRA",
+    "site_info_about_text": "تعتبر Innosentra مزوداً عالمياً رائداً للتحليلات المدعومة بالذكاء الاصطناعي. هذا الموقع هو الواجهة الرقمية الأساسية لعملائنا.",
+    "site_info_ownership_title": "الملكية والعمليات",
+    "site_info_ownership_text": "هذا الموقع مملوك ومدار من قبل مجموعة Innosentra. جميع الوحدات هي تقنيات مملوكة تم تطويرها داخلياً.",
+    "site_info_tech_title": "المواصفات التقنية",
+    "site_info_tech_text": "تستخدم المنصة WebGL المتقدم لتصور البيانات وبروتوكولات WebSocket الآمنة للقياس عن بُعد.",
+
+    // Privacy Policy Section
+    "privacy_title": "سياسة الخصوصية",
+    "privacy_collection_title": "جمع البيانات",
+    "privacy_collection_text": "نجمع المعلومات لتقديم خدمات أفضل، بما في ذلك المعلومات التي تزودنا بها مثل الاسم والبريد.",
+    "privacy_usage_title": "استخدام البيانات",
+    "privacy_usage_text": "نستخدم البيانات التي نجمعها لتوفير وصيانة وحماية وتحسين خدماتنا.",
+
+    // Terms of Use Section
+    "terms_title": "شروط الاستخدام",
+    "terms_agreement_header": "اتفاقية المستخدم",
+    "terms_agreement_text": "من خلال الدخول إلى هذا الموقع، فإنك توافق على الالتزام بشروط وأحكام الاستخدام هذه.",
+    "terms_license_header": "الترخيص",
+    "terms_license_text": "يُمنح الإذن لتنزيل نسخة واحدة مؤقتاً من المواد لأغراض العرض الشخصي فقط.",
+
+    // Cookies Section
+    "cookies_title": "سياسة وإعدادات الكوكيز",
+    "cookies_what_is_title": "ما هي الكوكيز؟",
+    "cookies_what_is_desc": "ملفات نصية صغيرة توضع على جهازك لتحسين أداء المواقع.",
+    "cookies_essential_title": "1. الكوكيز الضرورية",
+    "cookies_essential_desc": "ضرورية لعمل الموقع ولا يمكن إيقافها.",
+    "cookies_analytical_title": "2. الكوكيز التحليلية",
+    "cookies_analytical_desc": "تسمح لنا بالتعرف على عدد الزوار وكيفية تحركهم في الموقع.",
+
+    // Security Info Section
+    "security_info_title": "معايير الأمن",
+    "security_info_protection_header": "حماية البيانات",
+    "security_info_protection_text": "نستخدم تشفيراً بمعايير صناعية لضمان سلامة بياناتك.",
+
+    // Industry Section
+    "industry_hero_title": "رؤية الذكاء الاصطناعي الصناعية",
+    "industry_hero_subtitle": "ضمان الجودة المؤتمت للمصانع الحديثة",
+    "industry_section_title": "الفحص الآلي",
+    "industry_section_subtitle": "تحقيق تصنيع خالي من العيوب عبر المعالجة البصرية عالية السرعة.",
+    "industry_analyze_label": "ماذا نحلل؟",
+    "industry_matters_label": "لماذا هذا مهم؟",
+    "industry_a1": "كشف عيوب الأسطح",
+    "industry_a2": "التحقق من التجميع",
+    "industry_a3": "دقة التعبئة والتغليف",
+    "industry_a4": "فرز المنتجات",
+    "industry_m1": "تقليل هدر الإنتاج",
+    "industry_m2": "زيادة معدل الإنتاجية",
+    "industry_m3": "خفض التكاليف التشغيلية",
+
+    // Security Section
+    "security_hero_title": "مراقبة متقدمة",
+    "security_hero_subtitle": "أمن ذاتي للبنية التحتية الحيوية.",
+    "security_section_title": "الكشف الاستباقي عن التهديدات",
+    "security_section_subtitle": "الانتقال من التسجيل السلبي إلى منع الحوادث في الوقت الفعلي.",
+    "security_cap_label": "القدرات الأساسية",
+    "security_val_label": "القيمة التجارية",
+    "security_c1": "التعرف على الوجوه",
+    "security_c2": "كشف التسلل",
+    "security_c3": "تنبيهات الأجسام المتروكة",
+    "security_c4": "تحليل التسكع",
+    "security_v1": "حراسة مؤتمتة 24/7",
+    "security_v2": "تقليل وقت الاستجابة",
+    "security_v3": "وصول عالي الدقة",
+
+    // Construction Section
+    "construction_hero_title": "السلامة في مواقع البناء",
+    "construction_hero_subtitle": "حماية القوى العاملة برؤية الذكاء الاصطناعي.",
+    "construction_section_title": "الامتثال للسلامة",
+    "construction_section_subtitle": "ضمان اتباع بروتوكولات السلامة في الموقع تلقائياً.",
+    "construction_site_label": "تحليل الموقع",
+    "construction_benefit_label": "الفوائد",
+    "construction_s1": "كشف معدات الوقاية (خوذة/سترة)",
+    "construction_s2": "مراقبة المناطق الخطرة",
+    "construction_s3": "تنبيهات سقوط العمال",
+    "construction_s4": "التفاعل مع الآلات",
+    "construction_b1": "حوادث أقل في الموقع",
+    "construction_b2": "الامتثال القانوني",
+    "construction_b3": "إشراف عن بُعد على المشروع",
+
+    "contact_email_value": "manar.bakro@innosentra.com",
+    "contact_phone_value": "0049 163 997 0059",
+    "contact_address": "العنوان",
+    "contact_address_line1": "Georgstr. 47",
+    "contact_address_line2": "51145 Cologne",
+    "contact_address_line3": "ألمانيا",
+
+
+    "software_hero_title": "هندسة البرمجيات المتكاملة والأنظمة الذكية",
+      "software_hero_subtitle": "نقدم دورة حياة تطوير برمجيات كاملة (SDLC) تبدأ من هندسة الخوارزميات المعقدة، مروراً بتصميم قواعد البيانات العملاقة (SQL & NoSQL)، وصولاً إلى تطوير تطبيقات الويب والموبايل (Native & Cross-platform)، وانتهاءً بعمليات النشر (Deployment) والاستضافة السحابية الآمنة.",
+      
+      "software_section_title": "التميز التقني في كل سطر كود",
+      "software_section_subtitle": "فريقنا يجمع بين دقة الخوارزميات الرياضية وجمالية واجهات المستخدم، مع التركيز الصارم على الأداء، الأمان، وقابلية التوسع (Scalability).",
+      
+      "software_col1_label": "القدرات التقنية الأساسية", // القائمة اليمنى
+      "software_col2_label": "الجودة والبنية التحتية", // القائمة اليسرى
+
+      // القائمة الأولى (التقنيات والتطوير)
+      "software_c1": "تطوير الويب الشامل (Full-Stack) وتطبيقات الموبايل الاحترافية",
+      "software_c2": "هندسة قواعد البيانات المعقدة وإدارة البيانات الضخمة (Big Data)",
+      "software_c3": "بناء الخوارزميات الذكية وهياكل البيانات المتقدمة",
+      "software_c4": "تكامل واجهات برمجة التطبيقات (API Integration & Microservices)",
+      
+      // القائمة الثانية (العمليات، النشر، والاختبار)
+      "software_c5": "النشر المؤتمت (CI/CD) وإدارة الخوادم والاستضافات السحابية",
+      "software_c6": "اختبار البرمجيات (QA Testing) وضمان الجودة والأداء",
+      "software_c7": "تحليل البيانات واستخراج الرؤى (Data Analytics & Reporting)",
+      "software_c8": "تأمين الأنظمة وحماية البيانات وتشفير الاتصالات",
+  }
+},
+
   en: {
     translation: {
       "nav_home": "Home",
@@ -17,6 +312,7 @@ const resources = {
       "nav_construction": "Construction Sites",
       "lang_en": "English",
       "lang_de": "Deutsch",
+      "lang_ar": "Arabic",
       "about_title": "About Us",
       "about_desc": "More than 15 years of experience in technical solutions, Innosentra is a computer vision and AI company delivering actionable insights from visual data. Our solutions integrate with existing camera systems, respect privacy, and support smarter decision-making across retail, security, and other industries.",
       "hero_title": "Intelligent Software Solutions Powered by AI",
@@ -269,22 +565,38 @@ const resources = {
 "construction_b2": "Legal Compliance",
 "construction_b3": "Remote Project Oversight",
 
-
-
-
-
   "contact_email_value":"manar.bakro@innosentra.com",
   "contact_phone_value":"0049 163 997 0059",
   "contact_address": "Address",
   "contact_address_line1": "Georgstr. 47",
   "contact_address_line2": "51145 Cologne",
-  "contact_address_line3": "Germany"
+  "contact_address_line3": "Germany",
 
+
+  "software_hero_title": "Integrated Software Engineering & Smart Systems",
+      "software_hero_subtitle": "We deliver a complete Software Development Life Cycle (SDLC), starting from complex algorithmic engineering and massive database architecture (SQL & NoSQL), to high-end Web and Mobile development (Native & Cross-platform), concluding with secure Deployment and Cloud Hosting.",
+      
+      "software_section_title": "Technical Excellence in Every Line of Code",
+      "software_section_subtitle": "Our team combines the precision of mathematical algorithms with the elegance of UI/UX, strictly focusing on Performance, Security, and Scalability.",
+      
+      "software_col1_label": "Core Technical Capabilities",
+      "software_col2_label": "Infrastructure & Quality Assurance",
+
+      // List 1 (Tech & Dev)
+      "software_c1": "Full-Stack Web Development & Professional Mobile Apps",
+      "software_c2": "Complex Database Architecture & Big Data Management",
+      "software_c3": "Smart Algorithms & Advanced Data Structures Construction",
+      "software_c4": "API Integration & Microservices Architecture",
+      
+      // List 2 (Ops, Deploy, Testing)
+      "software_c5": "Automated Deployment (CI/CD), Server Mgmt & Cloud Hosting",
+      "software_c6": "Software Testing (QA), Performance & Quality Assurance",
+      "software_c7": "Data Analytics, Reporting & Business Intelligence",
+      "software_c8": "System Security, Data Protection & Encryption",
 
 }
-
-
   },
+
   de: {
     translation: {
         "nav_home": "Startseite",
@@ -298,6 +610,7 @@ const resources = {
       "nav_construction": "Baustellen",
       "lang_en": "Englisch",
       "lang_de": "Deutsch",
+      "lang_ar": "Arabisch",
       "about_title": "Über uns",
       "about_desc": "Mit mehr als 15 Jahren Erfahrung in technischen Lösungen ist Innosentra ein Unternehmen für Computer Vision und KI, das umsetzbare Erkenntnisse aus visuellen Daten liefert. Unsere Lösungen lassen sich in bestehende Kamerasysteme integrieren, wahren die Privatsphäre und unterstützen eine intelligentere Entscheidungsfindung in den Bereichen Einzelhandel, Sicherheit und anderen Branchen.",
       "hero_title": "Intelligente Softwarelösungen mit KI-Antrieb",
@@ -552,7 +865,29 @@ const resources = {
 "contact_address": "Adresse",
   "contact_address_line1": "Georgstr. 47",
   "contact_address_line2": "51145 Köln",
-  "contact_address_line3": "Deutschland"
+  "contact_address_line3": "Deutschland",
+
+
+  "software_hero_title": "Integrierte Softwaretechnik & Intelligente Systeme",
+      "software_hero_subtitle": "Wir bieten einen vollständigen Softwareentwicklungszyklus (SDLC), beginnend bei komplexer Algorithmen-Entwicklung und massiver Datenbankarchitektur (SQL & NoSQL) bis hin zu High-End Web- und Mobile-Apps sowie sicherem Deployment und Cloud-Hosting.",
+      
+      "software_section_title": "Technische Exzellenz in jeder Codezeile",
+      "software_section_subtitle": "Unser Team verbindet die Präzision mathematischer Algorithmen mit der Eleganz von UI/UX, mit striktem Fokus auf Leistung, Sicherheit und Skalierbarkeit.",
+      
+      "software_col1_label": "Technische Kernkompetenzen",
+      "software_col2_label": "Infrastruktur & Qualitätssicherung",
+
+      // List 1
+      "software_c1": "Full-Stack Webentwicklung & Professionelle Mobile Apps",
+      "software_c2": "Komplexe Datenbankarchitektur & Big Data Management",
+      "software_c3": "Entwicklung intelligenter Algorithmen & Datenstrukturen",
+      "software_c4": "API-Integration & Microservices-Architektur",
+      
+      // List 2
+      "software_c5": "Automatisierte Bereitstellung (CI/CD), Server & Cloud-Hosting",
+      "software_c6": "Softwaretests (QA), Leistungs- & Qualitätssicherung",
+      "software_c7": "Datenanalyse, Reporting & Business Intelligence",
+      "software_c8": "Systemsicherheit, Datenschutz & Verschlüsselung",
 }
   }
 };

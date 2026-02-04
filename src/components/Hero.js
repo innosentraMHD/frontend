@@ -5,7 +5,9 @@ import headImage from '../images/head.webp';
 import writeImage from '../images/write.webp';
 
 export const Hero = () => {
-  const { t } = useTranslation(); // تفعيل الترجمة
+  const { t, i18n} = useTranslation();
+  const isAr = i18n.language === 'ar';
+   // تفعيل الترجمة
 
   const keyframesStyle = `
     @keyframes floatBob {
@@ -26,7 +28,9 @@ export const Hero = () => {
   return (
     <Box
       id="home"
+      
       sx={{
+        
         minHeight:{xs: '90vh', md: '70vh'},
         display: 'flex',
         alignItems: 'center',
@@ -50,9 +54,12 @@ export const Hero = () => {
           }}
         >
           {/* العمود الأيسر: النصوص */}
-          <Box sx={{ 
+          <Box
+          dir={isAr ? 'rtl' : 'ltr'} 
+          sx={{ 
               flex: 1, 
-              textAlign: { xs: 'center', md: 'left' },
+              // إذا كان عربي اجعل المحاذاة لليمين، وإلا لليسار
+              textAlign: { xs: 'center', md: isAr ? 'right' : 'left' },
               maxWidth: {md: '600px'}
             }}>
             

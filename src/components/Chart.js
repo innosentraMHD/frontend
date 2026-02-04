@@ -150,7 +150,8 @@ export const Chart = () => {
           </MotionBox>
 
           {/* ======================= سهم 2 ======================= */}
-          
+         
+            
           <Box 
             component="img" 
             src={arrow} 

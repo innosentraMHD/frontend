@@ -3,11 +3,14 @@ import { Container, Typography, Box, Divider, Paper } from '@mui/material';
 import { useTranslation } from 'react-i18next'; // استيراد الترجمة
 
 export const SiteInfo = () => {
-  const { t } = useTranslation(); // تفعيل الترجمة
+  const { t, i18n} = useTranslation();
+  const isAr = i18n.language === 'ar'; // تفعيل الترجمة
 
   return (
     <Container sx={{ py: 10, minHeight: '100vh' }}>
-      <Paper elevation={0} sx={{ p: 4, bgcolor: '#f9f9f9' }}>
+      <Paper dir={isAr ? 'rtl' : 'ltr'}  
+      elevation={0} 
+      sx={{ p: 4, bgcolor: '#f9f9f9',textAlign: { xs: 'center', md: isAr ? 'right' : 'left' }, }}>
         <Typography variant="h3" color="primary" gutterBottom>
           {t('site_info_title')}
         </Typography>

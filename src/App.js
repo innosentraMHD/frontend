@@ -11,6 +11,7 @@ import { Steps } from './components/Steps';
 import { Chart } from './components/Chart';
 import { RetailSolutions } from './components/RetailSolutions';
 import { Traffic } from './components/Traffic';
+import { Software } from './components/Software';
 import { Security } from './components/Security';
 import { Industry } from './components/Industry'; 
 import { Construction } from './components/Construction';
@@ -21,7 +22,7 @@ import { SecurityInfo } from './components/SecurityInfo';
 import { SiteInfo } from './components/SiteInfo';
 import { LegalMenu } from './components/LegalMenu';
 import './styles/global.css';
-import { AnaliticsAPK } from './components/AnaliticsAPK';
+
 
 // 1. أضف سطر الاستيراد هذا هنا 👇
 import { Analytics } from '@vercel/analytics/react';
@@ -31,9 +32,10 @@ const HomePage = () => (
     <Hero />
     <About />
     <Offer />
+    <Software />
     <Chart />
     <SolutionsList />
-    <Steps />
+    
     <LegalMenu />
   </>
 );
@@ -47,6 +49,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/retail-solutions" element={<RetailSolutions />} />
+     
           <Route path="/traffic" element={<Traffic />} />
           <Route path="/security" element={<Security />} />
           <Route path="/industry" element={<Industry />} />

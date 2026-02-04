@@ -38,7 +38,8 @@ const textFieldStyle = {
 };
 
 export const Contact = () => {
-  const { t } = useTranslation(); // تفعيل الترجمة
+  const { t, i18n} = useTranslation();
+  const isAr = i18n.language === 'ar';
   const [loading, setLoading] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
@@ -114,7 +115,9 @@ export const Contact = () => {
     <Box id="contact" sx={{ bgcolor: 'background.dark', py: { xs: 4, sm: 6, md: 8 }, position: 'relative', overflow: 'hidden', color: 'white' }}>
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         
-        <Box sx={{ textAlign: 'center', mb: { xs: 4, sm: 5, md: 6 } }}>
+        <Box
+        dir={isAr ? 'rtl' : 'ltr'} 
+        sx={{ textAlign: { md: isAr ? 'right' : 'left' } }}>
           <Typography variant="h3" sx={{ mb: 1, textAlign: 'center', color: 'white', '&::after': { content: '""', display: 'block', width: 60, height: 4, backgroundColor: 'secondary.main', margin: '10px auto 30px' } }}>
             {t('contact_title')}
           </Typography>
@@ -123,18 +126,20 @@ export const Contact = () => {
           </Typography>
         </Box>
 
-        <Paper elevation={0} sx={{ borderRadius: { xs: 2, sm: 3, md: 4 }, overflow: 'hidden', background: 'transparent', border: `1px solid ${alpha('#fff', 0.1)}` }}>
+        <Paper dir={isAr ? 'rtl' : 'ltr'} elevation={0} sx={{ borderRadius: { xs: 1, sm: 3, md: 4 }, overflow: 'hidden', background: 'transparent', border: `1px solid ${alpha('#fff', 0.1)}` }}>
           <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
             
             {/* Left Side */}
-            <Grid item xs={12} md={5} sx={{ background: alpha(COLOR_PALETTE.primary, 0.05), p: { xs: 3, sm: 4, md: 5 } }}>
+            <Grid item xs={12} md={5} sx={{ background: alpha(COLOR_PALETTE.primary, 0.05), p: { xs: 1, sm: 4, md: 5 } }}>
               <Typography variant="h4" sx={{ fontWeight: 700, color: 'text.white', mb: 3, fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' } }}>
                 {t('contact_info_title')}
               </Typography>
               <Stack spacing={3}>
                 {contactInfo.map((info, index) => (
-                  <Box key={index} sx={{ display: 'flex', alignItems: 'flex-start', p: { xs: 2, sm: 3 }, borderRadius: 3, border: `1px solid ${alpha(info.color, 0.2)}`, transition: 'all 0.3s ease', '&:hover': { transform: 'translateY(-3px)', bgcolor: alpha(info.color, 0.05) } }}>
-                    <Box sx={{ mr: { xs: 2, sm: 3 }, color: info.color, display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: { xs: 45, sm: 50 }, height: { xs: 45, sm: 50 }, borderRadius: 3, backgroundColor: alpha(info.color, 0.1), fontSize: { xs: '1.5rem', sm: '1.75rem' } }}>
+                  <Box
+                  dir={isAr ? 'rtl' : 'ltr'} 
+                   key={index} sx={{ display: 'flex', alignItems: 'flex-start', p: { xs: 0.5, sm: 3 }, borderRadius: 3, border: `1px solid ${alpha(info.color, 0.2)}`, transition: 'all 0.3s ease', '&:hover': { transform: 'translateY(-3px)', bgcolor: alpha(info.color, 0.05) } ,textAlign: { md: isAr ? 'right' : 'left' },}}>
+                    <Box sx={{ mx: { xs: 0.7, sm: 1 }, color: info.color, display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: { xs: 45, sm: 50 }, height: { xs: 45, sm: 50 }, borderRadius: 3, backgroundColor: alpha(info.color, 0.1), fontSize: { xs: '1.5rem', sm: '1.75rem' } }}>
                       {info.icon}
                     </Box>
                     <Box sx={{ flex: 1 }}>
@@ -143,7 +148,7 @@ export const Contact = () => {
                       </Typography>
                       {info.details.map((detail, idx) => (
                         <Typography key={idx} variant="body1" sx={{ color: COLOR_PALETTE.textSecondary, fontWeight: 500, fontSize: { xs: '0.9rem', sm: '1rem' }, mb: 0.5, display: 'flex', alignItems: 'center' }}>
-                          <Box component="span" sx={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: info.color, mr: 1.5 }} />
+                          <Box component="span" sx={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: info.color, mx: 0.7 }} />
                           {detail}
                         </Typography>
                       ))}
@@ -185,9 +190,9 @@ export const Contact = () => {
                 </Box>
               </form>
 
-              <Box sx={{ mt: 4, pt: 3, borderTop: `1px solid ${alpha('#fff', 0.1)}`, textAlign: 'center' }}>
+              <Box dir={isAr ? 'rtl' : 'ltr'} sx={{ mt: 4, pt: 3, borderTop: `1px solid ${alpha('#fff', 0.1)}`, textAlign: 'center' }}>
                 <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: { xs: '0.8rem', sm: '0.85rem' } }}>
-                  <Box component="span" sx={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: COLOR_PALETTE.secondary, display: 'inline-block', mr: 1, verticalAlign: 'middle' }} />
+                  <Box   component="span" sx={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: COLOR_PALETTE.secondary, display: 'inline-block', mx: 0.7, verticalAlign: 'middle' }} />
                   {t('contact_secure_text')}
                 </Typography>
               </Box>

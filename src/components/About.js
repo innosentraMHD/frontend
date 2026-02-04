@@ -6,13 +6,15 @@ import {
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion'; // استيراد motion
-import main from '../images/about2.webp';
+import main from '../images/t1.webp';
 
 // إعداد Box يدعم الحركة
 const MotionBox = motion(Box);
 
 export const About = () => {
-  const { t } = useTranslation();
+  const { t, i18n} = useTranslation();
+  const isAr = i18n.language === 'ar';
+    
 
   return (
     <Box id="about" sx={{ py: 6, overflow: 'hidden' }}> {/* أضفنا overflow: hidden لمنع ظهور شريط التمرير العرضي أثناء الحركة */}
@@ -53,11 +55,13 @@ export const About = () => {
           
           {/* قسم النصوص - يتحرك من اليمين إلى اليسار */}
           <MotionBox 
+          dir={isAr ? 'rtl' : 'ltr'} 
+
             initial={{ opacity: 0, x: 100 }} // يبدأ من اليمين
             whileInView={{ opacity: 1, x: 0 }} // ينزلق لمكانه الطبيعي
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            sx={{ flex: 1, textAlign: { xs: 'center', md: 'left' } }}
+            sx={{ flex: 1, textAlign: { xs: 'center', md: isAr ? 'right' : 'left' }, }}
           >
             <Typography variant="h3" sx={{ color: 'text.third', mb: 1, fontSize: { xs: '1.8rem', md: '2.2rem', lg: '2.5rem' } }}>
               {t('about_title')}

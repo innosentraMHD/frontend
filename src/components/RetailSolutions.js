@@ -41,42 +41,107 @@ const useLazyVideo = () => {
 };
 
 const FeatureSection = ({ title, subtitle, features, importance, mediaItems, icon, reverse }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isAr = i18n.language === 'ar';
+
+  // تحديد ترتيب العناصر (صورة-نص) بناءً على اللغة وخيار reverse
+  // إذا كان reverse true، نعكس الترتيب الافتراضي للغة
+  const getFlexDirection = () => {
+    if (reverse) {
+      return isAr ? 'row' : 'row-reverse';
+    }
+    return isAr ? 'row-reverse' : 'row';
+  };
+
   return (
-    <Box id='retail' sx={{ py: { xs: 8, md: 12 }, borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
+    <Box 
+      id='retail' 
+      dir={isAr ? 'rtl' : 'ltr'} 
+      sx={{ 
+        py: { xs: 8, md: 12 }, 
+        borderBottom: '1px solid rgba(0,0,0,0.05)',
+        textAlign: 'initial' // سيتبع اتجاه dir تلقائياً
+      }} 
+    >
       <Container maxWidth="lg">
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: reverse ? 'row-reverse' : 'row' }, alignItems: 'center', gap: { xs: 6, md: 8 } }}>
-          <Box sx={{ width: { xs: '100%', md: '50%' }, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-            <Typography variant="h3" gutterBottom sx={{ fontWeight: 800, fontSize: { xs: '2rem', md: '2.5rem' }, lineHeight: 1.2 }}>{title}</Typography>
-            <Typography variant="h6" color="text.secondary" sx={{ mb: 4, fontWeight: 400, lineHeight: 1.6 }}>{subtitle}</Typography>
-            <Box sx={{ width: '100%', display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 4 }}>
+        <Box sx={{ 
+          display: 'flex', 
+          flexDirection: { 
+            xs: 'column', 
+            md: getFlexDirection() // منطق ذكي للترتيب
+          }, 
+          alignItems: 'center', 
+          gap: { xs: 6, md: 8 } 
+        }}>
+          
+          {/* قسم النصوص */}
+          <Box sx={{ 
+            width: { xs: '100%', md: '50%' }, 
+            display: 'flex', 
+            flexDirection: 'column',
+            alignItems: 'flex-start' // سيتجه لليمين في rtl ولليسار في ltr
+          }}>
+            <Typography variant="h3" gutterBottom sx={{ fontWeight: 800, fontSize: { xs: '2rem', md: '2.5rem' }, lineHeight: 1.2 }}>
+              {title}
+            </Typography>
+            <Typography variant="h6" color="text.secondary" sx={{ mb: 4, fontWeight: 400, lineHeight: 1.6 }}>
+              {subtitle}
+            </Typography>
+
+            <Box sx={{ 
+              width: '100%', 
+              display: 'flex', 
+              flexDirection: { xs: 'column', sm: 'row' }, 
+              gap: 4 
+            }}>
+              {/* القائمة الأولى */}
               <Box sx={{ flex: 1 }}>
-                <Typography variant="subtitle2" fontWeight="bold" gutterBottom color="primary" sx={{ textTransform: 'uppercase', mb: 2 }}>{t('retail_analyze_label')}</Typography>
+                <Typography variant="subtitle2" fontWeight="bold" gutterBottom color="primary" sx={{ textTransform: 'uppercase', mb: 2 }}>
+                  {t('retail_analyze_label')}
+                </Typography>
                 <List dense disablePadding>
                   {features.map((item, index) => (
                     <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
-                      <ListItemIcon sx={{ minWidth: 32 }}><CheckCircleOutlineIcon sx={{color:"text.primary"}} fontSize="small" /></ListItemIcon>
-                      <ListItemText primary={item} primaryTypographyProps={{ variant: 'body2', fontWeight: 500, color:"text.secondary" }} />
+                      <ListItemIcon sx={{ minWidth: 32 }}>
+                        <CheckCircleOutlineIcon 
+                          sx={{ 
+                            color:"text.primary"
+                            
+                            
+                          }} 
+                          fontSize="small" 
+                        />
+                      </ListItemIcon>
+                      <ListItemText primary={item} sx={{ '& .MuiListItemText-primary': { fontWeight: 500, color:"text.secondary" },textAlign: {  xs: isAr ? 'right' : 'left' } }} />
                     </ListItem>
                   ))}
                 </List>
               </Box>
+
+              {/* القائمة الثانية */}
               <Box sx={{ flex: 1 }}>
-                <Typography variant="subtitle2" fontWeight="bold" gutterBottom color="secondary" sx={{ textTransform: 'uppercase', mb: 2 }}>{t('retail_matters_label')}</Typography>
+                <Typography variant="subtitle2" fontWeight="bold" gutterBottom color="secondary" sx={{ textTransform: 'uppercase', mb: 2 }}>
+                  {t('retail_matters_label')}
+                </Typography>
                 <List dense disablePadding>
                   {importance.map((item, index) => (
                     <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
-                      <ListItemIcon sx={{ minWidth: 32 }}><CheckCircleOutlineIcon color="secondary" fontSize="small" /></ListItemIcon>
-                      <ListItemText primary={item} primaryTypographyProps={{ variant: 'body2', fontWeight: 500, color:"text.secondary" }} />
+                      <ListItemIcon sx={{ minWidth: 32 }}>
+                        <CheckCircleOutlineIcon color="secondary" fontSize="small" />
+                      </ListItemIcon>
+                      <ListItemText primary={item} sx={{ '& .MuiListItemText-primary': { fontWeight: 500, color:"text.secondary" },textAlign: {  xs: isAr ? 'right' : 'left' } }} />
                     </ListItem>
                   ))}
                 </List>
               </Box>
             </Box>
           </Box>
+
+          {/* قسم الميديا */}
           <Box sx={{ width: { xs: '100%', md: '50%' }, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <MediaGallery mediaItems={mediaItems} />
           </Box>
+          
         </Box>
       </Container>
     </Box>
@@ -84,13 +149,14 @@ const FeatureSection = ({ title, subtitle, features, importance, mediaItems, ico
 };
 
 export const RetailSolutions = () => {
-  const { t } = useTranslation();
+  const { t, i18n} = useTranslation();
+  const isAr = i18n.language === 'ar';
   const videoRef = useLazyVideo();
 
   return (
     <Box>
       {/* Hero Header */}
-      <Box sx={{ bgcolor: '#0f1220', color: 'white', py: { xs: 8, md: 12 }, textAlign: 'center', background: 'linear-gradient(135deg, #11152f 0%, #1b1f4a 100%)' }}>
+      <Box sx={{ bgcolor: '#0f1220', color: 'white', py: { xs: 8, md: 12 },textAlign: {  xs: isAr ? 'right' : 'left' }, background: 'linear-gradient(135deg, #11152f 0%, #1b1f4a 100%)' }}>
         <Container maxWidth="md">
           <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.5rem' } }}>
             {t('retail_hero_title')}
@@ -147,7 +213,7 @@ export const RetailSolutions = () => {
       {/* Mobile App Section */}
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#fafafa' }}>
         <Container maxWidth="lg">
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', gap: { xs: 6, md: 10 } }}>
+          <Box  sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', gap: { xs: 6, md: 10 },textAlign: {  xs: isAr ? 'right' : 'left' }  }}>
             <Typography variant="h4" fontWeight={800} gutterBottom sx={{ display: { xs: 'block', md: 'none' }, mb: 3, textAlign: 'center' }}>
               {t('retail_mobile_title')}
             </Typography>
@@ -160,14 +226,14 @@ export const RetailSolutions = () => {
               <Typography variant="h3" fontWeight={800} gutterBottom sx={{ display: { xs: 'none', md: 'block' } }}>
                 {t('retail_mobile_title')}
               </Typography>
-              <Typography variant="h6" color="text.secondary" sx={{ mb: 3, lineHeight: 1.7 }}>
+              <Typography dir={isAr ? 'rtl' : 'ltr'} variant="h6" color="text.secondary" sx={{ mb: 3, lineHeight: 1.7 }}>
                 {t('retail_mobile_desc')}
               </Typography>
               <List dense disablePadding>
                 {[t('retail_mobile_f1'), t('retail_mobile_f2'), t('retail_mobile_f3'), t('retail_mobile_f4'), t('retail_mobile_f5')].map((item, index) => (
-                  <ListItem key={index} disableGutters>
+                  <ListItem dir={isAr ? 'rtl' : 'ltr'}  key={index} disableGutters>
                     <ListItemIcon sx={{ minWidth: 32 }}><CheckCircleOutlineIcon color="primary" fontSize="small" /></ListItemIcon>
-                    <ListItemText primary={item} primaryTypographyProps={{ variant: 'body2', fontWeight: 500, color: 'text.secondary' }} />
+                    <ListItemText primary={item} primaryTypographyProps={{ variant: 'body2', fontWeight: 500, color: 'text.secondary' ,textAlign: {  xs: isAr ? 'right' : 'left' } }} />
                   </ListItem>
                 ))}
               </List>

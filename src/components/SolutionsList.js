@@ -22,6 +22,7 @@ export const SolutionsList = () => {
     { key: 'construction', title: t('solution_construction_title'), desc: t('solution_construction_desc'), icon: <ConstructionIcon fontSize="large" />, path: '/construction' },
   ];
 
+  
   return (
     <Box id="solutions-overview" sx={{ py: 6 }}>
       <Container maxWidth="lg">

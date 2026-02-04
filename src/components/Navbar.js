@@ -79,8 +79,8 @@ export const Navbar = () => {
     <Box sx={{ width: 250, p: 2 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-          <CubeIcon sx={{ color: 'primary.main' }} />
-          <Typography variant="h6" fontWeight="bold">INNOSENTRA</Typography>
+          <img src={logo} alt="Logo" style={{ height: 40, width: 'auto' }} />
+          <Typography variant="h6" fontWeight="bold" sx={{color: 'text.secondary'}}>INNOSENTRA</Typography>
         </Box>
         <IconButton onClick={handleDrawerToggle}><CloseIcon /></IconButton>
       </Box>
@@ -95,7 +95,7 @@ export const Navbar = () => {
         <ListItem disablePadding>
           <ListItemButton onClick={() => setMobileLangOpen(!mobileLangOpen)}>
             <LanguageIcon sx={{ mr: 1, fontSize: 20 }} />
-            <ListItemText primary={i18n.language === 'en' ? t('lang_en') : t('lang_de')} />
+            <ListItemText primary={i18n.language === 'en' ? t('lang_en') : i18n.language === 'de' ? t('lang_de') : t('lang_ar')} />
             {mobileLangOpen ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
         </ListItem>
@@ -107,6 +107,9 @@ export const Navbar = () => {
             <ListItemButton sx={{ pl: 4 }} onClick={() => { changeLanguage('de'); setMobileOpen(false); }}>
               <ListItemText primary={t('lang_de')} />
             </ListItemButton>
+            {/* <ListItemButton sx={{ pl: 4 }} onClick={() => { changeLanguage('ar'); setMobileOpen(false); }}>
+              <ListItemText primary={t('lang_ar')} />
+            </ListItemButton> */}
           </List>
         </Collapse>
 
@@ -126,6 +129,7 @@ export const Navbar = () => {
             <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/security')}><ListItemText primary={t('nav_security')} /></ListItemButton>
             <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/industry')}><ListItemText primary={t('nav_industry')} /></ListItemButton>
             <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/construction')}><ListItemText primary={t('nav_construction')} /></ListItemButton>
+   
           </List>
         </Collapse>
       </List>
@@ -151,6 +155,7 @@ export const Navbar = () => {
                 <Menu anchorEl={langAnchorEl} open={openLangMenu} onClose={handleLangMenuClose}>
                   <MenuItem onClick={() => changeLanguage('en')}>{t('lang_en')}</MenuItem>
                   <MenuItem onClick={() => changeLanguage('de')}>{t('lang_de')}</MenuItem>
+                  {/* <MenuItem onClick={() => changeLanguage('ar')}>{t('lang_ar')}</MenuItem> */}
                 </Menu>
 
                 <Divider orientation="vertical" flexItem sx={{ mx: 1, height: 24, alignSelf: 'center' }} />
@@ -164,6 +169,7 @@ export const Navbar = () => {
                   <MenuItem onClick={() => handleNavigation('/security')}>{t('nav_security')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/industry')}>{t('nav_industry')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/construction')}>{t('nav_construction')}</MenuItem>
+              
                 </Menu>
 
                 <Button onClick={() => handleNavigation('#home')} sx={{ color: 'text.primary', fontWeight: 500 }}>{t('nav_home')}</Button>

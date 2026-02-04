@@ -7,15 +7,14 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import MediaGallery from './MediaGallery'; 
-
 import constr1 from '../images/c1.webp';
 import constr2 from '../images/c2.webp';
 
 const MotionBox = motion(Box);
 
 export const Construction = () => {
-  const { t } = useTranslation();
-
+  const { t, i18n} = useTranslation();
+  const isAr = i18n.language === 'ar';
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   const safetyMedia = [
@@ -40,6 +39,8 @@ export const Construction = () => {
       }}>
         <Container maxWidth="md">
           <MotionBox
+          dir={isAr ? 'rtl' : 'ltr'} 
+          sx={{textAlign: { xs: 'center', md: isAr ? 'right' : 'left' }}}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -67,11 +68,13 @@ export const Construction = () => {
             
             {/* Text Section */}
             <MotionBox 
+            dir={isAr ? 'rtl' : 'ltr'} 
+              
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              sx={{ width: { xs: '100%', md: '50%' } }}
+              sx={{ width: { xs: '100%', md: '50%' },textAlign: { xs: 'center', md: isAr ? 'right' : 'left' } }}
             >
               <EngineeringIcon sx={{ fontSize: 48, color: 'warning.main', mb: 2 }} />
               <Typography variant="h3" gutterBottom sx={{ fontWeight: 800 }}>
@@ -88,9 +91,12 @@ export const Construction = () => {
                   </Typography>
                   <List dense disablePadding>
                     {siteList.map((text, i) => (
-                      <ListItem key={i} disableGutters>
+                      <ListItem 
+                      dir={isAr ? 'rtl' : 'ltr'} 
+                   
+                      key={i} disableGutters>
                         <ListItemIcon sx={{ minWidth: 32 }}><CheckCircleOutlineIcon fontSize="small" /></ListItemIcon>
-                        <ListItemText primary={text} />
+                        <ListItemText sx={{textAlign: { xs: isAr ? 'right' : 'left' }}}  primary={text} />
                       </ListItem>
                     ))}
                   </List>
@@ -101,9 +107,12 @@ export const Construction = () => {
                   </Typography>
                   <List dense disablePadding>
                     {benefitList.map((text, i) => (
-                      <ListItem key={i} disableGutters>
+                      <ListItem
+                      dir={isAr ? 'rtl' : 'ltr'}
+                      
+                       key={i} disableGutters>
                         <ListItemIcon sx={{ minWidth: 32 }}><CheckCircleOutlineIcon color="secondary" fontSize="small" /></ListItemIcon>
-                        <ListItemText primary={text} />
+                        <ListItemText sx={{textAlign: { xs: isAr ? 'right' : 'left' }}}  primary={text} />
                       </ListItem>
                     ))}
                   </List>
