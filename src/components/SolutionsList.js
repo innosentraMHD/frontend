@@ -60,6 +60,7 @@ export const SolutionsList = () => {
       // ... باقي الخصائص (initial, whileInView, etc.)
       
         initial={{ opacity: 0}}
+        
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -201,7 +202,7 @@ sx={{
               onScroll={handleMobileScroll}
               sx={{
                 display: 'flex',
-          
+                overflowX: 'auto',
                 scrollSnapType: 'x mandatory',
                 gap: 0,
                 pb: 3,
