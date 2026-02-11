@@ -11,17 +11,18 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useTranslation } from 'react-i18next'; // استيراد الترجمة
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const COLOR_PALETTE = {
-  primary: '#3B82F6',
-  primaryLight: '#60A5FA',
-  primaryDark: '#1E40AF',
-  secondary: '#F97316',
-  secondaryLight: '#FB923C',
-  secondaryDark: '#EA580C',
+  primary: '#002a68',
+  primaryLight: '#000000',
+  primaryDark: '#002a68',
+  secondary: '#000000',
+  secondaryLight: '#000000',
+  secondaryDark: '#000000',
   paper: 'transparent',
   textPrimary: '#FFFFFF',
-  textSecondary: 'rgba(255, 255, 255, 0.7)'
+  textSecondary: 'rgb(255, 255, 255)'
 };
 
 const textFieldStyle = {
@@ -91,13 +92,13 @@ export const Contact = () => {
     icon: <PhoneIcon />,
     title: t('contact_phone'),
     details: [t('contact_phone_value')],
-    color: COLOR_PALETTE.primary
+    color: COLOR_PALETTE.textPrimary
   },
   {
     icon: <EmailIcon />,
     title: t('contact_email'),
     details: [t('contact_email_value')],
-    color: COLOR_PALETTE.secondary
+    color: COLOR_PALETTE.textPrimary
   },
   {
     icon: <LocationOnIcon />,
@@ -107,7 +108,7 @@ export const Contact = () => {
       t('contact_address_line2'),
       t('contact_address_line3')
     ],
-    color: '#10B981' // أخضر رسمي هادئ
+    color: COLOR_PALETTE.textPrimary // أخضر رسمي هادئ
   }
 ];
 
@@ -138,7 +139,7 @@ export const Contact = () => {
                 {contactInfo.map((info, index) => (
                   <Box
                   dir={isAr ? 'rtl' : 'ltr'} 
-                   key={index} sx={{ display: 'flex', alignItems: 'flex-start', p: { xs: 0.5, sm: 3 }, borderRadius: 3, border: `1px solid ${alpha(info.color, 0.2)}`, transition: 'all 0.3s ease', '&:hover': { transform: 'translateY(-3px)', bgcolor: alpha(info.color, 0.05) } ,textAlign: { md: isAr ? 'right' : 'left' },}}>
+                   key={index} sx={{ display: 'flex', alignItems: 'flex-start', p: { xs: 0.5, sm: 1 },  transition: 'all 0.3s ease', '&:hover': { transform: 'translateY(-3px)', bgcolor: alpha(info.color, 0.05) } ,textAlign: { md: isAr ? 'right' : 'left' },}}>
                     <Box sx={{ mx: { xs: 0.7, sm: 1 }, color: info.color, display: 'flex', alignItems: 'center', justifyContent: 'center', minWidth: { xs: 45, sm: 50 }, height: { xs: 45, sm: 50 }, borderRadius: 3, backgroundColor: alpha(info.color, 0.1), fontSize: { xs: '1.5rem', sm: '1.75rem' } }}>
                       {info.icon}
                     </Box>
@@ -182,9 +183,32 @@ export const Contact = () => {
                     <TextField fullWidth name="message" label={t('contact_label_message')} multiline rows={4} value={formik.values.message} onChange={formik.handleChange} onBlur={formik.handleBlur} error={formik.touched.message && Boolean(formik.errors.message)} helperText={formik.touched.message && formik.errors.message} disabled={loading} placeholder={t('contact_placeholder_message')} size="small" sx={textFieldStyle} />
                   </Grid>
 
-                  <Grid item xs={12} md={4} sx={{ display: 'flex', alignItems: 'flex-start', justifyContent: { xs: 'center', md: 'flex-end' } }}>
-                    <Button type="submit" variant="contained" disabled={loading || !formik.isValid} startIcon={loading ? <CircularProgress size={20} sx={{ color: 'white' }} /> : <SendIcon />} sx={{ background: `linear-gradient(135deg, ${COLOR_PALETTE.primary} 0%, ${COLOR_PALETTE.primaryDark} 100%)`, color: 'white', py: { xs: 1.2, sm: 1.5 }, px: { xs: 4, sm: 6 }, borderRadius: 2, minWidth: { xs: '180px', sm: '200px' }, '&:hover': { background: `linear-gradient(135deg, ${COLOR_PALETTE.primaryDark} 0%, ${COLOR_PALETTE.primary} 100%)`, transform: 'translateY(-2px)' } }}>
+                  <Grid item xs={12} md={12} sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'flex-start', justifyContent: { xs: 'center', md: 'flex-end' }, gap: 2, mt: 2 }}>
+
+                    
+                    <Button type="submit" variant="contained" disabled={loading || !formik.isValid} startIcon={loading ? <CircularProgress size={20} sx={{ color: 'white' }} /> : <SendIcon   sx={{ml:1,}}/>} sx={{ background: `linear-gradient(135deg, ${COLOR_PALETTE.primary} 0%, ${COLOR_PALETTE.primaryDark} 100%)`, color: 'white', py: { xs: 1.2, sm: 1.5 }, px: { xs: 4, sm: 6 }, borderRadius: 2, minWidth: { xs: '180px', sm: '200px' }, '&:hover': { background: `linear-gradient(135deg, ${COLOR_PALETTE.primaryDark} 0%, ${COLOR_PALETTE.primary} 100%)`, transform: 'translateY(-2px)' } }}>
                       {loading ? t('contact_btn_sending') : t('contact_btn_send')}
+                    </Button>
+                    <Button 
+                      variant="contained" 
+                      startIcon={<WhatsAppIcon sx={{ml:1,}} />} 
+                      href="https://wa.me/49163 9770059" // الرقم بصيغة دولية بدون أصفار أو فواصل
+                      target="_blank"
+                      sx={{ 
+                        background: '#25D366', // لون الواتساب الرسمي
+                        color: 'white', 
+                        py: { xs: 1.2, sm: 1.5 }, 
+                        px: { xs: 4, sm: 6 }, 
+                        
+                        borderRadius: 2, 
+                        minWidth: { xs: '180px', sm: '200px' }, 
+                        '&:hover': { 
+                          background: '#128C7E', 
+                          transform: 'translateY(-2px)' 
+                        } 
+                      }}
+                    >
+                      WhatsApp
                     </Button>
                   </Grid>
                 </Box>
@@ -201,7 +225,7 @@ export const Contact = () => {
         </Paper>
 
         <Snackbar open={openSnackbar} autoHideDuration={4000} onClose={() => setOpenSnackbar(false)} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
-          <Alert onClose={() => setOpenSnackbar(false)} severity={snackbarSeverity} sx={{ width: '100%', borderRadius: 2, border: '1px solid rgba(255,255,255,0.1)', fontWeight: 500 }}>
+          <Alert onClose={() => setOpenSnackbar(false)} severity={snackbarSeverity} sx={{ width: '100%', borderRadius: 2, border: '1px solid rgba(0, 0, 0, 0.1)', fontWeight: 500 }}>
             {snackbarMessage}
           </Alert>
         </Snackbar>

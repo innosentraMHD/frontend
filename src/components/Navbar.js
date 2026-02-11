@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react'; // أضفنا useContext
 import { 
   AppBar, Toolbar, Typography, Box, Button, IconButton,
   Drawer, List, ListItem, ListItemText, ListItemButton,
@@ -6,7 +6,6 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import CubeIcon from '@mui/icons-material/Dashboard';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import LanguageIcon from '@mui/icons-material/Language';
 import ExpandLess from '@mui/icons-material/ExpandLess';
@@ -16,13 +15,14 @@ import { useTheme } from '@mui/material/styles';
 import logo from '../images/logo.webp';
 import { useTranslation } from 'react-i18next';
 
+// استيراد السياق من App.js (تأكد من المسار الصحيح)
+import { LanguageContext } from '../App'; 
+
 export const Navbar = () => {
   const { t, i18n } = useTranslation();
   
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-    handleLangMenuClose();
-  };
+  // استخدام السياق بدلاً من التعامل المباشر
+  const { setLanguage } = useContext(LanguageContext); 
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -33,7 +33,6 @@ export const Navbar = () => {
 
   const openMenu = Boolean(anchorEl);
   const openLangMenu = Boolean(langAnchorEl);
-
   const navigate = useNavigate();
   const location = useLocation();
   const theme = useTheme();
@@ -45,42 +44,63 @@ export const Navbar = () => {
   const handleLangMenuClose = () => setLangAnchorEl(null);
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
+  // دالة تغيير اللغة المعدلة
+  const changeLanguage = (lng) => {
+    // نستخدم دالة السياق التي تقوم باستدعاء Service وتخزين الخيار بشكل صحيح
+    setLanguage(lng);
+    handleLangMenuClose();
+  };
+
   const handleNavigation = (path) => {
     handleMenuClose();
     setMobileOpen(false);
-    
     if (path.startsWith('#') && location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
-        const id = path.replace('#', '');
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        const element = document.getElementById(path.replace('#', ''));
+        if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 800);
     } else if (path.startsWith('#')) {
-      const id = path.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      const element = document.getElementById(path.replace('#', ''));
+      if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
       navigate(path);
     }
   };
 
+  // ... باقي الكود كما هو تماماً دون تغيير ...
+  // (التنسيقات والـ JSX لا تحتاج تعديل لأننا عدلنا المنطق فقط)
+  
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const glowEffect = {
+    transition: 'all 0.3s ease',
+    border: '1px solid transparent',
+    '&:hover, &:focus, &:active': {
+      borderColor: theme.palette.secondary.main,
+      boxShadow: `0 0 12px ${theme.palette.secondary.main}`,
+      color: theme.palette.secondary.main,
+    }
+  };
+
+  const navButtonStyle = {
+    color: theme.palette.text.white, // تأكد أن text.white معرف في الثيم أو استخدم '#fff'
+    fontWeight: 500,
+    mx: 0.5,
+    px: 2,
+    ...glowEffect
+  };
+  
   const drawer = (
     <Box sx={{ width: 250, p: 2 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-          <img src={logo} alt="Logo" style={{ height: 40, width: 'auto' }} />
-          <Typography variant="h6" fontWeight="bold" sx={{color: 'text.secondary'}}>INNOSENTRA</Typography>
+          <img src={logo} alt="Logo" style={{ height: 30, width: 'auto' }} />
+          <Typography variant="h6" fontWeight="bold" sx={{color: 'primary.main'}}>INNOSENTRA</Typography>
         </Box>
         <IconButton onClick={handleDrawerToggle}><CloseIcon /></IconButton>
       </Box>
@@ -91,45 +111,37 @@ export const Navbar = () => {
             {t('nav_contact')}
           </Button>
         </ListItem>
-
         <ListItem disablePadding>
           <ListItemButton onClick={() => setMobileLangOpen(!mobileLangOpen)}>
             <LanguageIcon sx={{ mr: 1, fontSize: 20 }} />
-            <ListItemText primary={i18n.language === 'en' ? t('lang_en') : i18n.language === 'de' ? t('lang_de') : t('lang_ar')} />
+            <ListItemText primary={i18n.language.toUpperCase()} />
             {mobileLangOpen ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
         </ListItem>
         <Collapse in={mobileLangOpen} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItemButton sx={{ pl: 4 }} onClick={() => { changeLanguage('en'); setMobileOpen(false); }}>
-              <ListItemText primary={t('lang_en')} />
-            </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }} onClick={() => { changeLanguage('de'); setMobileOpen(false); }}>
-              <ListItemText primary={t('lang_de')} />
-            </ListItemButton>
-            {/* <ListItemButton sx={{ pl: 4 }} onClick={() => { changeLanguage('ar'); setMobileOpen(false); }}>
-              <ListItemText primary={t('lang_ar')} />
-            </ListItemButton> */}
+            {['en', 'de', 'ar'].map((lang) => (
+              <ListItemButton key={lang} sx={{ pl: 4 }} onClick={() => { changeLanguage(lang); setMobileOpen(false); }}>
+                <ListItemText primary={t(`lang_${lang}`)} />
+              </ListItemButton>
+            ))}
           </List>
         </Collapse>
-
         <Divider sx={{ my: 1 }} />
-
         <ListItemButton onClick={() => handleNavigation('#home')}><ListItemText primary={t('nav_home')} /></ListItemButton>
-        <ListItemButton onClick={() => handleNavigation('#about')}><ListItemText primary={t('nav_about')} /></ListItemButton>
         
         <ListItemButton onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}>
           <ListItemText primary={t('nav_solutions')} />
           {mobileSolutionsOpen ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
+        <ListItemButton onClick={() => handleNavigation('#about')}><ListItemText primary={t('nav_about')} /></ListItemButton>
         <Collapse in={mobileSolutionsOpen} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/retail-solutions')}><ListItemText primary={t('nav_supermarket')} /></ListItemButton>
-            <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/traffic')}><ListItemText primary={t('nav_traffic')} /></ListItemButton>
-            <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/security')}><ListItemText primary={t('nav_security')} /></ListItemButton>
-            <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/industry')}><ListItemText primary={t('nav_industry')} /></ListItemButton>
-            <ListItemButton sx={{ pl: 4 }} onClick={() => handleNavigation('/construction')}><ListItemText primary={t('nav_construction')} /></ListItemButton>
-   
+            {['supermarket', 'traffic', 'security', 'industry', 'construction'].map((path) => (
+              <ListItemButton key={path} sx={{ pl: 4 }} onClick={() => handleNavigation(`/${path}`)}>
+                <ListItemText primary={t(`nav_${path.replace('-', '')}`)} />
+              </ListItemButton>
+            ))}
           </List>
         </Collapse>
       </List>
@@ -138,48 +150,89 @@ export const Navbar = () => {
 
   return (
     <>
-      <AppBar position="sticky" elevation={scrolled ? 4 : 1} sx={{ backgroundColor: 'white', color: 'text.primary', transition: 'all 0.3s ease' }}>
-        <Toolbar sx={{ justifyContent: 'space-between', px: { xs: 1, sm: 4 } }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, cursor: 'pointer' }} onClick={() => handleNavigation('/')}>
-            <img src={logo} alt="Logo" style={{ height: 40, width: 'auto' }} />
-            <Typography variant="h6" fontWeight="bold" sx={{color: 'text.secondary'}}>INNOSENTRA</Typography>
+      <AppBar 
+        position="sticky" 
+        elevation={scrolled ? 4 : 0} 
+        sx={{ 
+          backgroundColor: 'white', 
+          transition: 'all 0.3s ease',
+          borderBottom: scrolled ? 'none' : '1px solid #eee'
+        }}
+      >
+        <Toolbar disableGutters sx={{ justifyContent: 'space-between', minHeight: '70px !important' }}>
+          {/* Logo Section */}
+          <Box 
+            sx={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: 1, 
+              cursor: 'pointer',
+              px: { xs: 2, sm: 4 },
+              height: '100%'
+            }} 
+            onClick={() => handleNavigation('/')}
+          >
+            <img src={logo} alt="Logo" style={{ height: 60, width: 'auto' }} />
+            <Typography variant="h6" fontWeight="bold" sx={{ color: 'primary.main' }}>INNOSENTRA</Typography>
           </Box>
           
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            {!isMobile && (
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                
-                <Button onClick={handleLangMenuClick} startIcon={<LanguageIcon />} endIcon={<KeyboardArrowDownIcon />} sx={{ color: 'text.primary', fontWeight: 500, mx: 1 }}>
+          {/* Menu Section */}
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            height: '100%',
+            backgroundColor: 'primary.main', 
+            px: { xs: 2, sm: 4 },
+            py: 1,
+            mr: { xs: 2, sm: 0 },
+            borderRadius: { xs: '10px', sm: ' 30px 0 0 30px' }, 
+            minWidth: { xs: '60px', sm: 'auto' }
+          }}>
+            {!isMobile ? (
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Button onClick={handleLangMenuClick} startIcon={<LanguageIcon />} endIcon={<KeyboardArrowDownIcon />} sx={navButtonStyle}>
                   {i18n.language.toUpperCase()}
                 </Button>
                 <Menu anchorEl={langAnchorEl} open={openLangMenu} onClose={handleLangMenuClose}>
                   <MenuItem onClick={() => changeLanguage('en')}>{t('lang_en')}</MenuItem>
                   <MenuItem onClick={() => changeLanguage('de')}>{t('lang_de')}</MenuItem>
-                  {/* <MenuItem onClick={() => changeLanguage('ar')}>{t('lang_ar')}</MenuItem> */}
+                  <MenuItem onClick={() => changeLanguage('ar')}>{t('lang_ar')}</MenuItem>
                 </Menu>
 
-                <Divider orientation="vertical" flexItem sx={{ mx: 1, height: 24, alignSelf: 'center' }} />
+                <Divider orientation="vertical" flexItem sx={{ mx: 1, height: 24, alignSelf: 'center', bgcolor: 'rgba(255,255,255,0.2)' }} />
 
-                <Button onClick={handleMenuClick} endIcon={<KeyboardArrowDownIcon />} sx={{ color: 'text.primary', fontWeight: 500 }}>
+                <Button onClick={handleMenuClick} endIcon={<KeyboardArrowDownIcon />} sx={navButtonStyle}>
                   {t('nav_solutions')}
                 </Button>
                 <Menu anchorEl={anchorEl} open={openMenu} onClose={handleMenuClose}>
-                  <MenuItem onClick={() => handleNavigation('/retail-solutions')}>{t('nav_supermarket')}</MenuItem>
+                  <MenuItem onClick={() => handleNavigation('/supermarket')}>{t('nav_supermarket')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/traffic')}>{t('nav_traffic')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/security')}>{t('nav_security')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/industry')}>{t('nav_industry')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/construction')}>{t('nav_construction')}</MenuItem>
-              
                 </Menu>
 
-                <Button onClick={() => handleNavigation('#home')} sx={{ color: 'text.primary', fontWeight: 500 }}>{t('nav_home')}</Button>
-                <Button onClick={() => handleNavigation('#about')} sx={{ color: 'text.primary', fontWeight: 500 }}>{t('nav_about')}</Button>
-                <Button variant="outlined" onClick={() => handleNavigation('/contact')}>{t('nav_contact')}</Button>
+                <Button onClick={() => handleNavigation('#home')} sx={navButtonStyle}>{t('nav_home')}</Button>
+                
+                
+                <Button variant="outlined" onClick={() => handleNavigation('/contact')} 
+                  sx={{ ...navButtonStyle, borderColor: 'rgba(255,255,255,0.5)', ml: 2 }}>
+                  {t('nav_contact')}
+                </Button>
+                <Button onClick={() => handleNavigation('#about')} sx={navButtonStyle}>{t('nav_about')}</Button>
               </Box>
-            )}
-
-            {isMobile && (
-              <IconButton color="inherit" onClick={handleDrawerToggle}><MenuIcon /></IconButton>
+            ) : (
+              <IconButton 
+                onClick={handleDrawerToggle}
+                sx={{ 
+                  color: 'white',
+                  borderRadius: '8px',
+                  ...glowEffect 
+                }}
+              >
+                <MenuIcon />
+              </IconButton>
             )}
           </Box>
         </Toolbar>

@@ -1,12 +1,14 @@
-// i18n.js
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+import intelligentDetector from "./services/intelligentDetector";
 
 const resources = {
     // i18n.js
 
 ar: {
   translation: {
+    "learn_more":"تعرف أكثر",
     "nav_home": "الرئيسية",
     "nav_about": "من نحن",
     "nav_solutions": "حلولنا",
@@ -43,7 +45,7 @@ ar: {
     "solution_security_title": "الأمن والمراقبة",
     "solution_security_desc": "كشف التهديدات في الوقت الفعلي، تنبيهات التسلل، والمراقبة المؤتمتة",
     "solution_industry_title": "الرؤية الصناعية",
-    "solution_industry_desc": "الفحص الآلي، ضمان الجودة، وتحسين العمليات",
+    "solution_industry_desc": "الفحص الآلي،العد الدقيق، ضمان الجودة، وتحسين العمليات ",
     "solution_construction_title": "مراقبة مواقع البناء",
     "solution_construction_desc": "سلامة العمال، الامتثال لمعدات الوقاية الشخصية، ومراقبة نشاط الموقع",
 
@@ -66,6 +68,8 @@ ar: {
     "legal_security": "الأمن",
     "footer_all_rights": "جميع الحقوق محفوظة.",
 
+    "chart_intro_title": "من الكاميرا إلى القرار",
+  "chart_intro_desc": "تتبع مسار البيانات من لحظة التقاط الإشارة عبر الأجهزة، مروراً بالتحليل الذكي، وصولاً إلى النتائج القابلة للتنفيذ.",
     "chart_item_1": "تحليل المركبات واللوحات",
     "chart_item_2": "كشف الأسلحة",
     "chart_item_3": "كشف الحوادث",
@@ -166,25 +170,7 @@ ar: {
     "gallery_dashboard": "لوحة التحكم الرئيسية",
     "gallery_report": "عرض التقارير",
 
-    // Traffic Section
-    "traffic_hero_title": "المرور والمواقف الذكية",
-    "traffic_hero_subtitle": "تحويل الكاميرات إلى عيون ذكية للطرق ومباني المواقف.",
-    "traffic_section_title": "تحليلات التدفق الذكي",
-    "traffic_section_subtitle": "نظام بسيط يفهم نشاط الطريق ويدير مساحات المواقف تلقائياً.",
-    "traffic_track_label": "ماذا نتتبع؟",
-    "traffic_matters_label": "لماذا هذا مهم؟",
-
-    // Features
-    "traffic_f1": "عد السيارات في الشوارع ومواقف السيارات",
-    "traffic_f2": "التحكم الآلي في بوابات الدخول والخروج",
-    "traffic_f3": "توفر أماكن الوقوف في الوقت الفعلي",
-    "traffic_f4": "رصد الازدحام المروري والطرق المسدودة",
-    "traffic_f5": "قراءة لوحات الأرقام عند البوابات والطرق",
-
-    // Importance
-    "traffic_i1": "العثور على مواقف أسرع دون توتر",
-    "traffic_i2": "انسيابية حركة المرور داخل وخارج المباني",
-    "traffic_i3": "أمان أفضل للسائقين والمشاة",
+   
 
     // Site Info Section
     "site_info_title": "معلومات الموقع",
@@ -223,53 +209,75 @@ ar: {
     "security_info_protection_header": "حماية البيانات",
     "security_info_protection_text": "نستخدم تشفيراً بمعايير صناعية لضمان سلامة بياناتك.",
 
-    // Industry Section
-    "industry_hero_title": "رؤية الذكاء الاصطناعي الصناعية",
-    "industry_hero_subtitle": "ضمان الجودة المؤتمت للمصانع الحديثة",
-    "industry_section_title": "الفحص الآلي",
-    "industry_section_subtitle": "تحقيق تصنيع خالي من العيوب عبر المعالجة البصرية عالية السرعة.",
-    "industry_analyze_label": "ماذا نحلل؟",
-    "industry_matters_label": "لماذا هذا مهم؟",
-    "industry_a1": "كشف عيوب الأسطح",
-    "industry_a2": "التحقق من التجميع",
-    "industry_a3": "دقة التعبئة والتغليف",
-    "industry_a4": "فرز المنتجات",
-    "industry_m1": "تقليل هدر الإنتاج",
-    "industry_m2": "زيادة معدل الإنتاجية",
-    "industry_m3": "خفض التكاليف التشغيلية",
 
-    // Security Section
-    "security_hero_title": "مراقبة متقدمة",
-    "security_hero_subtitle": "أمن ذاتي للبنية التحتية الحيوية.",
-    "security_section_title": "الكشف الاستباقي عن التهديدات",
-    "security_section_subtitle": "الانتقال من التسجيل السلبي إلى منع الحوادث في الوقت الفعلي.",
-    "security_cap_label": "القدرات الأساسية",
-    "security_val_label": "القيمة التجارية",
-    "security_c1": "التعرف على الوجوه",
-    "security_c2": "كشف التسلل",
-    "security_c3": "تنبيهات الأجسام المتروكة",
-    "security_c4": "تحليل التسكع",
-    "security_v1": "حراسة مؤتمتة 24/7",
-    "security_v2": "تقليل وقت الاستجابة",
-    "security_v3": "وصول عالي الدقة",
+     // Traffic Section
+"traffic_hero_title": "المرور والمواقف الذكية: نظام متكامل لإدارة حركة السير ووقوف السيارات",
+"traffic_hero_subtitle": "نقوم بتحويل كاميرات المراقبة العادية إلى عيون إلكترونية ذكية قادرة على الرؤية والتحليل للطرق العامة ولمباني ومواقف السيارات المختلفة.",
+"traffic_section_title": "تحليلات التدفق الذكي للحركة المرورية",
+"traffic_section_subtitle": "نقدم نظاماً ذكياً وبسيط الاستخدام قادراً على فهم وتحليل نشاط وحركة الطريق بشكل تلقائي، كما يدير مساحات و أماكن المواقف بكفاءة عالية وبشأة مؤتمتة.",
+"traffic_track_label": "ماذا نتتبع و نرصد في نظامنا؟",
+"traffic_matters_label": "لماذا يعتبر هذا النظام مهماً و مفيداً؟",
 
-    // Construction Section
-    "construction_hero_title": "السلامة في مواقع البناء",
-    "construction_hero_subtitle": "حماية القوى العاملة برؤية الذكاء الاصطناعي.",
-    "construction_section_title": "الامتثال للسلامة",
-    "construction_section_subtitle": "ضمان اتباع بروتوكولات السلامة في الموقع تلقائياً.",
-    "construction_site_label": "تحليل الموقع",
-    "construction_benefit_label": "الفوائد",
-    "construction_s1": "كشف معدات الوقاية (خوذة/سترة)",
-    "construction_s2": "مراقبة المناطق الخطرة",
-    "construction_s3": "تنبيهات سقوط العمال",
-    "construction_s4": "التفاعل مع الآلات",
-    "construction_b1": "حوادث أقل في الموقع",
-    "construction_b2": "الامتثال القانوني",
-    "construction_b3": "إشراف عن بُعد على المشروع",
+// Features
+"traffic_f1": "نقوم بعد وإحصاء السيارات آلياً سواء في الشوارع والطرق أو داخل مواقف السيارات المختلفة.",
+"traffic_f2": "التحكم الآلي الكامل في بوابات الدخول والخروج للمواقف والمباني دون تدخل بشري.",
+"traffic_f3": "توفير معلومات فورية ودقيقة عن أماكن الوقوف الشاغرة والمتاحة داخل المواقف.",
+"traffic_f4": "رصد حالات الازدحام المروري والاختناقات والطرق المسدودة بشكل فوري.",
+"traffic_f5": "قراءة لوحات الأرقام للسيارات تلقائياً عند البوابات وعلى الطرق لأغراض متعددة.",
+
+// Importance
+"traffic_i1": "تمكن السائقين من العثور على مواقف لسياراتهم بشكل أسرع وبدون أي توتر أو قلق.",
+"traffic_i2": "ضمان انسيابية وسلاسة حركة المرور عند الدخول إلى المباني أو الخروج منها.",
+"traffic_i3": "تحقيق أمان أفضل وحماية أعلى لكل من السائقين والمشاة على الطريق.",
+
+// Industry Section
+"industry_hero_title": "رؤية الذكاء الاصطناعي الصناعية: ثورة في مراقبة الجودة",
+"industry_hero_subtitle": "نضمن جودة الإنتاج من خلال أنظمة فحص ومراقبة مؤتمتة بالكامل للمصانع والمنشآت الصناعية الحديثة.",
+"industry_section_title": "أنظمة الفحص الآلي الدقيق",
+"industry_section_subtitle": "نسعى لتحقيق تصنيع خالٍ من العيوب من خلال استخدام تقنيات المعالجة البصرية عالية السرعة والدقة.",
+"industry_analyze_label": "ماذا نحلل و نفحص في العمليات الصناعية؟",
+"industry_matters_label": "لماذا يعتبر هذا الفحص الآلي مهماً للصناعة؟",
+"industry_a1": "كشف العيوب والشوائب والخدوش التي تظهر على أسطح المواد والمنتجات.",
+"industry_a2": "التحقق من صحة واكتمال عملية تجميع الأجزاء والمكونات للمنتج.",
+"industry_a3": "التأكد من دقة وسلامة عملية التعبئة والتغليف للمنتجات النهائية.",
+"industry_a4": "فرز وتصنيف المنتجات المختلفة آلياً بناءً على معايير محددة.",
+"industry_m1": "يساهم بشكل كبير في تقليل هدر وإتلاف المواد والإنتاج.",
+"industry_m2": "يؤدي إلى زيادة ملحوظة في معدل الإنتاجية والكفاءة التشغيلية.",
+"industry_m3": "يساعد في خفض التكاليف التشغيلية والنفقات العامة على المدى الطويل.",
+
+// Security Section
+"security_hero_title": "أنظمة المراقبة المتقدمة والذكية",
+"security_hero_subtitle": "نوفر حلول أمن ذاتي وفعال للبنية التحتية الحيوية والهامة.",
+"security_section_title": "الكشف الاستباقي والذكي عن التهديدات الأمنية",
+"security_section_subtitle": "ننتقل بكم من مرحلة التسجيل السلبي للأحداث إلى مرحلة منع الحوادث قبل وقوعها في الوقت الفعلي.",
+"security_cap_label": "ما هي القدرات الأساسية التي يتمتع بها نظامنا؟",
+"security_val_label": "ما هي القيمة التجارية والأمنية التي يوفرها؟",
+"security_c1": "تقنية التعرف على الوجوه والتمييز بين الأشخاص.",
+"security_c2": "كشف حالات التسلل والدخول غير المشروع إلى المناطق المحظورة.",
+"security_c3": "إصدار تنبيهات فورية عند اكتشاف أجسام أو حقائب متروكة بشكل مشبوه.",
+"security_c4": "تحليل سلوك التسكع والتحركات غير الطبيعية للأشخاص في منطقة ما.",
+"security_v1": "توفر حراسة مؤتمتة وعينًا ساهرة على مدار الساعة طوال أيام الأسبوع.",
+"security_v2": "يقلل بشكل كبير من وقت الاستجابة للحوادث والتهديدات الأمنية.",
+"security_v3": "يوفر وصولاً سريعاً وسهلاً لتسجيلات عالية الدقة والجودة عند الحاجة.",
+
+// Construction Section
+"construction_hero_title": "تعزيز السلامة والأمان في مواقع البناء",
+"construction_hero_subtitle": "نعمل على حماية القوى العاملة والعمال باستخدام تقنيات رؤية الذكاء الاصطناعي المتطورة.",
+"construction_section_title": "ضمان الامتثال التلقائي لبروتوكولات السلامة",
+"construction_section_subtitle": "نضمن اتباع بروتوكولات وإجراءات السلامة في موقع العمل تلقائياً وبدقة عالية.",
+"construction_site_label": "ما الذي نقوم بتحليله ومراقبته في موقع البناء؟",
+"construction_benefit_label": "ما هي الفوائد والمكاسب الرئيسية من تطبيق هذا النظام؟",
+"construction_s1": "الكشف الآلي عن ارتداء معدات الوقاية الشخصية مثل الخوذة والسترة الواقية.",
+"construction_s2": "مراقبة مستمرة للمناطق الخطرة والتحذير من الاقتراب غير الآمن منها.",
+"construction_s3": "إرسال تنبيهات فورية في حال رصد سقوط العمال أو تعرضهم لحوادث.",
+"construction_s4": "مراقبة التفاعلات بين العمال والآلات الثقيلة للوقاية من الحوادث.",
+"construction_b1": "يؤدي إلى وقوع حوادث وإصابات أقل في موقع العمل.",
+"construction_b2": "يضمن الامتثال الكامل للالتزامات والقوانين واللوائح القانونية.",
+"construction_b3": "يمكن مدراء المشروع من الإشراف عن بُعد على سير العمل ومستويات السلامة.",
 
     "contact_email_value": "manar.bakro@innosentra.com",
-    "contact_phone_value": "0049 163 997 0059",
+
+    "contact_phone_value": " 0059 997 163 0049",
     "contact_address": "العنوان",
     "contact_address_line1": "Georgstr. 47",
     "contact_address_line2": "51145 Cologne",
@@ -277,7 +285,7 @@ ar: {
 
 
     "software_hero_title": "هندسة البرمجيات المتكاملة والأنظمة الذكية",
-      "software_hero_subtitle": "نقدم دورة حياة تطوير برمجيات كاملة (SDLC) تبدأ من هندسة الخوارزميات المعقدة، مروراً بتصميم قواعد البيانات العملاقة (SQL & NoSQL)، وصولاً إلى تطوير تطبيقات الويب والموبايل (Native & Cross-platform)، وانتهاءً بعمليات النشر (Deployment) والاستضافة السحابية الآمنة.",
+      "software_hero_subtitle": "نقدم دورة حياة تطوير برمجيات كاملة تبدأ من هندسة الخوارزميات المعقدة، مروراً بتصميم قواعد البيانات العملاقة ، وصولاً إلى تطوير تطبيقات الويب والموبايل ، وانتهاءً بعمليات النشر  والاستضافة السحابية الآمنة",
       
       "software_section_title": "التميز التقني في كل سطر كود",
       "software_section_subtitle": "فريقنا يجمع بين دقة الخوارزميات الرياضية وجمالية واجهات المستخدم، مع التركيز الصارم على الأداء، الأمان، وقابلية التوسع (Scalability).",
@@ -301,6 +309,7 @@ ar: {
 
   en: {
     translation: {
+      "learn_more":"Learn More",
       "nav_home": "Home",
       "nav_about": "About",
       "nav_solutions": "Solutions",
@@ -358,7 +367,9 @@ ar: {
     "legal_security": "Security",
     "footer_all_rights": "All rights reserved.",
 // 
-    "chart_item_1": "Vehicle & Plate Analysis",
+"chart_intro_title": "From camera to Decision",
+  "chart_intro_desc": "Track the data journey from signal capture via devices, through intelligent analysis, to actionable results.",
+  "chart_item_1": "Vehicle & Plate Analysis",
 "chart_item_2": "Weapon Detection",
 "chart_item_3": "Accident Detection",
 "chart_item_4": "Fire Detection",
@@ -461,24 +472,69 @@ ar: {
 
 
 // Traffic Section
-"traffic_hero_title": "Smart Traffic & Garages",
-"traffic_hero_subtitle": "Turning cameras into smart eyes for roads or parking buildings.",
-"traffic_section_title": "Smart Flow Analytics",
-"traffic_section_subtitle": "A simple system that understands road activity and manages garage spaces automatically.",
-"traffic_track_label": "WHAT WE TRACK",
-"traffic_matters_label": "WHY IT MATTERS",
+"traffic_hero_title": "Smart Traffic & Parking: A Comprehensive Management System",
+"traffic_hero_subtitle": "We transform standard surveillance cameras into smart electronic eyes capable of analyzing public roads, buildings, and parking facilities.",
+"traffic_section_title": "Smart Traffic Flow Analytics",
+"traffic_section_subtitle": "We provide a smart, user-friendly system that automatically analyzes road activity and manages parking spaces efficiently and autonomously.",
+"traffic_track_label": "What do we track?",
+"traffic_matters_label": "Why does it matter?",
 
 // Features
-"traffic_f1": "Counting cars in streets and parking garages",
-"traffic_f2": "Automated entry and exit gate control",
-"traffic_f3": "Real-time parking spot availability",
-"traffic_f4": "Spotting traffic jams and blocked paths",
-"traffic_f5": "Reading license plates at gates and roads",
+"traffic_f1": "Automated vehicle counting on streets and inside parking lots.",
+"traffic_f2": "Fully automated control of entry and exit gates without human intervention.",
+"traffic_f3": "Real-time, accurate information on available parking spots.",
+"traffic_f4": "Instant detection of traffic congestion, jams, and blocked roads.",
+"traffic_f5": "Automatic License Plate Recognition (ALPR) at gates and on roads.",
 
 // Importance
-"traffic_i1": "Find parking spots faster without the stress",
-"traffic_i2": "Smoother traffic flow in and out of buildings",
-"traffic_i3": "Better safety for both drivers and pedestrians",
+"traffic_i1": "Enables drivers to find parking faster, stress-free.",
+"traffic_i2": "Ensures smooth traffic flow when entering or exiting buildings.",
+"traffic_i3": "Achieves better safety and protection for both drivers and pedestrians.",
+
+// Industry Section
+"industry_hero_title": "Industrial AI Vision: A Revolution in Quality Control",
+"industry_hero_subtitle": "We ensure production quality through fully automated inspection systems for modern factories and industrial facilities.",
+"industry_section_title": "Precision Automated Inspection Systems",
+"industry_section_subtitle": "We strive for zero-defect manufacturing using high-speed, high-precision optical processing technologies.",
+"industry_analyze_label": "What do we analyze?",
+"industry_matters_label": "Why is this important?",
+"industry_a1": "Detection of defects, impurities, and scratches on material surfaces.",
+"industry_a2": "Verification of correct assembly and completeness of parts.",
+"industry_a3": "Ensuring the accuracy and integrity of final product packaging.",
+"industry_a4": "Automated sorting and classification of products based on specific criteria.",
+"industry_m1": "Significantly reduces material waste and spoilage.",
+"industry_m2": "Leads to a noticeable increase in productivity and operational efficiency.",
+"industry_m3": "Helps reduce operational costs and overheads in the long run.",
+
+// Security Section
+"security_hero_title": "Advanced Smart Surveillance Systems",
+"security_hero_subtitle": "We provide effective, autonomous security solutions for critical infrastructure.",
+"security_section_title": "Proactive Smart Threat Detection",
+"security_section_subtitle": "Moving from passive recording to proactive incident prevention in real-time.",
+"security_cap_label": "Core Capabilities",
+"security_val_label": "Business & Security Value",
+"security_c1": "Facial recognition technology and person identification.",
+"security_c2": "Detection of intrusion and unauthorized entry into restricted areas.",
+"security_c3": "Instant alerts upon detecting suspicious abandoned objects or bags.",
+"security_c4": "Analysis of loitering behavior and abnormal movements.",
+"security_v1": "Provides automated, 24/7 vigilance.",
+"security_v2": "Significantly reduces response time to incidents and security threats.",
+"security_v3": "Provides quick and easy access to high-quality footage when needed.",
+
+// Construction Section
+"construction_hero_title": "Enhancing Safety at Construction Sites",
+"construction_hero_subtitle": "Protecting the workforce using advanced AI vision technologies.",
+"construction_section_title": "Automated Safety Protocol Compliance",
+"construction_section_subtitle": "Ensuring strict adherence to safety protocols on-site automatically and accurately.",
+"construction_site_label": "What do we monitor?",
+"construction_benefit_label": "Key Benefits",
+"construction_s1": "Automated detection of PPE compliance (helmets, vests).",
+"construction_s2": "Continuous monitoring of hazardous zones and unsafe proximity warnings.",
+"construction_s3": "Instant alerts for worker falls or accidents.",
+"construction_s4": "Monitoring interactions between workers and heavy machinery to prevent accidents.",
+"construction_b1": "Results in fewer accidents and injuries on-site.",
+"construction_b2": "Ensures full compliance with legal regulations and safety standards.",
+"construction_b3": "Enables project managers to remotely supervise workflow and safety levels.",
 
 // Site Info Section
 "site_info_title": "Site Information",
@@ -520,50 +576,10 @@ ar: {
 "security_info_protection_header": "Data Protection",
 "security_info_protection_text": "We employ industry-standard encryption to ensure your data is safe during transit and at rest.",
 
-// --- Industry Section ---
-"industry_hero_title": "Industrial AI Vision",
-"industry_hero_subtitle": "Automated Quality Assurance for Modern Factories.",
-"industry_section_title": "Automated Inspection",
-"industry_section_subtitle": "Achieving zero-defect manufacturing with high-speed visual processing.",
-"industry_analyze_label": "WHAT WE ANALYZE",
-"industry_matters_label": "WHY IT MATTERS",
-"industry_a1": "Surface Defect Detection",
-"industry_a2": "Assembly Verification",
-"industry_a3": "Packaging Accuracy",
-"industry_a4": "Product Sorting",
-"industry_m1": "Reduced Production Waste",
-"industry_m2": "Increased Throughput",
-"industry_m3": "Lower Operational Costs",
 
-// --- Security Section ---
-"security_hero_title": "Advanced Surveillance",
-"security_hero_subtitle": "Autonomous Security for Critical Infrastructure.",
-"security_section_title": "Proactive Threat Detection",
-"security_section_subtitle": "Moving beyond passive recording to real-time incident prevention.",
-"security_cap_label": "CORE CAPABILITIES",
-"security_val_label": "BUSINESS VALUE",
-"security_c1": "Facial Recognition",
-"security_c2": "Intrusion Detection",
-"security_c3": "Abandoned Object Alerts",
-"security_c4": "Loitering Analysis",
-"security_v1": "24/7 Automated Guarding",
-"security_v2": "Reduced Response Time",
-"security_v3": "High-Precision Access",
 
-// --- Construction Section ---
-"construction_hero_title": "Construction Safety",
-"construction_hero_subtitle": "Protecting Workforce with Vision AI.",
-"construction_section_title": "Safety Compliance",
-"construction_section_subtitle": "Ensuring on-site safety protocols are followed automatically.",
-"construction_site_label": "SITE ANALYSIS",
-"construction_benefit_label": "BENEFITS",
-"construction_s1": "PPE (Helmet/Vest) Detection",
-"construction_s2": "Hazard Zone Monitoring",
-"construction_s3": "Worker Fall Alerts",
-"construction_s4": "Machine Interaction",
-"construction_b1": "Fewer On-site Accidents",
-"construction_b2": "Legal Compliance",
-"construction_b3": "Remote Project Oversight",
+
+
 
   "contact_email_value":"manar.bakro@innosentra.com",
   "contact_phone_value":"0049 163 997 0059",
@@ -599,6 +615,7 @@ ar: {
 
   de: {
     translation: {
+      "learn_more":"Mehr erfahren",
         "nav_home": "Startseite",
       "nav_about": "Über uns",
       "nav_solutions": "Lösungen",
@@ -656,6 +673,8 @@ ar: {
 "legal_security": "Sicherheit",
 "footer_all_rights": "Alle Rechte vorbehalten.",
 // 
+"chart_intro_title": "Von Kamera zur Entscheidung",
+  "chart_intro_desc": "Verfolgen Sie den Datenweg von der Signalerfassung über Geräte, durch intelligente Analyse bis hin zu umsetzbaren Ergebnissen.",
 "chart_item_1": "Fahrzeug- & Kennzeichenanalyse",
 "chart_item_2": "Waffenerkennung",
 "chart_item_3": "Unfallerkennung",
@@ -755,25 +774,7 @@ ar: {
 "gallery_dashboard": "Haupt-Dashboard",
 "gallery_report": "Bericht-Ansicht",
 
-// Traffic Section
-"traffic_hero_title": "Intelligenter Verkehr & Parkhäuser",
-"traffic_hero_subtitle": "Verwandlung von Kameras in intelligente Augen für Straßen oder Parkhäuser.",
-"traffic_section_title": "Intelligente Verkehrsfluss-Analyse",
-"traffic_section_subtitle": "Ein einfaches System, das Straßenaktivitäten versteht und Parkplätze automatisch verwaltet.",
-"traffic_track_label": "WAS WIR VERFOLGEN",
-"traffic_matters_label": "WARUM ES WICHTIG IST",
 
-// Features
-"traffic_f1": "Zählen von Autos auf Straßen und in Parkhäusern",
-"traffic_f2": "Automatisierte Steuerung von Ein- und Ausfahrtsschranken",
-"traffic_f3": "Echtzeit-Verfügbarkeit von Parkplätzen",
-"traffic_f4": "Erkennung von Staus und blockierten Wegen",
-"traffic_f5": "Lesen von Nummernschildern an Toren und Straßen",
-
-// Importance
-"traffic_i1": "Parkplätze schneller und stressfrei finden",
-"traffic_i2": "Reibungsloserer Verkehrsfluss in und aus Gebäuden",
-"traffic_i3": "Höhere Sicherheit für Fahrer und Fußgänger",
 
 // Site Info Section
 "site_info_title": "Seiteninformationen",
@@ -815,50 +816,70 @@ ar: {
 "security_info_protection_header": "Datenschutz",
 "security_info_protection_text": "Wir setzen Verschlüsselung nach Industriestandard ein, um sicherzustellen, dass Ihre Daten während der Übertragung und im Ruhezustand sicher sind.",
 
-// --- Industry Section ---
-"industry_hero_title": "Industrielle KI-Vision",
-"industry_hero_subtitle": "Automatisierte Qualitätssicherung für moderne Fabriken.",
-"industry_section_title": "Automatisierte Inspektion",
-"industry_section_subtitle": "Erreichung einer Null-Fehler-Produktion durch visuelle Hochgeschwindigkeitsverarbeitung.",
-"industry_analyze_label": "WAS WIR ANALYSIEREN",
-"industry_matters_label": "WARUM ES WICHTIG IST",
-"industry_a1": "Erkennung von Oberflächendefekten",
-"industry_a2": "Montageüberprüfung",
-"industry_a3": "Verpackungsgenauigkeit",
-"industry_a4": "Produktsortierung",
-"industry_m1": "Reduzierter Produktionsabfall",
-"industry_m2": "Erhöhter Durchsatz",
-"industry_m3": "Geringere Betriebskosten",
+// Traffic Section
+"traffic_hero_title": "Intelligenter Verkehr & Parken: Ein integriertes Managementsystem",
+"traffic_hero_subtitle": "Wir verwandeln gewöhnliche Überwachungskameras in intelligente elektronische Augen, die öffentliche Straßen, Gebäude und Parkplätze analysieren.",
+"traffic_section_title": "Intelligente Verkehrsflussanalyse",
+"traffic_section_subtitle": "Wir bieten ein intelligentes, benutzerfreundliches System, das die Straßenaktivität automatisch analysiert und Parkplätze effizient und autonom verwaltet.",
+"traffic_track_label": "Was wir erfassen",
+"traffic_matters_label": "Warum ist das wichtig?",
 
-// --- Security Section ---
-"security_hero_title": "Erweiterte Überwachung",
-"security_hero_subtitle": "Autonome Sicherheit für kritische Infrastrukturen.",
-"security_section_title": "Proaktive Bedrohungserkennung",
-"security_section_subtitle": "Vom passiven Aufzeichnen zur Echtzeit-Vorfallverhütung.",
-"security_cap_label": "KERNFUNKTIONEN",
-"security_val_label": "GESCHÄFTSWERT",
-"security_c1": "Gesichtserkennung",
-"security_c2": "Eindringlingserkennung",
-"security_c3": "Warnung bei herrenlosen Objekten",
-"security_c4": "Analyse von Herumlungern",
-"security_v1": "24/7 Automatisierte Bewachung",
-"security_v2": "Reduzierte Reaktionszeit",
-"security_v3": "Hochpräziser Zugang",
+// Features
+"traffic_f1": "Automatische Fahrzeugzählung auf Straßen und in Parkhäusern.",
+"traffic_f2": "Vollautomatische Steuerung von Ein- und Ausfahrtsschranken ohne menschliches Eingreifen.",
+"traffic_f3": "Echtzeitinformationen über freie und verfügbare Parkplätze.",
+"traffic_f4": "Sofortige Erkennung von Verkehrsstaus und blockierten Straßen.",
+"traffic_f5": "Automatische Nummernschilderkennung an Schranken und auf Straßen.",
 
-// --- Construction Section ---
-"construction_hero_title": "Baustellensicherheit",
-"construction_hero_subtitle": "Schutz der Belegschaft durch Vision AI.",
-"construction_section_title": "Sicherheitskonformität",
-"construction_section_subtitle": "Sicherstellen, dass Sicherheitsprotokolle vor Ort automatisch eingehalten werden.",
-"construction_site_label": "STANDORTANALYSE",
-"construction_benefit_label": "VORTEILE",
-"construction_s1": "PSA-Erkennung (Helm/Weste)",
-"construction_s2": "Gefahrenzonenüberwachung",
-"construction_s3": "Sturzerkennung bei Arbeitern",
-"construction_s4": "Maschineninteraktion",
-"construction_b1": "Weniger Unfälle vor Ort",
-"construction_b2": "Rechtliche Konformität",
-"construction_b3": "Fernüberwachung von Projekten",
+// Importance
+"traffic_i1": "Ermöglicht Fahrern eine schnellere und stressfreie Parkplatzsuche.",
+"traffic_i2": "Gewährleistet einen reibungslosen Verkehrsfluss beim Ein- und Ausfahren.",
+"traffic_i3": "Sorgt für mehr Sicherheit und Schutz für Fahrer und Fußgänger.",
+
+// Industry Section
+"industry_hero_title": "Industrielle KI-Vision: Eine Revolution in der Qualitätskontrolle",
+"industry_hero_subtitle": "Wir sichern die Produktionsqualität durch vollautomatische Inspektionssysteme für moderne Fabriken und Industrieanlagen.",
+"industry_section_title": "Präzise automatische Inspektionssysteme",
+"industry_section_subtitle": "Wir streben eine fehlerfreie Fertigung durch den Einsatz von optischen Hochgeschwindigkeits-Verarbeitungstechnologien an.",
+"industry_analyze_label": "Was wir analysieren",
+"industry_matters_label": "Warum ist das wichtig?",
+"industry_a1": "Erkennung von Defekten, Verunreinigungen und Kratzern auf Materialoberflächen.",
+"industry_a2": "Überprüfung der korrekten Montage und Vollständigkeit von Teilen.",
+"industry_a3": "Sicherstellung der Genauigkeit und Unversehrtheit der Produktverpackung.",
+"industry_a4": "Automatisches Sortieren und Klassifizieren von Produkten nach bestimmten Kriterien.",
+"industry_m1": "Reduziert Materialverschwendung und Ausschuss erheblich.",
+"industry_m2": "Führt zu einer spürbaren Steigerung der Produktivität und Betriebseffizienz.",
+"industry_m3": "Hilft langfristig bei der Senkung der Betriebskosten.",
+
+// Security Section
+"security_hero_title": "Fortschrittliche intelligente Überwachungssysteme",
+"security_hero_subtitle": "Wir bieten effektive, autonome Sicherheitslösungen für kritische Infrastrukturen.",
+"security_section_title": "Proaktive intelligente Bedrohungserkennung",
+"security_section_subtitle": "Der Übergang von der passiven Aufzeichnung zur proaktiven Vorbeugung von Vorfällen in Echtzeit.",
+"security_cap_label": "Kernkompetenzen",
+"security_val_label": "Geschäftlicher & Sicherheitstechnischer Wert",
+"security_c1": "Gesichtserkennungstechnologie und Personenidentifizierung.",
+"security_c2": "Erkennung von Eindringlingen und unbefugtem Zutritt in Sperrbereiche.",
+"security_c3": "Sofortige Warnungen bei Erkennung verdächtiger zurückgelassener Gegenstände.",
+"security_c4": "Analyse von Herumlungern und abnormalen Bewegungen.",
+"security_v1": "Bietet eine automatisierte Überwachung rund um die Uhr.",
+"security_v2": "Verkürzt die Reaktionszeit auf Vorfälle und Sicherheitsbedrohungen erheblich.",
+"security_v3": "Bietet bei Bedarf schnellen und einfachen Zugriff auf hochauflösende Aufnahmen.",
+
+// Construction Section
+"construction_hero_title": "Verbesserung der Sicherheit auf Baustellen",
+"construction_hero_subtitle": "Schutz der Arbeitskräfte durch fortschrittliche KI-Vision-Technologien.",
+"construction_section_title": "Automatische Einhaltung von Sicherheitsprotokollen",
+"construction_section_subtitle": "Gewährleistung der strikten und automatischen Einhaltung von Sicherheitsvorschriften vor Ort.",
+"construction_site_label": "Was wir überwachen",
+"construction_benefit_label": "Hauptvorteile",
+"construction_s1": "Automatische Erkennung der PSA-Einhaltung (Helme, Warnwesten).",
+"construction_s2": "Kontinuierliche Überwachung von Gefahrenzonen und Warnung bei Annäherung.",
+"construction_s3": "Sofortige Warnungen bei Stürzen von Arbeitern oder Unfällen.",
+"construction_s4": "Überwachung der Interaktionen zwischen Arbeitern und schweren Maschinen.",
+"construction_b1": "Führt zu weniger Unfällen und Verletzungen auf der Baustelle.",
+"construction_b2": "Gewährleistet die vollständige Einhaltung gesetzlicher Vorschriften.",
+"construction_b3": "Ermöglicht Projektleitern die Fernüberwachung des Arbeitsablaufs und der Sicherheit.",
 
 "contact_email_value":"manar.bakro@innosentra.com",
   "contact_phone_value":"0049 163 997 0059",
@@ -891,12 +912,140 @@ ar: {
 }
   }
 };
+const savedLanguage = localStorage.getItem('userLanguageChoice');
 
-i18n.use(initReactI18next).init({
-  resources,
-  lng: "en", 
-  fallbackLng: "en",
-  interpolation: { escapeValue: false }
-});
+i18n
+  .use(initReactI18next)
+  .init({
+    resources,
+    // إذا كان هناك لغة محفوظة، نستخدمها، وإلا الإنجليزية كبداية (سيتم التحقق من الـ IP لاحقاً)
+    lng: savedLanguage || 'en', 
+    fallbackLng: "en",
+    interpolation: { 
+      escapeValue: false 
+    }
+  });
 
+// نطبق اتجاه الصفحة فوراً عند بدء التشغيل إذا كانت اللغة محفوظة
+
+
+
+// --- 3. خدمة اللغة (Named Export) ---
+// هذا الكائن يحتوي على كل الوظائف التي تحتاجها App.js و Navbar
+// دمجنا المنطق هنا لضمان عدم حدوث أخطاء استيراد
+
+export const languageService = {
+  /**
+   * الدالة الرئيسية التي يتم استدعاؤها في App.js عند تحميل الموقع
+   */
+async detectAndApply() {
+    console.log('🔄 Starting detection logic...');
+
+    // 1. الأولوية القصوى: هل اختار المستخدم لغة سابقاً؟ (يدوي)
+    const storedLang = localStorage.getItem('userLanguageChoice');
+    if (storedLang) {
+      console.log('✅ Found stored user preference:', storedLang);
+      this.changeLanguage(storedLang, false); // false = لا تحفظ مرة أخرى لأنها محفوظة
+      return storedLang;
+    }
+
+    // 2. هل قمنا بالكشف التلقائي في هذه الجلسة من قبل؟ (لتوفير طلبات السيرفر)
+    const sessionLang = sessionStorage.getItem('autoDetectedSession');
+    if (sessionLang) {
+       console.log('⚡ Using session cached detection:', sessionLang);
+       this.changeLanguage(sessionLang, false); 
+       return sessionLang;
+    }
+
+    console.log('🌍 Checking IP for location (First time)...');
+    
+    let detectedLang = 'en'; // قيمة افتراضية
+    let countryCode = 'US';
+
+    try {
+      // محاولة 1: خدمة ipapi.co
+      const response = await fetch('https://ipapi.co/json/');
+      if (response.ok) {
+        const data = await response.json();
+        countryCode = data.country_code;
+        console.log('📍 IP Service 1 (ipapi.co) detected:', countryCode);
+      } else {
+        throw new Error('Service 1 failed');
+      }
+    } catch (e1) {
+      console.warn('⚠️ Service 1 failed, trying Service 2...');
+      try {
+        // محاولة 2: خدمة ip-api.com (احتياطية)
+        const response2 = await fetch('http://ip-api.com/json/'); // ملاحظة: قد لا تعمل على https في بعض الأحيان لذا الحذر
+        if (response2.ok) {
+             const data2 = await response2.json();
+             countryCode = data2.countryCode;
+             console.log('📍 IP Service 2 (ip-api) detected:', countryCode);
+        }
+      } catch (e2) {
+        console.warn('❌ Both IP services failed. Falling back to browser.');
+      }
+    }
+
+    // خريطة الدول
+    const countryMap = {
+      'SY': 'ar', 'LB': 'ar', 'JO': 'ar', 'SA': 'ar', 'AE': 'ar', 
+      'QA': 'ar', 'KW': 'ar', 'BH': 'ar', 'OM': 'ar', 'EG': 'ar', 'TR': 'ar',
+      'DE': 'de', 'AT': 'de', 'CH': 'de'
+    };
+
+    // تحديد اللغة بناءً على الدولة
+    if (countryMap[countryCode]) {
+        detectedLang = countryMap[countryCode];
+    } else {
+        // 3. إذا فشل الـ IP أو الدولة غير موجودة -> نستخدم لغة المتصفح
+        const browserLang = navigator.language || navigator.userLanguage || 'en';
+        console.log('💻 Checking Browser Language:', browserLang);
+        
+        if (browserLang.startsWith('ar')) detectedLang = 'ar';
+        else if (browserLang.startsWith('de')) detectedLang = 'de';
+    }
+
+    console.log(`🎯 Final Decision: ${detectedLang}`);
+
+    // تطبيق اللغة
+    await this.changeLanguage(detectedLang, false);
+    
+    // حفظ في الجلسة فقط (ليس التخزين الدائم) لكي لا نعيد الطلب كل مرة نعمل ريفريش
+    sessionStorage.setItem('autoDetectedSession', detectedLang);
+    
+    return detectedLang;
+  },
+
+  /**
+   * دالة تغيير اللغة وتطبيق الاتجاه
+   */
+  async changeLanguage(lang, isUserChoice = true) {
+    // 1. تغيير اللغة في i18n
+    await i18n.changeLanguage(lang);
+    
+    // 2. تحديث الاتجاه (HTML Dir)
+  
+
+    // 3. حفظ الاختيار (فقط إذا كان اختيار المستخدم يدوياً)
+    if (isUserChoice) {
+        console.log('💾 Saving user choice to localStorage:', lang);
+        localStorage.setItem('userLanguageChoice', lang);
+        localStorage.removeItem('autoDetectedLanguage'); // تنظيف
+    }
+
+    return lang;
+  },
+
+  getLanguageSource() {
+    if (localStorage.getItem('userLanguageChoice')) return 'manual';
+    return 'auto';
+  },
+
+  getAvailableLanguages() {
+    return ['en', 'de', 'ar'];
+  }
+};
+
+// Default Export
 export default i18n;

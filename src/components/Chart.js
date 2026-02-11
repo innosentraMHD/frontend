@@ -72,6 +72,24 @@ export const Chart = () => {
   return (
     <Box id="about" sx={{ py: 6 }}>
       <Container maxWidth="lg">
+          <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 }, maxWidth: '800px', mx: 'auto' }}>
+          <Typography 
+            variant="h4" 
+            component="h2" 
+            fontWeight="bold" 
+            gutterBottom
+            sx={{ color: 'primary.main' }} // أو أي لون يناسب الثيم
+          >
+            {t('chart_intro_title')}
+          </Typography>
+          <Typography 
+            variant="body1" 
+            color="text.secondary" 
+            sx={{ fontSize: { xs: '1rem', md: '1.1rem' }, lineHeight: 1.6 }}
+          >
+            {t('chart_intro_desc')}
+          </Typography>
+        </Box>
         <Box 
           sx={{ 
             display: 'flex', 
@@ -81,6 +99,7 @@ export const Chart = () => {
             gap: { xs: 4, md: 2 }, 
           }}
         >
+        
           {/* ======================= الخطوة 1: شبكة الصور ======================= */}
           <MotionBox sx={stepContainerStyle} {...fadeInUp}>
             <Box

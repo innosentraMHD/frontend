@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { 
-  Box, Container, Typography, List, ListItem, ListItemIcon, ListItemText 
+  Box, Container, Typography, List, ListItem, ListItemIcon, ListItemText, Divider 
 } from '@mui/material';
 import SecurityIcon from '@mui/icons-material/Security';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import ShieldMoonIcon from '@mui/icons-material/ShieldMoon'; // أيقونة إضافية للجمالية
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import MediaGallery from './MediaGallery'; 
@@ -35,90 +36,125 @@ export const Security = () => {
   ];
 
   return (
-    <Box dir={isAr ? 'rtl' : 'ltr'} sx={{ overflowX: 'hidden' }}>
-      
-      {/* Hero Section */}
-      <Box sx={{ 
-        bgcolor: '#0f1220', 
+    <Box 
+      dir={isAr ? 'rtl' : 'ltr'} 
+      sx={{ 
+        bgcolor: '#020408', // لون داكن أكثر عمقاً
         color: 'white', 
-        py: { xs: 8, md: 12 }, 
+        overflowX: 'hidden',
+        minHeight: '100vh'
+      }}
+    >
+      
+      {/* Hero Section: النمط السري الغامض */}
+      <Box sx={{ 
+        position: 'relative',
+        bgcolor: '#05070a', 
+        color: 'white', 
+        py: { xs: 6, md: 8 }, 
         textAlign: 'center',
-        background: 'linear-gradient(135deg, #1a0a0a 0%, #11152f 100%)',
-        minHeight: '60vh',
+        background: 'radial-gradient(circle at 50% 50%, #101428 0%, #020408 100%)',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        overflow: 'hidden'
       }}>
+        {/* عنصر بصري ديكوري للسرية */}
+        <Box sx={{ 
+          position: 'absolute', top: '-10%', left: isAr ? 'auto' : '-5%', right: isAr ? '-5%' : 'auto',
+          width: '40%', height: '40%', bgcolor: 'primary.main', filter: 'blur(150px)', opacity: 0.05 
+        }} />
+
         <Container maxWidth="md">
           <MotionBox
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
           >
-            <Typography variant="h3" sx={{ fontWeight: 800, fontSize: { xs: '2.2rem', md: '3.5rem' } }}>
+          
+            <Typography variant="h2" sx={{ fontWeight: 900, fontSize: { xs: '2.5rem', md: '4.5rem' }, mb: 2, textShadow: '0 0 20px rgba(0,0,0,0.5)' }}>
               {t('security_hero_title')}
             </Typography>
-            <Typography variant="h5" sx={{ opacity: 0.8, fontWeight: 300, mt: 2, fontSize: { xs: '1.1rem', md: '1.5rem' } }}>
+            <Typography variant="h5" sx={{ opacity: 0.5, fontWeight: 300, maxWidth: '750px', mx: 'auto', lineHeight: 1.6 }}>
               {t('security_hero_subtitle')}
             </Typography>
           </MotionBox>
         </Container>
       </Box>
 
-      {/* Content Section */}
-      <Box sx={{ py: { xs: 6, md: 12 } }}>
+      {/* Content Section: تخطيط احترافي مرن */}
+      <Box sx={{ py: { xs: 8, md: 15 }, position: 'relative' }}>
         <Container maxWidth="lg">
           <Box sx={{ 
             display: 'flex', 
-            flexDirection: { 
-              xs: 'column', // فوق بعض في الجوال
-              md: 'row'     // في الديسك توب يتبع الـ dir تلقائياً (نص يمين/صورة يسار في العربي)
-            }, 
+            flexDirection: { xs: 'column', md: isAr ? 'row' : 'row-reverse' }, 
             alignItems: 'center', 
-            gap: { xs: 6, md: 8 } 
+            gap: { xs: 6, md: 10 } 
           }}>
             
-            {/* Text Section */}
-            <MotionBox 
-              initial={{ opacity: 0, x: isAr ? 100 : -100 }} // الأنيميشن يأتي من الجهة المناسبة
-              whileInView={{ opacity: 1, x: 0 }}
+            {/* جهة الصور: إطار تقني حديث */}
+            <MotionBox
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.8 }}
               sx={{ 
                 width: { xs: '100%', md: '50%' },
-                textAlign: { xs: 'center', md: 'initial' }, // توسيط في الجوال
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: { xs: 'center', md: 'flex-start' }
+                position: 'relative',
+                p: 1,
+                borderRadius: '12px',
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%)',
               }}
             >
-              <SecurityIcon sx={{ fontSize: 48, color: 'error.main', mb: 2 }} />
-              <Typography variant="h3" gutterBottom sx={{ fontWeight: 800, fontSize: { xs: '1.8rem', md: '2.8rem' } }}>
+              <MediaGallery mediaItems={securityMedia} />
+            </MotionBox>
+
+            {/* جهة النص: بطاقة زجاجية فاخرة */}
+            <MotionBox 
+              initial={{ opacity: 0, x: isAr ? 40 : -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              sx={{ 
+                width: { xs: '100%', md: '50%' },
+                bgcolor: 'rgba(10, 15, 25, 0.7)',
+                p: { xs: 4, md: 7 },
+                borderRadius: '8px',
+                border: '1px solid rgba(255,255,255,0.08)',
+                backdropFilter: 'blur(15px)',
+                boxShadow: '0 30px 60px rgba(0,0,0,0.4)',
+                textAlign: { xs: 'center', md: isAr ? 'right' : 'left' }
+              }}
+            >
+              <SecurityIcon sx={{ fontSize: 60, color:'secondary.main', mb: 3, filter: 'drop-shadow(0 0 10px rgba(0,150,255,0.4))' }} />
+              <Typography variant="h3" gutterBottom sx={{ fontWeight: 800, fontSize: { xs: '2rem', md: '3rem' }, mb: 3 }}>
                 {t('security_section_title')}
               </Typography>
-              <Typography variant="h6" color="text.secondary" sx={{ mb: 4, lineHeight: 1.6 }}>
+              <Typography variant="body1" sx={{ mb: 6, opacity: 0.6, fontSize: '1.1rem', lineHeight: 1.8 }}>
                 {t('security_section_subtitle')}
               </Typography>
               
+              <Divider sx={{ mb: 5, borderColor: 'rgba(255,255,255,0.05)' }} />
+
               <Box sx={{ 
                 display: 'flex', 
                 flexDirection: { xs: 'column', sm: 'row' }, 
-                gap: 4,
-                width: '100%' 
+                gap: 5,
+                textAlign: isAr ? 'right' : 'left'
               }}>
-                {/* القائمة الأولى */}
+                {/* القائمة الأولى: القدرات */}
                 <Box sx={{ flex: 1 }}>
-                  <Typography variant="subtitle2" fontWeight="bold" color="primary" sx={{ mb: 2 }}>
+                  <Typography variant="subtitle1" fontWeight="900" color='secondary.main' sx={{ mb: 3, display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'flex-start' } }}>
+                    <Box sx={{ width: 6, height: 6, bgcolor:'secondary.main', borderRadius: '50%' }} />
                     {t('security_cap_label')}
                   </Typography>
                   <List dense disablePadding>
                     {capabilitiesList.map((text, i) => (
-                      <ListItem key={i} disableGutters sx={{ justifyContent: { xs: 'center', md: 'flex-start' } }}>
-                        <ListItemIcon sx={{ minWidth: 32 }}>
-                          <CheckCircleOutlineIcon fontSize="small" />
+                      <ListItem key={i} disableGutters sx={{ mb: 2, alignItems: 'flex-start' }}>
+                        <ListItemIcon sx={{ minWidth: 35, mt: 0.5 }}>
+                          <CheckCircleOutlineIcon sx={{ color: 'secondary.main', fontSize: '1.2rem' }} />
                         </ListItemIcon>
                         <ListItemText 
                           primary={text} 
+                          primaryTypographyProps={{ fontSize: '0.95rem', fontWeight: 400, color: 'rgba(255,255,255,0.8)' }}
                           sx={{ textAlign: isAr ? 'right' : 'left' }}
                         />
                       </ListItem>
@@ -126,19 +162,21 @@ export const Security = () => {
                   </List>
                 </Box>
                 
-                {/* القائمة الثانية */}
+                {/* القائمة الثانية: القيم */}
                 <Box sx={{ flex: 1 }}>
-                  <Typography variant="subtitle2" fontWeight="bold" color="secondary" sx={{ mb: 2 }}>
+                  <Typography variant="subtitle1" fontWeight="900" color="secondary.light" sx={{ mb: 3, display: 'flex', alignItems: 'center', gap: 1, justifyContent: { xs: 'center', md: 'flex-start' } }}>
+                    <Box sx={{ width: 6, height: 6, bgcolor: 'secondary.main', borderRadius: '50%' }} />
                     {t('security_val_label')}
                   </Typography>
                   <List dense disablePadding>
                     {valueList.map((text, i) => (
-                      <ListItem key={i} disableGutters sx={{ justifyContent: { xs: 'center', md: 'flex-start' } }}>
-                        <ListItemIcon sx={{ minWidth: 32 }}>
-                          <CheckCircleOutlineIcon color="secondary" fontSize="small" />
+                      <ListItem key={i} disableGutters sx={{ mb: 2, alignItems: 'flex-start' }}>
+                        <ListItemIcon sx={{ minWidth: 35, mt: 0.5 }}>
+                          <CheckCircleOutlineIcon sx={{ color: 'secondary.main', fontSize: '1.2rem' }} />
                         </ListItemIcon>
                         <ListItemText 
                           primary={text} 
+                          primaryTypographyProps={{ fontSize: '0.95rem', fontWeight: 400, color: 'rgba(255,255,255,0.8)' }}
                           sx={{ textAlign: isAr ? 'right' : 'left' }}
                         />
                       </ListItem>
@@ -146,20 +184,6 @@ export const Security = () => {
                   </List>
                 </Box>
               </Box>
-            </MotionBox>
-
-            {/* Gallery Section */}
-            <MotionBox
-              initial={{ opacity: 0, x: isAr ? -100 : 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              sx={{ 
-                width: { xs: '100%', md: '50%' },
- 
-              }}
-            >
-              <MediaGallery mediaItems={securityMedia} />
             </MotionBox>
 
           </Box>

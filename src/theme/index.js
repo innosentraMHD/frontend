@@ -2,22 +2,22 @@ import { createTheme, responsiveFontSizes } from '@mui/material';
 
 const colors = {
   white: '#ffffff',
-  gray: '#f8f9fa',
-  black: '#2c3e50',
-  blue: '#0056b3',
-  orange: '#e67e22',
+  gray: '#000000',
+  black: '#000000',
+  blue: 'rgb(10,60,90)' ,
+  orange: '#00d8fe',
 };
 
 let theme = createTheme({
   palette: {
-    primary: { main: colors.blue, dark: '#013878ff' },
-    secondary: { main: colors.orange, dark: '#d35400' },
-    background: { default: colors.white, gray: colors.gray, dark: '#013878ff' },
+    primary: { main: colors.blue, dark: 'rgb(10,70,80)' },
+    secondary: { main: colors.orange, dark: '#000000' },
+    background: { default: colors.white, gray: colors.gray, dark:  'rgb(10,60,90)' },
     text: { primary: colors.blue, secondary: colors.black, third: colors.orange, white: colors.white },
   },
   typography: {
     // التعديل الوحيد هنا: إضافة خط "Cairo" في البداية لدعم العربية
-    fontFamily: '"Cairo", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+    fontFamily: '"SN Pro","Cairo", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
     h1: { fontWeight: 700 },
     h2: { fontWeight: 700 },
   },

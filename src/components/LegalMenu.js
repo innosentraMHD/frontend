@@ -3,7 +3,7 @@ import { List, ListItem, ListItemButton, ListItemText, Box } from '@mui/material
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'; // استيراد الترجمة
 
-export const LegalMenu = ({ direction = 'column', color = '#0c3478ff' }) => {
+export const LegalMenu = ({ direction = 'column', color = '#000000' }) => {
   const navigate = useNavigate();
   const { t } = useTranslation(); // تفعيل الترجمة
 

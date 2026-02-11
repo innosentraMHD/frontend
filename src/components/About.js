@@ -1,23 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Container, 
   Typography, 
   Box,
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion'; // استيراد motion
-import main from '../images/t1.webp';
+import { motion, AnimatePresence } from 'framer-motion'; 
+// استيراد الصور
+import main from '../images/about1.webp';
+import image2 from '../images/about2.webp'; // افترضت الأسماء
+import image3 from '../images/about3.webp'; // افترضت الأسماء
 
-// إعداد Box يدعم الحركة
 const MotionBox = motion(Box);
 
 export const About = () => {
-  const { t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   const isAr = i18n.language === 'ar';
-    
+  
+  // قائمة الصور
+  const images = [main, image2, image3];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // منطق تغيير الصورة تلقائياً كل 1.2 ثانية
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 2000); // 1200ms = 1.2s
+
+    return () => clearInterval(timer); // تنظيف المؤقت عند إغلاق المكون
+  }, [images.length]);
 
   return (
-    <Box id="about" sx={{ py: 6, overflow: 'hidden' }}> {/* أضفنا overflow: hidden لمنع ظهور شريط التمرير العرضي أثناء الحركة */}
+    <Box id="about" sx={{ py: 6, overflow: 'hidden' }}>
       <Container maxWidth="lg">
         <Box 
           sx={{ 
@@ -27,49 +41,69 @@ export const About = () => {
             gap: 4
           }}
         >
-          {/* قسم الصورة - يتحرك من اليسار إلى اليمين */}
+          {/* قسم الصورة مع تأثير التغيير السلس */}
           <MotionBox
-            initial={{ opacity: 0, x: -100 }} // يبدأ من اليسار
-            whileInView={{ opacity: 1, x: 0 }} // ينزلق لمكانه الطبيعي
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            sx={{ flex: 1, width: '100%' }}
+            sx={{ 
+              flex: 1, 
+              width: '100%', 
+              position: 'relative', 
+              height: { xs: 300, md: 400 }, // تحديد ارتفاع ثابت لمنع القفز أثناء التغيير
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
           >
-            <Box
-              component="img"
-              src={main}
-              alt="AI & Computer Vision"
-              sx={{
-                transition: 'transform 0.5s',
-                '&:hover': { transform: 'scale(1.05)' },
-                width: '100%',
-                maxWidth: 500,
-                height: 'auto',
-                borderRadius: 2,
-                objectFit: 'cover',
-                mx: 'auto',
-                display: 'block'
-              }}
-            />
+            <AnimatePresence mode="wait">
+              <MotionBox
+                key={currentIndex}
+                component="img"
+                src={images[currentIndex]}
+                alt={`Slide ${currentIndex}`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }} // سرعة الاختفاء والظهور
+                sx={{
+                  width: '100%',
+                  maxWidth: 500,
+                  height: '100%',
+                  borderRadius: 2,
+                  objectFit: 'cover',
+                  mx: 'auto',
+                  display: 'block',
+                  boxShadow: 3
+                }}
+              />
+            </AnimatePresence>
           </MotionBox>
           
-          {/* قسم النصوص - يتحرك من اليمين إلى اليسار */}
+          {/* قسم النصوص */}
           <MotionBox 
-          dir={isAr ? 'rtl' : 'ltr'} 
-
-            initial={{ opacity: 0, x: 100 }} // يبدأ من اليمين
-            whileInView={{ opacity: 1, x: 0 }} // ينزلق لمكانه الطبيعي
+            dir={isAr ? 'rtl' : 'ltr'} 
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            sx={{ flex: 1, textAlign: { xs: 'center', md: isAr ? 'right' : 'left' }, }}
+            sx={{ flex: 1, textAlign: { xs: 'center', md: isAr ? 'right' : 'left' } }}
           >
-            <Typography variant="h3" sx={{ color: 'text.third', mb: 1, fontSize: { xs: '1.8rem', md: '2.2rem', lg: '2.5rem' } }}>
+            <Typography variant="h3" sx={{ 
+                color: 'text.primary', mb: 1, fontWeight: 700,
+                fontSize: {xs: '2rem', md: '2.8rem', lg: '3rem'} 
+            }}>
               {t('about_title')}
             </Typography>
 
             <Typography 
               variant="body1"  
-              sx={{ mb: 0, fontSize: { xs: '1.1rem', md: '1.25rem', lg: '1.4rem' }, color: 'text.secondary'}}
+              sx={{ 
+                mb: 0, fontWeight: 400,
+                fontSize: {xs: '1.1rem', md: '1.2rem', lg: '1.2rem'}, 
+                color: 'text.secondary'
+              }}
             >
               {t('about_desc')}
             </Typography>

@@ -107,7 +107,8 @@ const MediaGallery = ({ mediaItems }) => {
               height: '100%',
               display: index === selectedIndex ? 'flex' : 'none',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              
             }}
           >
             {item.type === 'image' ? (
@@ -184,7 +185,7 @@ const MediaGallery = ({ mediaItems }) => {
       {/* شريط المصغرات */}
       <Box 
         sx={{ 
-          display: 'flex', gap: 2, width: '100%', overflowX: 'auto', pb: 1,
+          display: 'flex', gap: 2, width: '100%', overflowX: 'auto', p: 0.5,
           justifyContent: 'center',
           '&::-webkit-scrollbar': { height: '6px' },
           '&::-webkit-scrollbar-thumb': { backgroundColor: '#ddd', borderRadius: '3px' }
@@ -197,15 +198,26 @@ const MediaGallery = ({ mediaItems }) => {
             onClick={() => activateMedia(index)}
             sx={{
               width: 90, height: 65, borderRadius: 2, overflow: 'hidden', cursor: 'pointer',
-              border: index === selectedIndex ? '3px solid #e67e22' : '2px solid transparent',
+              border: index === selectedIndex ? '3px solid #00d8fe' : '2px solid transparent',
               opacity: index === selectedIndex ? 1 : 0.6,
               transform: index === selectedIndex ? 'scale(1.05)' : 'scale(1)',
-              transition: 'all 0.2s ease', flexShrink: 0, position: 'relative'
+               transition: 'all 0.3s ease-in-out', 
+
+            filter: index === selectedIndex ? 'grayscale(0%)' : 'grayscale(100%)', flexShrink: 0, position: 'relative'
             }}
           >
             <Box component="img" src={item.image} sx={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             {item.type === 'video' && (
-              <PlayCircleOutlineIcon sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'white', fontSize: 24 }} />
+              <PlayCircleOutlineIcon sx={{
+               
+             position: 'absolute',
+              top: '50%', 
+              left: '50%',
+              
+               transform: 'translate(-50%, -50%)',
+                color: 'white',
+                 fontSize: 24 }} 
+                 />
             )}
           </Box>
         ))}
