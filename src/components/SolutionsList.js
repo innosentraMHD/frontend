@@ -17,10 +17,8 @@ export const SolutionsList = () => {
   const navigate = useNavigate();
   const theme = useTheme();
   const glowColor = '#00d8fe'; // لون الإضاءة البرتقالي
-  
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-
   const [activeStep, setActiveStep] = useState(0);
   const mobileScrollRef = useRef(null);
 

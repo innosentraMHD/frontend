@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography, Box } from '@mui/material';
 import { useTranslation } from 'react-i18next'; // استيراد الترجمة
 import headImage from '../images/head.webp';
-import writeImage from '../images/write.webp';
+
 
 export const Hero = () => {
   const { t, i18n} = useTranslation();
