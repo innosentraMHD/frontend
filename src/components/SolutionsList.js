@@ -34,7 +34,7 @@ export const SolutionsList = () => {
   };
 
   const items = [
-    { key: 'retail', title: t('solution_retail_title'), desc: t('solution_retail_desc'), icon: <StorefrontIcon />, path: '/retail-solutions' },
+    { key: 'retail', title: t('solution_retail_title'), desc: t('solution_retail_desc'), icon: <StorefrontIcon />, path: '/supermarket' },
     { key: 'traffic', title: t('solution_traffic_title'), desc: t('solution_traffic_desc'), icon: <DirectionsCarIcon />, path: '/traffic' },
     { key: 'security', title: t('solution_security_title'), desc: t('solution_security_desc'), icon: <SecurityIcon />, path: '/security' },
     { key: 'industry', title: t('solution_industry_title'), desc: t('solution_industry_desc'), icon: <FactoryIcon />, path: '/industry' },
