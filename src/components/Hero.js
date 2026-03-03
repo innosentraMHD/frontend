@@ -1,92 +1,48 @@
 import React from 'react';
 import { Container, Typography, Box } from '@mui/material';
-import { useTranslation } from 'react-i18next'; // استيراد الترجمة
+import { useTranslation } from 'react-i18next';
 import headImage from '../images/head.webp';
 
-
 export const Hero = () => {
-  const { t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   const isAr = i18n.language === 'ar';
-   // تفعيل الترجمة
 
-   
+  const keyframesStyle = `
+    /* الأنميشن الخاص بالشريط المتحرك */
+  @keyframes marquee {
+  0% { transform: translateX(-100%); } /* يبدأ من خارج الشاشة تماماً من جهة اليسار */
+  100% { transform: translateX(100%); } /* ينتهي خارج الشاشة تماماً من جهة اليمين */
+}
 
-   const keyframesStyle = `
-   @keyframes shinePass {
-       0% {
-           left: -100%;
-           opacity: 0;
-       }
-       10% {
-           opacity: 0.8;
-       }
-       40% {
-           left: 120%;
-           opacity: 0.8;
-       }
-       41%, 100% {
-           left: 120%;
-           opacity: 0;
-       }
-   }
+    @keyframes shinePass {
+        0% { left: -100%; opacity: 0; }
+        10% { opacity: 0.8; }
+        40% { left: 120%; opacity: 0.8; }
+        41%, 100% { left: 120%; opacity: 0; }
+    }
 
-   @keyframes attentionSequence {
-       0% {
-           filter: brightness(1) drop-shadow(0 0 0px rgba(0, 200, 255, 0));
-           transform: scale(1);
-       }
-       20% {
-           filter: brightness(1.5) drop-shadow(0 0 25px rgba(0, 200, 255, 0.8));
-           transform: scale(1.08);
-       }
-       40% {
-           filter: brightness(1.2) drop-shadow(0 0 15px rgba(0, 150, 255, 0.6));
-           transform: scale(1);
-       }
-       60% {
-           filter: brightness(1.6) drop-shadow(0 0 30px rgba(100, 255, 255, 0.9));
-           transform: scale(1.05);
-       }
-       80% {
-           filter: brightness(1.3) drop-shadow(0 0 18px rgba(0, 200, 255, 0.3));
-           transform: scale(1);
-       }
-       100% {
-           filter: brightness(1) drop-shadow(0 0 0px rgba(0, 200, 255, 0));
-           transform: scale(1);
-       }
-   }
-
-   @keyframes shadowFloat {
-       0% {
-           transform: translateY(0) scale(1);
-           opacity: 0.7;
-       }
-       50% {
-           transform: translateY(10px) scale(0.95);
-           opacity: 0.4;
-       }
-       100% {
-           transform: translateY(0) scale(1);
-           opacity: 0.7;
-       }
-   }
-`;
+    @keyframes attentionSequence {
+        0% { filter: brightness(1); transform: scale(1); }
+        20% { filter: brightness(1.5); transform: scale(1.08); }
+        100% { filter: brightness(1); transform: scale(1); }
+    }
+  `;
 
   return (
     <Box
       id="home"
-      
       sx={{
-        
-        minHeight:{xs: '90vh', md: '70vh'},
+        // تم تغيير position إلى relative لضمان تموضع الشريط في الأسفل بدقة
+        position: 'relative', 
+        minHeight: { xs: '90vh', md: '70vh' },
         display: 'flex',
-        alignItems: 'center',
-        // backgroundImage: 'linear-gradient(to bottom, #81b8f8ff 0%,#f8f7f7ff 20%,#f8f7f7ff 50%, #ffffffff 100%)',
+        flexDirection: 'column', // للسماح للعناصر بالترتيب عمودياً
+        justifyContent: 'center',
         color: 'text.primary',
-        pb: {xs:4 , md:0},
+        pb: isAr ? 8 : { xs: 4, md: 0 }, // ترك مساحة للشريط إذا كان مفعلاً
         pt: 10,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        backgroundColor: '#f8f9fa' // اختياري لتمييز الخلفية
       }}
     >
       <style>{keyframesStyle}</style>
@@ -98,30 +54,27 @@ export const Hero = () => {
             flexDirection: { xs: 'column', md: 'row' },
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: {xs: 6, md: 8}
+            gap: { xs: 6, md: 8 },
           }}
         >
           {/* العمود الأيسر: النصوص */}
           <Box
-          dir={isAr ? 'rtl' : 'ltr'} 
-          sx={{ 
-              flex: 1, 
-              // إذا كان عربي اجعل المحاذاة لليمين، وإلا لليسار
+            dir={isAr ? 'rtl' : 'ltr'}
+            sx={{
+              flex: 1,
               textAlign: { xs: 'center', md: isAr ? 'right' : 'left' },
-              maxWidth: {md: '600px'}
-            }}>
-            
+              maxWidth: { md: '600px' },
+            }}
+          >
             <Typography
               variant="h2"
-              component="h2"
-              sx={{ 
-                mb: 3, 
+              sx={{
+                mb: 3,
                 fontWeight: 700,
-                fontSize: {xs: '2rem', md: '2.8rem', lg: '3rem'}
+                fontSize: { xs: '2rem', md: '2.8rem', lg: '3rem' },
               }}
-              className="fade-in-up"
             >
-              {t('hero_title')} {/* العنوان المترجم */}
+              {t('hero_title')}
             </Typography>
 
             <Typography
@@ -129,74 +82,84 @@ export const Hero = () => {
               sx={{
                 color: 'text.secondary',
                 fontWeight: 400,
-                fontSize: {xs: '1.1rem', md: '1.2rem', lg: '1.2rem'},
-                lineHeight: 1.6
+                fontSize: { xs: '1.1rem', md: '1.2rem', lg: '1.2rem' },
+                lineHeight: 1.6,
               }}
             >
-              {t('hero_subtitle')} {/* العنوان الفرعي المترجم */}
+              {t('hero_subtitle')}
             </Typography>
           </Box>
 
-          {/* العمود الأيمن: الصور (بقي كما هو تماماً) */}
-          <Box
-  sx={{
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'relative',
-    width: '100%',
-    maxWidth: 500,
-  }}
->
+          {/* العمود الأيمن: الصورة */}
+          <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center', position: 'relative', width: '100%' }}>
+            <Box sx={{ position: 'relative', width: '70%', borderRadius: '50%', overflow: 'hidden' }}>
+              <Box
+                component="img"
+                src={headImage}
+                alt="AI Head"
+                sx={{
+                  width: '100%',
+                  height: 'auto',
+                  animation: 'attentionSequence 4s ease-in-out 1',
+                }}
+              />
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '30%',
+                  height: '100%',
+                  background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent)',
+                  animation: 'shinePass 1.5s ease-in-out infinite 3s',
+                }}
+              />
+            </Box>
+          </Box>
+        </Box>
+      </Container>
+
+      {/* --- الشريط المتحرك: يظهر فقط في حال كانت اللغة عربية --- */}
+    {isAr && (
   <Box
     sx={{
-      position: 'relative',
-      width: '70%',
-      height: 'auto',
-      zIndex: 2,
-      borderRadius: '50%',
-      
-      overflow: 'hidden', /* مهم لحركة اللمعان */
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      width: '100%',
+      bgcolor: 'primary.main',
+      color: 'white',
+      py: { xs: 0.8, md: 1.2 }, // متجاوب مع حجم الشاشة
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+      display: 'flex',
+      alignItems: 'center',
+      zIndex: 10,
+      boxShadow: '0px -2px 10px rgba(0,0,0,0.1)' // ظل خفيف لتمييز الشريط
     }}
   >
     <Box
-      component="img"
-      src={headImage}
-      alt="AI Head"
       sx={{
-        width: '100%',
-        height: 'auto',
-        objectFit: 'contain',
-        position: 'relative',
-        zIndex: 1,
-        animation: 'attentionSequence 4s ease-in-out 1',
+        display: 'inline-block', // مهم جداً لجعل الحاوية بحجم النص
+        paddingLeft: '100%', // يضمن أن النص يبدأ بالظهور بعد مرور مسافة كاملة
+        animation: 'marquee 15s linear infinite', // سرعة ثابتة
+        willChange: 'transform', // لتحسين الأداء على المتصفحات
       }}
-    />
-    
-    {/* طبقة اللمعان المعدني */}
-    <Box
-      sx={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '30%',
-        height: '100%',
-        background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent)',
-        transform: 'skewX(-20deg)',
-        animation: 'shinePass 1.5s ease-in-out infinite 3s',
-        zIndex: 2,
-        pointerEvents: 'none',
-      }}
-    />
+    >
+      <Typography
+        variant="body1"
+        dir="rtl"
+        sx={{
+          fontWeight: 'bold',
+          fontSize: { xs: '1.2rem', md: '1.4rem' }, // حجم خط متناسب مع الموبايل
+          display: 'inline-block'
+        }}
+      >
+        يمكنكم تجربة خدماتنا لمدة أسبوع واحد مجاناً، لا تفوتوا الفرصة!
+      </Typography>
+    </Box>
   </Box>
-</Box>
-</Box>
-
-      </Container>
+)}
     </Box>
   );
 };
-
-
