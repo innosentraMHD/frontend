@@ -42,7 +42,7 @@ export const DataRecovery = () => {
 
   // إعدادات حجم الصورة لتكون صغيرة ومتناسقة
   const imageStyle = {
-    width: { xs: 250, sm: 350, md: 400 },
+    width: { xs: 250, sm: 350, md: 415 },
     height: 'auto',
     borderRadius: 3,
     boxShadow: 3,
@@ -139,7 +139,7 @@ export const DataRecovery = () => {
                 </List>
               </Box>
               <Box sx={{ width: { xs: '100%', md: '33.33%' }, order: { xs: 1, md: 2 } }}>
-                <Box component="img" src={datarec1} alt="Why Choose Us" sx={{ ...imageStyle, width: {md: 450 } }} />
+                <Box component="img" src={datarec1} alt="Why Choose Us" sx={imageStyle} />
               </Box>
             </Box>
           </Box>
