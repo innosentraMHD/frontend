@@ -6,6 +6,7 @@ import TrafficIcon from '@mui/icons-material/Traffic';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import { useTheme } from '@mui/material/styles';
 
 import trafficVideo from '../videos/traffic-demo.mp4';
 import videoPoster from '../images/cars.webp';
@@ -14,6 +15,7 @@ const MotionBox = motion(Box);
 
 export const Traffic = () => {
   const { t, i18n } = useTranslation();
+  const theme = useTheme();
   const isAr = i18n.language === 'ar';
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -49,10 +51,10 @@ export const Traffic = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Typography variant="h3" sx={{ fontWeight: 800, fontSize: { xs: '2.2rem', md: '3.8rem' }, mb: 2 }}>
+            <Typography variant="h4" sx={{ fontWeight: 800, fontSize: { xs: '1.8rem', md: '2.6rem' }, mb: 2 }}>
               {t('traffic_hero_title')}
             </Typography>
-            <Typography variant="h5" sx={{ opacity: 0.8, fontWeight: 300, maxWidth: '700px', mx: 'auto' }}>
+            <Typography variant="h5" sx={{ opacity: 0.8, fontWeight: 300, fontSize: { xs: '1rem', md: '1.15rem' }, maxWidth: '700px', mx: 'auto' }}>
               {t('traffic_hero_subtitle')}
             </Typography>
           </MotionBox>
@@ -86,7 +88,7 @@ export const Traffic = () => {
               >
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2, justifyContent: {xs: 'center', md: 'flex-start'} }}>
                   <TrafficIcon sx={{ fontSize: 48, color: 'primary.main' }} />
-                  <Typography variant="h3" sx={{ fontWeight: 800, fontSize: { xs: '2rem', md: '3rem' } }}>
+                  <Typography variant="h4" sx={{ fontWeight: 800, fontSize: { xs: '1.8rem', md: '2.6rem' } }}>
                     {t('traffic_section_title')}
                   </Typography>
                 </Box>
@@ -160,7 +162,7 @@ export const Traffic = () => {
               <Box sx={{ flex: 1, width: '100%', position: 'relative' }}>
             <Box 
               component="video" autoPlay muted loop playsInline poster={videoPoster}
-              sx={{ width: '100%', borderRadius: '50px 5px 50px 5px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', bgcolor: '#000' }}
+              sx={{ width: '100%', borderRadius: '50px 5px 50px 5px', boxShadow: theme.shadows[8], bgcolor: 'custom.blackPure' }}
             >
               <source src={trafficVideo} type="video/mp4" />
             </Box>

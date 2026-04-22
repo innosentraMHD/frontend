@@ -36,10 +36,10 @@ export const Construction = () => {
             transition={{ duration: 0.8 }}
             sx={{ textAlign: { xs: 'center', md: isAr ? 'right' : 'left' } }}
           >
-            <Typography variant="h2" sx={{ fontWeight: 900, letterSpacing: -1, fontSize: { xs: '2.5rem', md: '4rem' } }}>
+            <Typography variant="h3" sx={{ fontWeight: 900, letterSpacing: -1, fontSize: { xs: '1.9rem', md: '2.7rem' } }}>
               {t('construction_hero_title')}
             </Typography>
-            <Typography variant="h5" sx={{ opacity: 0.8, fontWeight: 300, mt: 2 }}>
+            <Typography variant="h5" sx={{ opacity: 0.8, fontWeight: 300, fontSize: { xs: '1rem', md: '1.15rem' }, mt: 2 }}>
               {t('construction_hero_subtitle')}
             </Typography>
             <Box sx={{ width: '80px', height: '6px', bgcolor: 'primary.main', mt: 2, mx: { xs: 'auto', md: 0 } }} />
@@ -65,7 +65,7 @@ export const Construction = () => {
           >
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3, flexDirection: isAr ? 'row' : 'row' }}>
               <EngineeringIcon color="primary" sx={{ fontSize: 40 }} />
-              <Typography variant="h4" sx={{textAlign: isAr ? 'right' : 'left',}} fontWeight={800}>{t('construction_section_title')}</Typography>
+              <Typography variant="h5" sx={{textAlign: isAr ? 'right' : 'left',}} fontWeight={800}>{t('construction_section_title')}</Typography>
             </Box>
             
             <Typography variant="body1" color="text.secondary" dir={isAr ? 'rtl' : 'ltr'} sx={{textAlign: isAr ? 'right' : 'left', mb: 4, textAlign: 'justify' }}>

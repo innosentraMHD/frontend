@@ -1,10 +1,12 @@
 import React from 'react';
 import { Container, Typography, Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { alpha, useTheme } from '@mui/material/styles';
 import headImage from '../images/head.webp';
 
 export const Hero = () => {
   const { t, i18n } = useTranslation();
+  const theme = useTheme();
   const isAr = i18n.language === 'ar';
 
   const keyframesStyle = `
@@ -42,7 +44,7 @@ export const Hero = () => {
         pb: isAr ? 8 : { xs: 4, md: 0 }, // ترك مساحة للشريط إذا كان مفعلاً
         pt: 10,
         overflow: 'hidden',
-        backgroundColor: '#f8f9fa' // اختياري لتمييز الخلفية
+        backgroundColor: 'custom.surfaceLight'
       }}
     >
       <style>{keyframesStyle}</style>
@@ -67,11 +69,11 @@ export const Hero = () => {
             }}
           >
             <Typography
-              variant="h2"
+              variant="h3"
               sx={{
                 mb: 3,
                 fontWeight: 700,
-                fontSize: { xs: '2rem', md: '2.8rem', lg: '3rem' },
+                fontSize: { xs: '1.7rem', md: '2.3rem', lg: '2.6rem' },
               }}
             >
               {t('hero_title')}
@@ -110,7 +112,7 @@ export const Hero = () => {
                   left: 0,
                   width: '30%',
                   height: '100%',
-                  background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent)',
+                  background: `linear-gradient(90deg, transparent, ${alpha(theme.palette.custom.whitePure, 0.8)}, transparent)`,
                   animation: 'shinePass 1.5s ease-in-out infinite 3s',
                 }}
               />
@@ -135,7 +137,7 @@ export const Hero = () => {
       display: 'flex',
       alignItems: 'center',
       zIndex: 10,
-      boxShadow: '0px -2px 10px rgba(0,0,0,0.1)' // ظل خفيف لتمييز الشريط
+      boxShadow: `0px -2px 10px ${theme.palette.action.disabledBackground}`
     }}
   >
     <Box

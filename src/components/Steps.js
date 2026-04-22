@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Grid, Container } from '@mui/material';
+import { alpha, useTheme } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import MemoryIcon from '@mui/icons-material/Memory';
@@ -12,6 +13,7 @@ const MotionBox = motion(Box);
 
 export const Steps = () => {
   const { t, i18n } = useTranslation();
+  const theme = useTheme();
   const isAr = i18n.language === 'ar';
 
   const stepsData = [
@@ -32,7 +34,7 @@ export const Steps = () => {
           transition={{ duration: 0.6 }}
         >
           <Typography 
-            variant="h3" 
+            variant="h4" 
             align="center" 
             sx={{ 
               mb: 8, 
@@ -87,7 +89,7 @@ export const Steps = () => {
                         sx={{ 
                           display: 'flex', alignItems: 'center', justifyContent: 'center',
                           width: 60, height: 60, borderRadius: '50%',
-                          backgroundColor: 'rgba(0, 86, 179, 0.1)', 
+                          backgroundColor: alpha(theme.palette.primary.main, 0.1), 
                           color: 'primary.main',
                           
                           // التغيير الجوهري هنا:

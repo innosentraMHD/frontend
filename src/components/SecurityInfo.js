@@ -9,11 +9,11 @@ export const SecurityInfo = () => {
   return (
     <Container dir={isAr ? 'rtl' : 'ltr'} 
     sx={{ py: 10, minHeight: '100vh', textAlign: { xs: 'center', md: isAr ? 'right' : 'left' } }}>
-      <Typography variant="h3" color="error" gutterBottom>
+      <Typography variant="h4" color="error" gutterBottom>
         {t('security_info_title')}
       </Typography>
       <Divider sx={{ mb: 4 }} />
-      <Box sx={{ bgcolor: '#f0f4f8', p: 3, borderRadius: 2 }}>
+      <Box sx={{ bgcolor: 'custom.surfaceLight', p: 3, borderRadius: 2 }}>
         <Typography variant="h6">
           {t('security_info_protection_header')}
         </Typography>

@@ -4,6 +4,7 @@ import {
   Box, 
   Typography 
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion'; // استيراد motion
 import onei from '../images/1.webp'; 
@@ -20,6 +21,7 @@ const MotionBox = motion(Box);
 
 export const Chart = () => {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   const items = [
     { id: 1, src: onei, gridColumn: 'span 2', label: t('chart_item_1') },
@@ -74,7 +76,7 @@ export const Chart = () => {
       <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 8 }, maxWidth: '800px', mx: 'auto' }}>
           <Typography 
-            variant="h4" 
+            variant="h5" 
             component="h2" 
             fontWeight="bold" 
             gutterBottom
@@ -138,7 +140,7 @@ export const Chart = () => {
                     sx={{ 
                       marginTop: '4px', 
                       fontWeight: 'bold', 
-                      color: '#333',
+                      color: theme.palette.text.secondary,
                       fontSize: '0.7rem',
                       textAlign: 'center',
                       lineHeight: 1.2 

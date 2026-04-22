@@ -14,6 +14,21 @@ let theme = createTheme({
     secondary: { main: colors.orange, dark: '#000000' },
     background: { default: colors.white, gray: colors.gray, dark:  'rgb(10,60,90)' },
     text: { primary: colors.blue, secondary: colors.black, third: colors.orange, white: colors.white },
+    custom: {
+      surfaceLight: '#f8f9fa',
+      surfaceSoft: '#fafafa',
+      navbarBorder: '#eeeeee',
+      mediaScrollbarThumb: '#dddddd',
+      darkGradientStart: '#0f1220',
+      darkGradientEnd: '#1a1a1a',
+      securityBase: '#020408',
+      securitySurface: '#05070a',
+      securityGlow: '#101428',
+      blackPure: '#000000',
+      whitePure: '#ffffff',
+      whatsapp: '#25D366',
+      whatsappHover: '#128C7E',
+    },
   },
   typography: {
     // التعديل الوحيد هنا: إضافة خط "Cairo" في البداية لدعم العربية

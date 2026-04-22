@@ -48,6 +48,93 @@ ar: {
     "solution_industry_desc": "الفحص الآلي،العد الدقيق، ضمان الجودة، وتحسين العمليات ",
     "solution_construction_title": "مراقبة مواقع البناء",
     "solution_construction_desc": "سلامة العمال، الامتثال لمعدات الوقاية الشخصية، ومراقبة نشاط الموقع",
+    "solution_data_recovery_title": "استعادة البيانات",
+    "solution_data_recovery_desc": "استعادة احترافية لبيانات الأقراص التالفة بنسبة نجاح 92.5%.",
+
+    "dataRecovery": {
+      "title": "استعادة البيانات",
+      "menuItem": "استعادة البيانات",
+      "shortDescription": "استعادة احترافية لبيانات الأقراص التالفة بنسبة نجاح 92.5%.",
+      "hero": {
+        "headline": "القرص الصلب تعطل؟ نحن هنا للمساعدة!",
+        "subheadline": "خبراء في استرجاع وإعادة بناء بيانات الأقراص الصلبة.",
+        "description": "نقدم خدمة تشخيص مجانية وبدون التزام على مدار 24/7. ستحصل على نظرة عامة للبيانات القابلة للاستعادة، وتقرير تشخيص، وعرض سعر غير ملزم قبل الموافقة على الاستعادة. نسبة نجاحنا 92.5%.",
+        "processText": "باستخدام عمليات استعادة مطورة خصيصًا، وتقنيات حديثة، وخبرة طويلة، نحن متخصصون في أعطال الأقراص الصلبة. نحقق نسبة نجاح مميزة 92.5% ونعيد بناء بياناتك بسرعة وكفاءة."
+      },
+      "defects": {
+        "title": "الأعطال الشائعة في الأقراص الصلبة",
+        "items": [
+          {
+            "name": "تلف المحرك",
+            "desc": "أعطال المحرك تمنع القرص من الدوران. يحدث ذلك غالبًا بسبب ضرر مادي مثل سقوط القرص."
+          },
+          {
+            "name": "تلف إلكتروني",
+            "desc": "يظهر غالبًا في لوحات الدارات المسؤولة عن وظائف القرص. من أسبابه تعطل المكونات أو الصدمات أو ارتفاعات الكهرباء."
+          },
+          {
+            "name": "تعطل رأس القراءة",
+            "desc": "يشير إلى فشل رؤوس القراءة/الكتابة الداخلية بسبب التآكل الطبيعي أو الصدمات أو دخول الغبار والجسيمات."
+          },
+          {
+            "name": "خلل البرنامج الثابت",
+            "desc": "البرنامج الثابت هو برنامج مدمج في القرص. تعطله قد يؤدي إلى عطل أو فشل كامل مع أعراض مشابهة لتعطل الرأس أو تلف المحرك."
+          },
+          {
+            "name": "تلف منطقي",
+            "desc": "لا ينتج عن ضرر مادي: تعمل مكونات القرص لكن الوصول المنطقي للبيانات يتعطل. يشمل ذلك مشاكل RAID1 أو تلف البرامج أو الأقراص المُهيأة."
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "كيف تعمل استعادة بيانات القرص الصلب؟",
+        "description": "بحسب نوع الضرر، نستخدم طرقًا وعمليات قراءة مختلفة. يوفّر مهندسونا المدربون وتجهيزاتنا الحديثة أفضل أساس مهني لاستعادة بيانات الأعمال. نمتلك الخبرة والمعدات اللازمة لاسترجاع بيانات شركتكم بسرعة وكفاءة وبتكلفة مناسبة. تواصلوا معنا للحصول على عرض غير ملزم عبر الهاتف أو البريد الإلكتروني."
+      },
+      "whyUs": {
+        "title": "لماذا تختارنا؟",
+        "items": [
+          {
+            "title": "معداتنا",
+            "desc": "من أدوات اللحام إلى مختبرات الغرف النظيفة - نمتلك تجهيزات حديثة ومتطورة."
+          },
+          {
+            "title": "خبرتنا",
+            "desc": "قمنا بتشخيص أكثر من 140,000 وسيط تخزين بمختلف الأنواع."
+          },
+          {
+            "title": "التشخيص المجاني",
+            "desc": "نقدم تشخيصًا مجانيًا خلال 24-48 ساعة مع تقرير تشخيص وعرض سعر غير ملزم."
+          },
+          {
+            "title": "منهجيتنا",
+            "desc": "نحن حاصلون على شهادتي ISO 9001 و14001، ما يعكس جودة خدمتنا الاحترافية."
+          }
+        ]
+      },
+      "videoSection": {
+        "text": "فيديو الشركة يوضح لك كل ما تحتاج معرفته عن خدمة استعادة البيانات لدينا."
+      },
+      "steps": {
+        "title": "3 خطوات لاستعادة بيانات أعمالك",
+        "items": [
+          {
+            "step": "1",
+            "title": "التواصل والتشخيص",
+            "desc": "أرسل إلينا وسيط التخزين لتشخيص مجاني. قم بتغليف الوسيط بعناية، وحمّل نموذج الشحن وأرفقه مع الشحنة، ثم أرسله بشكل آمن عبر DHL أو خدمة شحن سريعة."
+          },
+          {
+            "step": "2",
+            "title": "مراجعة البيانات",
+            "desc": "ستتلقى عرضًا غير ملزم مع قائمة بيانات عبر الإنترنت. بعد الاستلام تحصل على رقم مرجعي شخصي، وبعد تحديد العطل وإصلاحه نرسل لك نظرة عامة على البيانات القابلة للاستعادة مع عرض السعر."
+          },
+          {
+            "step": "3",
+            "title": "إعادة شحن بياناتك",
+            "desc": "نعيد بيانات أعمالك عبر نقل البيانات المستعادة إلى وسيط جديد. بعد استلام الدفع ستتلقى النسخة الاحتياطية خلال 24 ساعة بشحن قابل للتتبع. ولأسباب أمنية نحتفظ بنسخة لمدة 7 أيام ثم نحذفها."
+          }
+        ]
+      }
+    },
 
     // steps
     "steps_main_title": "كيف نعمل؟",
@@ -348,6 +435,93 @@ ar: {
     "solution_industry_desc": "Automated inspection, quality assurance, and process optimization.",
     "solution_construction_title": "Construction Site Monitoring",
     "solution_construction_desc": "Worker safety, PPE compliance, and site activity monitoring.",
+    "solution_data_recovery_title": "Data Recovery",
+    "solution_data_recovery_desc": "Expert data recovery for defective hard drives with a 92.5% success rate.",
+
+    "dataRecovery": {
+      "title": "Data Recovery",
+      "menuItem": "Data Recovery",
+      "shortDescription": "Expert data recovery for defective hard drives with a 92.5% success rate.",
+      "hero": {
+        "headline": "Hard drive broken? We are happy to help!",
+        "subheadline": "Experts in hard drive data recovery and restoration.",
+        "description": "We offer a free and no-obligation diagnostic service, 24/7! You will receive an overview of the recoverable data, a diagnostic report, and a no-obligation quote before you agree to the data recovery. Our success rate is 92.5%.",
+        "processText": "Using specially developed recovery processes, state-of-the-art technology, and decades of combined experience, we are your specialist for hard drive defects. We have a remarkable success rate of 92.5% and reconstruct your data quickly and efficiently."
+      },
+      "defects": {
+        "title": "Common Hard Drive Defects",
+        "items": [
+          {
+            "name": "Motor Damage",
+            "desc": "Defects in the motor prevent the hard drive from spinning up. This is often the result of physical damage, e.g., dropping the hard drive."
+          },
+          {
+            "name": "Electronic Damage",
+            "desc": "Electronic damage often occurs on the circuit boards that control the functions of the hard drive. The causes are usually the failure of components, physical impact, or power surges."
+          },
+          {
+            "name": "Headcrash",
+            "desc": "A headcrash describes the failure of the internal read/write heads, e.g., due to natural wear, physical impact, or dust and other particles inside the hard drive."
+          },
+          {
+            "name": "Firmware Defect",
+            "desc": "Firmware is software embedded in the hard drive. A firmware failure can lead to a hard drive defect or total failure and often shows similar symptoms to headcrashes or motor damage."
+          },
+          {
+            "name": "Logical Damage",
+            "desc": "Logical damage does not originate from physical damage: The components of the hard drive continue to function perfectly, but logical access is no longer possible. Logical damage includes, for example, RAID1 issues, software corruption, or formatted hard drives."
+          }
+        ]
+      },
+      "howItWorks": {
+        "title": "How does hard drive data recovery work?",
+        "description": "Depending on the type of damage, different methods and readout processes are used. Our specially trained engineers and state-of-the-art equipment provide the best foundation and the highest professional know-how for any business data recovery. We have the necessary expertise and the latest equipment to recover your corporate data quickly, efficiently, and cost-effectively. Contact us for a no-obligation quote by phone or email."
+      },
+      "whyUs": {
+        "title": "Why choose us?",
+        "items": [
+          {
+            "title": "Our Equipment",
+            "desc": "From soldering irons to cleanroom laboratories - we have state-of-the-art facilities."
+          },
+          {
+            "title": "Our Experience",
+            "desc": "We have already diagnosed over 140,000 data carriers of all kinds."
+          },
+          {
+            "title": "Our Free Diagnosis",
+            "desc": "We offer a free diagnosis within 24-48h including a diagnostic report and a no-obligation quote."
+          },
+          {
+            "title": "Our Process",
+            "desc": "We are ISO 9001 and 14001 certified and therefore have a triple award for our professional service."
+          }
+        ]
+      },
+      "videoSection": {
+        "text": "Our company video shows you everything you need to know about our data recovery service."
+      },
+      "steps": {
+        "title": "3 Steps to Your Business Data",
+        "items": [
+          {
+            "step": "1",
+            "title": "Contact & Diagnosis",
+            "desc": "Send us your medium for a free diagnosis. Pack your medium carefully. Download the shipping form and enclose it with the shipment. Send us your medium securely via DHL or a courier service."
+          },
+          {
+            "step": "2",
+            "title": "Data Overview",
+            "desc": "You will receive a no-obligation offer incl. an online data list for an overview of your data. After receiving the medium, you get a personal reference number. After identifying and fixing the defect, we send an overview of recoverable data and a quote. If data cannot be reconstructed, you will receive your medium back via secure shipping."
+          },
+          {
+            "step": "3",
+            "title": "Shipping Your Data",
+            "desc": "We send your business data back to you. Data transfer of the reconstructable data to a new medium. After receipt of payment, you will receive your data backup within 24h via a trackable shipping method. For security reasons, we keep a copy of your data for 7 days. After this period, the copy will be deleted."
+          }
+        ]
+      }
+    },
 
     //  steps
     "steps_main_title": "How We Work?",
@@ -654,6 +828,93 @@ ar: {
 "solution_industry_desc": "Automatisierte Inspektion, Qualitätssicherung und Prozessoptimierung.",
 "solution_construction_title": "Baustellenüberwachung",
 "solution_construction_desc": "Arbeitersicherheit, PSA-Konformität und Überwachung der Standortaktivitäten.",
+"solution_data_recovery_title": "Datenrettung",
+"solution_data_recovery_desc": "Professionelle Datenrettung für defekte Festplatten mit einer Erfolgsquote von 92,5%.",
+
+"dataRecovery": {
+  "title": "Datenrettung",
+  "menuItem": "Datenrettung",
+  "shortDescription": "Professionelle Datenrettung für defekte Festplatten mit einer Erfolgsquote von 92,5%.",
+  "hero": {
+    "headline": "Festplatte defekt? Wir helfen gerne!",
+    "subheadline": "Experten für Datenrettung und Wiederherstellung von Festplatten.",
+    "description": "Wir bieten rund um die Uhr eine kostenlose und unverbindliche Diagnose. Sie erhalten eine Übersicht der wiederherstellbaren Daten, einen Diagnosebericht und ein unverbindliches Angebot, bevor Sie der Datenrettung zustimmen. Unsere Erfolgsquote liegt bei 92,5%.",
+    "processText": "Mit speziell entwickelten Wiederherstellungsprozessen, modernster Technik und jahrzehntelanger Erfahrung sind wir Ihr Spezialist bei Festplattenschäden. Mit einer Erfolgsquote von 92,5% rekonstruieren wir Ihre Daten schnell und effizient."
+  },
+  "defects": {
+    "title": "Häufige Festplattendefekte",
+    "items": [
+      {
+        "name": "Motorschaden",
+        "desc": "Defekte am Motor verhindern das Hochdrehen der Festplatte. Häufige Ursache sind physische Schäden, z. B. durch Herunterfallen."
+      },
+      {
+        "name": "Elektronikschaden",
+        "desc": "Elektronikschäden treten oft an den Platinen auf, die die Funktionen der Festplatte steuern. Ursachen sind meist Bauteilausfälle, physische Einwirkungen oder Spannungsspitzen."
+      },
+      {
+        "name": "Headcrash",
+        "desc": "Ein Headcrash beschreibt den Ausfall der internen Lese-/Schreibköpfe, z. B. durch natürlichen Verschleiß, physische Einwirkung oder Staubpartikel im Laufwerk."
+      },
+      {
+        "name": "Firmware-Defekt",
+        "desc": "Firmware ist in die Festplatte integrierte Software. Ein Firmware-Fehler kann zu Defekten oder Totalausfall führen und zeigt oft ähnliche Symptome wie Headcrashes oder Motorschäden."
+      },
+      {
+        "name": "Logischer Schaden",
+        "desc": "Logische Schäden entstehen nicht durch physische Defekte: Die Komponenten funktionieren, aber ein logischer Zugriff ist nicht mehr möglich. Dazu zählen z. B. RAID1-Probleme, Softwarebeschädigungen oder formatierte Festplatten."
+      }
+    ]
+  },
+  "howItWorks": {
+    "title": "Wie funktioniert die Festplatten-Datenrettung?",
+    "description": "Je nach Schadensart kommen unterschiedliche Methoden und Ausleseverfahren zum Einsatz. Unsere speziell geschulten Ingenieure und moderne Ausstattung bieten die beste Grundlage für professionelle Unternehmens-Datenrettung. Wir verfügen über das Know-how und die Technik, um Ihre Unternehmensdaten schnell, effizient und kostengünstig wiederherzustellen. Kontaktieren Sie uns für ein unverbindliches Angebot per Telefon oder E-Mail."
+  },
+  "whyUs": {
+    "title": "Warum uns wählen?",
+    "items": [
+      {
+        "title": "Unsere Ausstattung",
+        "desc": "Von Lötkolben bis Reinraumlaboren - wir verfügen über modernste Infrastruktur."
+      },
+      {
+        "title": "Unsere Erfahrung",
+        "desc": "Wir haben bereits über 140.000 Datenträger aller Art diagnostiziert."
+      },
+      {
+        "title": "Unsere kostenlose Diagnose",
+        "desc": "Wir bieten eine kostenlose Diagnose innerhalb von 24-48 Stunden inklusive Diagnosebericht und unverbindlichem Angebot."
+      },
+      {
+        "title": "Unser Prozess",
+        "desc": "Wir sind nach ISO 9001 und 14001 zertifiziert und stehen für professionellen Service auf höchstem Niveau."
+      }
+    ]
+  },
+  "videoSection": {
+    "text": "Unser Unternehmensvideo zeigt Ihnen alles Wichtige über unseren Datenrettungsservice."
+  },
+  "steps": {
+    "title": "3 Schritte zu Ihren Unternehmensdaten",
+    "items": [
+      {
+        "step": "1",
+        "title": "Kontakt & Diagnose",
+        "desc": "Senden Sie uns Ihr Medium zur kostenlosen Diagnose. Verpacken Sie es sorgfältig, laden Sie das Versandformular herunter und legen Sie es bei. Versenden Sie das Medium sicher per DHL oder Kurierdienst."
+      },
+      {
+        "step": "2",
+        "title": "Datenübersicht",
+        "desc": "Sie erhalten ein unverbindliches Angebot inkl. Online-Datenliste zur Übersicht. Nach Erhalt erhalten Sie eine persönliche Referenznummer. Nach Defektanalyse und Reparatur senden wir eine Übersicht der wiederherstellbaren Daten und ein Angebot."
+      },
+      {
+        "step": "3",
+        "title": "Rückversand Ihrer Daten",
+        "desc": "Wir senden Ihre Unternehmensdaten auf einem neuen Medium zurück. Nach Zahlungseingang erhalten Sie Ihr Backup innerhalb von 24 Stunden per Sendungsverfolgung. Aus Sicherheitsgründen speichern wir eine Kopie 7 Tage lang und löschen sie danach."
+      }
+    ]
+  }
+},
 
   //  steps
     "steps_main_title": "Wie wir arbeiten?",

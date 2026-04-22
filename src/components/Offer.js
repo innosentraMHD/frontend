@@ -1,9 +1,11 @@
 import React from 'react';
 import { Container, Typography, Card, CardContent, Box, Grid, alpha } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import CenterFocusStrongIcon from '@mui/icons-material/CenterFocusStrong';
 import InsightsIcon from '@mui/icons-material/Insights';
 import CodeIcon from '@mui/icons-material/Code';
+import DataSaverOnIcon from '@mui/icons-material/DataSaverOn';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
@@ -21,18 +23,19 @@ const ScrollReveal = ({ children, delay = 0 }) => (
 
 export const Offer = () => {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   // اللون البرتقالي المختار للإضاءة
-  const glowColor = '#00d8fe';
-  const whiteColor = '#fefefe';
-  // اللون الأزرق المختار للخلفية
-  const bgBlue =  'rgb(10,60,90)' ;
+  const glowColor = theme.palette.secondary.main;
+  const whiteColor = theme.palette.custom.whitePure;
+  const bgBlue = theme.palette.primary.main;
 
   const solutions = [
     { icon: <PsychologyIcon sx={{ fontSize: 45 }} />, title: t('offer_sol1_title'), desc: t('offer_sol1_desc'), color: glowColor },
     { icon: <CenterFocusStrongIcon sx={{ fontSize: 45 }} />, title: t('offer_sol2_title'), desc: t('offer_sol2_desc'), color: glowColor },
     { icon: <InsightsIcon sx={{ fontSize: 45 }} />, title: t('offer_sol3_title'), desc: t('offer_sol3_desc'), color: glowColor },
-    { icon: <CodeIcon sx={{ fontSize: 45 }} />, title: t('offer_sol4_title'), desc: t('offer_sol4_desc'), color: glowColor }
+    { icon: <CodeIcon sx={{ fontSize: 45 }} />, title: t('offer_sol4_title'), desc: t('offer_sol4_desc'), color: glowColor },
+    { icon: <DataSaverOnIcon sx={{ fontSize: 45 }} />, title: t('dataRecovery.title'), desc: t('dataRecovery.shortDescription'), color: glowColor }
   ];
 
   return (
@@ -45,7 +48,7 @@ export const Offer = () => {
       {/* تأثير الإضاءة الخلفية بلون أورنج */}
       <Box sx={{
         position: 'absolute', top: '10%', left: '5%', width: '400px', height: '400px',
-        background: `radial-gradient(circle, ${alpha(glowColor, 0.15)} 0%, rgba(0,0,0,0) 70%)`,
+        background: `radial-gradient(circle, ${alpha(glowColor, 0.15)} 0%, ${alpha(theme.palette.custom.blackPure, 0)} 70%)`,
         zIndex: 0, pointerEvents: 'none'
       }} />
 
@@ -54,13 +57,13 @@ export const Offer = () => {
         <ScrollReveal>
           <Box sx={{ width: '100%', mb: 8 }}>
             <Typography 
-              variant="h3" 
+              variant="h4" 
               align="center" 
               sx={{ 
                 color: 'white', 
                 fontWeight: 800, 
-                fontSize: { xs: '2rem', md: '3rem' },
-                textShadow: `0 10px 30px ${alpha('#000', 0.5)}`
+                fontSize: { xs: '1.7rem', md: '2.3rem', lg: '2.6rem' },
+                textShadow: `0 10px 30px ${alpha(theme.palette.custom.blackPure, 0.5)}`
               }}
             >
               {t('offer_main_title')}
@@ -72,7 +75,7 @@ export const Offer = () => {
 
         <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
           {solutions.map((item, index) => (
-            <Grid item xs={12} sm={6} md={3} key={index} sx={{ display: 'flex', width: { xs: '100%', sm: '50%', md: '25%' } }}>
+            <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex', width: { xs: '100%', sm: '50%', md: '33.33%', lg: '20%' } }}>
               <ScrollReveal delay={index * 0.1}>
                 <motion.div
                   whileHover={{ y: -10 }}
@@ -84,7 +87,7 @@ export const Offer = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     width: '100%',
-                    background: alpha('#000', 0.2), // خلفية داكنة شفافة لتبرز فوق الأزرق
+                    background: alpha(theme.palette.custom.blackPure, 0.2),
                     backdropFilter: 'blur(10px)',
                     border: `1px solid ${alpha(glowColor, 0.1)}`, // حدود برتقالية خفيفة جداً
                     borderRadius: 4,
@@ -130,7 +133,7 @@ export const Offer = () => {
                       
                       <Typography 
                         sx={{ 
-                          color: alpha('#fff', 0.9), // أبيض ناصع مع شفافية بسيطة للقراءة
+                          color: alpha(theme.palette.custom.whitePure, 0.9),
                           lineHeight: 1.6,
                           fontWeight: 400,
                           fontSize: {xs: '1.2rem', md: '1rem', lg: '1rem'} ,

@@ -25,6 +25,7 @@ import { Software } from './components/Software';
 import { Security } from './components/Security';
 import { Industry } from './components/Industry'; 
 import { Construction } from './components/Construction';
+import { DataRecovery } from './components/DataRecovery';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { TermsOfUse } from './components/TermsOfUse';
 import { CookiesSettings } from './components/CookiesSettings';
@@ -237,6 +238,7 @@ function AppContent() {
           <Route path="/security" element={<Security />} />
           <Route path="/industry" element={<Industry />} />
           <Route path="/construction" element={<Construction />} />
+          <Route path="/data-recovery" element={<DataRecovery />} />
           <Route path="/site-info" element={<SiteInfo />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

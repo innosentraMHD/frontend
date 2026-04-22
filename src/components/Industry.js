@@ -7,6 +7,7 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { alpha, useTheme } from '@mui/material/styles';
 import MediaGallery from './MediaGallery'; 
 
 import img1 from '../images/i1.webp';
@@ -17,6 +18,7 @@ const MotionBox = motion(Box);
 
 export const Industry = () => {
   const { t, i18n } = useTranslation();
+  const theme = useTheme();
   const isAr = i18n.language === 'ar';
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -47,14 +49,14 @@ export const Industry = () => {
         display: 'flex',
         alignItems: 'center',
         // خلفية بتدرج صناعي عميق
-        background: 'linear-gradient(135deg, #0f1220 0%, #1a1a1a 100%)',
+        background: `linear-gradient(135deg, ${theme.palette.custom.darkGradientStart} 0%, ${theme.palette.custom.darkGradientEnd} 100%)`,
         '&::before': {
           content: '""',
           position: 'absolute',
           width: '100%',
           height: '100%',
           opacity: 0.05,
-          backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
+          backgroundImage: `radial-gradient(${theme.palette.custom.whitePure} 1px, transparent 1px)`,
           backgroundSize: '30px 30px',
         }
       }}>
@@ -66,10 +68,10 @@ export const Industry = () => {
             transition={{ duration: 0.8 }}
             sx={{ textAlign: { xs: 'center', md: isAr ? 'right' : 'left' } }}
           >
-            <Typography variant="h2" sx={{ fontWeight: 900, fontSize: { xs: '2.5rem', md: '4rem' }, letterSpacing: -1 }}>
+            <Typography variant="h3" sx={{ fontWeight: 900, fontSize: { xs: '1.9rem', md: '2.7rem' }, letterSpacing: -1 }}>
               {t('industry_hero_title')}
             </Typography>
-            <Typography variant="h5" sx={{ opacity: 0.7, fontWeight: 300, mt: 3, maxWidth: '800px' }}>
+            <Typography variant="h5" sx={{ opacity: 0.7, fontWeight: 300, fontSize: { xs: '1rem', md: '1.15rem' }, mt: 3, maxWidth: '800px' }}>
               {t('industry_hero_subtitle')}
             </Typography>
           </MotionBox>
@@ -102,7 +104,7 @@ export const Industry = () => {
             >
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3, justifyContent: { xs: 'center', md: 'flex-start' } }}>
                 <PrecisionManufacturingIcon sx={{ fontSize: 50, color: 'primary.main' }} />
-                <Typography variant="h3" sx={{ fontWeight: 800, fontSize: { xs: '2rem', md: '3rem' } }}>
+                <Typography variant="h4" sx={{ fontWeight: 800, fontSize: { xs: '1.8rem', md: '2.6rem' } }}>
                   {t('industry_section_title')}
                 </Typography>
               </Box>
@@ -121,7 +123,7 @@ export const Industry = () => {
                 borderLeft: isAr ? 'none' : '4px solid',
                 borderRight: isAr ? '4px solid' : 'none',
                 borderColor: 'primary.main',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
+                boxShadow: `0 10px 30px ${alpha(theme.palette.custom.blackPure, 0.05)}`
               }}>
                 {/* قائمة التحليل */}
                 <Box sx={{ flex: 1 }}>
@@ -190,7 +192,7 @@ export const Industry = () => {
                   content: '""',
                   position: 'absolute',
                   inset: -10,
-                  border: '1px solid rgba(0,0,0,0.1)',
+                  border: `1px solid ${alpha(theme.palette.custom.blackPure, 0.1)}`,
                   zIndex: -1,
                   display: { xs: 'none', md: 'block' }
                 }

@@ -5,6 +5,7 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import SecurityIcon from '@mui/icons-material/Security';
 import FactoryIcon from '@mui/icons-material/Factory';
 import ConstructionIcon from '@mui/icons-material/Construction';
+import DataSaverOnIcon from '@mui/icons-material/DataSaverOn';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -16,7 +17,7 @@ export const SolutionsList = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const theme = useTheme();
-  const glowColor = '#00d8fe'; // لون الإضاءة البرتقالي
+  const glowColor = theme.palette.secondary.main;
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const [activeStep, setActiveStep] = useState(0);
@@ -37,6 +38,7 @@ export const SolutionsList = () => {
     { key: 'security', title: t('solution_security_title'), desc: t('solution_security_desc'), icon: <SecurityIcon />, path: '/security' },
     { key: 'industry', title: t('solution_industry_title'), desc: t('solution_industry_desc'), icon: <FactoryIcon />, path: '/industry' },
     { key: 'construction', title: t('solution_construction_title'), desc: t('solution_construction_desc'), icon: <ConstructionIcon />, path: '/construction' },
+    { key: 'data-recovery', title: t('dataRecovery.title'), desc: t('dataRecovery.shortDescription'), icon: <DataSaverOnIcon />, path: '/solutions/data-recovery' },
   ];
 
   const renderCard = (item, index, isForMarquee = false) => (
@@ -181,7 +183,7 @@ sx={{
     <Box id="solutions-overview" sx={{ py: 8,  backgroundColor: 'background.dark', overflow: 'hidden' }}>
       <Container maxWidth="xl" sx={{px:0}}>
         <Typography 
-          variant="h3" 
+          variant="h4" 
           align="center" 
           sx={{ 
             mb: 6, 

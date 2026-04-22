@@ -90,9 +90,9 @@ export const About = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             sx={{ flex: 1, textAlign: { xs: 'center', md: isAr ? 'right' : 'left' } }}
           >
-            <Typography variant="h3" sx={{ 
+            <Typography variant="h4" sx={{ 
                 color: 'text.primary', mb: 1, fontWeight: 700,
-                fontSize: {xs: '2rem', md: '2.8rem', lg: '3rem'} 
+                fontSize: {xs: '1.7rem', md: '2.3rem', lg: '2.6rem'} 
             }}>
               {t('about_title')}
             </Typography>

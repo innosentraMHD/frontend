@@ -10,8 +10,8 @@ export const SiteInfo = () => {
     <Container sx={{ py: 10, minHeight: '100vh' }}>
       <Paper dir={isAr ? 'rtl' : 'ltr'}  
       elevation={0} 
-      sx={{ p: 4, bgcolor: '#f9f9f9',textAlign: { xs: 'center', md: isAr ? 'right' : 'left' }, }}>
-        <Typography variant="h3" color="primary" gutterBottom>
+      sx={{ p: 4, bgcolor: 'custom.surfaceSoft',textAlign: { xs: 'center', md: isAr ? 'right' : 'left' }, }}>
+        <Typography variant="h4" color="primary" gutterBottom>
           {t('site_info_title')}
         </Typography>
         <Divider sx={{ mb: 4 }} />

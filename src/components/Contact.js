@@ -3,6 +3,7 @@ import {
   Container, Typography, Box, Button, TextField, Grid,
   Paper, Alert, CircularProgress, Snackbar, Stack, alpha
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import SendIcon from '@mui/icons-material/Send';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
@@ -13,33 +14,22 @@ import { useTranslation } from 'react-i18next'; // استيراد الترجمة
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
-const COLOR_PALETTE = {
-  primary: '#002a68',
-  primaryLight: '#000000',
-  primaryDark: '#002a68',
-  secondary: '#000000',
-  secondaryLight: '#000000',
-  secondaryDark: '#000000',
-  paper: 'transparent',
-  textPrimary: '#FFFFFF',
-  textSecondary: 'rgb(255, 255, 255)'
-};
-
 const textFieldStyle = {
   '& .MuiOutlinedInput-root': {
-    backgroundColor: '#ffffff',
-    color: '#000000',
-    '& fieldset': { borderColor: '#000000' },
-    '&:hover fieldset': { borderColor: '#000000' },
-    '&.Mui-focused fieldset': { borderColor: '#000000' },
+    backgroundColor: 'background.paper',
+    color: 'text.secondary',
+    '& fieldset': { borderColor: 'text.secondary' },
+    '&:hover fieldset': { borderColor: 'text.secondary' },
+    '&.Mui-focused fieldset': { borderColor: 'text.secondary' },
   },
-  '& .MuiInputLabel-root': { color: '#000000' },
-  '& .MuiInputLabel-root.Mui-focused': { color: '#000000' },
-  '& .MuiInputBase-input::placeholder': { color: '#000000', opacity: 1 },
+  '& .MuiInputLabel-root': { color: 'text.secondary' },
+  '& .MuiInputLabel-root.Mui-focused': { color: 'text.secondary' },
+  '& .MuiInputBase-input::placeholder': { color: 'text.secondary', opacity: 1 },
 };
 
 export const Contact = () => {
   const { t, i18n} = useTranslation();
+  const theme = useTheme();
   const isAr = i18n.language === 'ar';
   const [loading, setLoading] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -92,13 +82,13 @@ export const Contact = () => {
     icon: <PhoneIcon />,
     title: t('contact_phone'),
     details: [t('contact_phone_value')],
-    color: COLOR_PALETTE.textPrimary
+    color: theme.palette.text.white
   },
   {
     icon: <EmailIcon />,
     title: t('contact_email'),
     details: [t('contact_email_value')],
-    color: COLOR_PALETTE.textPrimary
+    color: theme.palette.text.white
   },
   {
     icon: <LocationOnIcon />,
@@ -108,7 +98,7 @@ export const Contact = () => {
       t('contact_address_line2'),
       t('contact_address_line3')
     ],
-    color: COLOR_PALETTE.textPrimary // أخضر رسمي هادئ
+    color: theme.palette.text.white
   }
 ];
 
@@ -119,19 +109,19 @@ export const Contact = () => {
         <Box
         dir={isAr ? 'rtl' : 'ltr'} 
         sx={{ textAlign: { md: isAr ? 'right' : 'left' } }}>
-          <Typography variant="h3" sx={{ mb: 1, textAlign: 'center', color: 'white', '&::after': { content: '""', display: 'block', width: 60, height: 4, backgroundColor: 'secondary.main', margin: '10px auto 30px' } }}>
+          <Typography variant="h4" sx={{ mb: 1, textAlign: 'center', color: 'white', '&::after': { content: '""', display: 'block', width: 60, height: 4, backgroundColor: 'secondary.main', margin: '10px auto 30px' } }}>
             {t('contact_title')}
           </Typography>
-          <Typography variant="h5" sx={{ mb: 6, textAlign: 'center', fontWeight: 400, color: COLOR_PALETTE.textSecondary, maxWidth: '700px', mx: 'auto' }}>
+          <Typography variant="h5" sx={{ mb: 6, textAlign: 'center', fontWeight: 400, color: alpha(theme.palette.text.white, 0.9), maxWidth: '700px', mx: 'auto' }}>
             {t('contact_subtitle')}
           </Typography>
         </Box>
 
-        <Paper dir={isAr ? 'rtl' : 'ltr'} elevation={0} sx={{ borderRadius: { xs: 1, sm: 3, md: 4 }, overflow: 'hidden', background: 'transparent', border: `1px solid ${alpha('#fff', 0.1)}` }}>
+        <Paper dir={isAr ? 'rtl' : 'ltr'} elevation={0} sx={{ borderRadius: { xs: 1, sm: 3, md: 4 }, overflow: 'hidden', background: 'transparent', border: `1px solid ${alpha(theme.palette.custom.whitePure, 0.1)}` }}>
           <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
             
             {/* Left Side */}
-            <Grid item xs={12} md={5} sx={{ background: alpha(COLOR_PALETTE.primary, 0.05), p: { xs: 1, sm: 4, md: 5 } }}>
+            <Grid item xs={12} md={5} sx={{ background: alpha(theme.palette.primary.main, 0.05), p: { xs: 1, sm: 4, md: 5 } }}>
               <Typography variant="h4" sx={{ fontWeight: 700, color: 'text.white', mb: 3, fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' } }}>
                 {t('contact_info_title')}
               </Typography>
@@ -148,7 +138,7 @@ export const Contact = () => {
                         {info.title}
                       </Typography>
                       {info.details.map((detail, idx) => (
-                        <Typography key={idx} variant="body1" sx={{ color: COLOR_PALETTE.textSecondary, fontWeight: 500, fontSize: { xs: '0.9rem', sm: '1rem' }, mb: 0.5, display: 'flex', alignItems: 'center' }}>
+                        <Typography key={idx} variant="body1" sx={{ color: alpha(theme.palette.text.white, 0.9), fontWeight: 500, fontSize: { xs: '0.9rem', sm: '1rem' }, mb: 0.5, display: 'flex', alignItems: 'center' }}>
                           <Box component="span" sx={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: info.color, mx: 0.7 }} />
                           {detail}
                         </Typography>
@@ -186,7 +176,7 @@ export const Contact = () => {
                   <Grid item xs={12} md={12} sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'flex-start', justifyContent: { xs: 'center', md: 'flex-end' }, gap: 2, mt: 2 }}>
 
                     
-                    <Button type="submit" variant="contained" disabled={loading || !formik.isValid} startIcon={loading ? <CircularProgress size={20} sx={{ color: 'white' }} /> : <SendIcon   sx={{ml:1,}}/>} sx={{ background: `linear-gradient(135deg, ${COLOR_PALETTE.primary} 0%, ${COLOR_PALETTE.primaryDark} 100%)`, color: 'white', py: { xs: 1.2, sm: 1.5 }, px: { xs: 4, sm: 6 }, borderRadius: 2, minWidth: { xs: '180px', sm: '200px' }, '&:hover': { background: `linear-gradient(135deg, ${COLOR_PALETTE.primaryDark} 0%, ${COLOR_PALETTE.primary} 100%)`, transform: 'translateY(-2px)' } }}>
+                    <Button type="submit" variant="contained" disabled={loading || !formik.isValid} startIcon={loading ? <CircularProgress size={20} sx={{ color: 'white' }} /> : <SendIcon   sx={{ml:1,}}/>} sx={{ background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`, color: 'white', py: { xs: 1.2, sm: 1.5 }, px: { xs: 4, sm: 6 }, borderRadius: 2, minWidth: { xs: '180px', sm: '200px' }, '&:hover': { background: `linear-gradient(135deg, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`, transform: 'translateY(-2px)' } }}>
                       {loading ? t('contact_btn_sending') : t('contact_btn_send')}
                     </Button>
                     <Button 
@@ -195,7 +185,7 @@ export const Contact = () => {
                       href="https://wa.me/49163 9770059" // الرقم بصيغة دولية بدون أصفار أو فواصل
                       target="_blank"
                       sx={{ 
-                        background: '#25D366', // لون الواتساب الرسمي
+                        background: 'custom.whatsapp',
                         color: 'white', 
                         py: { xs: 1.2, sm: 1.5 }, 
                         px: { xs: 4, sm: 6 }, 
@@ -203,7 +193,7 @@ export const Contact = () => {
                         borderRadius: 2, 
                         minWidth: { xs: '180px', sm: '200px' }, 
                         '&:hover': { 
-                          background: '#128C7E', 
+                          background: 'custom.whatsappHover', 
                           transform: 'translateY(-2px)' 
                         } 
                       }}
@@ -214,9 +204,9 @@ export const Contact = () => {
                 </Box>
               </form>
 
-              <Box dir={isAr ? 'rtl' : 'ltr'} sx={{ mt: 4, pt: 3, borderTop: `1px solid ${alpha('#fff', 0.1)}`, textAlign: 'center' }}>
+              <Box dir={isAr ? 'rtl' : 'ltr'} sx={{ mt: 4, pt: 3, borderTop: `1px solid ${alpha(theme.palette.custom.whitePure, 0.1)}`, textAlign: 'center' }}>
                 <Typography variant="body2" sx={{ color: 'text.secondary', fontSize: { xs: '0.8rem', sm: '0.85rem' } }}>
-                  <Box   component="span" sx={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: COLOR_PALETTE.secondary, display: 'inline-block', mx: 0.7, verticalAlign: 'middle' }} />
+                  <Box   component="span" sx={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: 'text.secondary', display: 'inline-block', mx: 0.7, verticalAlign: 'middle' }} />
                   {t('contact_secure_text')}
                 </Typography>
               </Box>
@@ -225,7 +215,7 @@ export const Contact = () => {
         </Paper>
 
         <Snackbar open={openSnackbar} autoHideDuration={4000} onClose={() => setOpenSnackbar(false)} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
-          <Alert onClose={() => setOpenSnackbar(false)} severity={snackbarSeverity} sx={{ width: '100%', borderRadius: 2, border: '1px solid rgba(0, 0, 0, 0.1)', fontWeight: 500 }}>
+          <Alert onClose={() => setOpenSnackbar(false)} severity={snackbarSeverity} sx={{ width: '100%', borderRadius: 2, border: `1px solid ${alpha(theme.palette.custom.blackPure, 0.1)}`, fontWeight: 500 }}>
             {snackbarMessage}
           </Alert>
         </Snackbar>

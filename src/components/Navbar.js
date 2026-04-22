@@ -10,8 +10,9 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import LanguageIcon from '@mui/icons-material/Language';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import DataSaverOnIcon from '@mui/icons-material/DataSaverOn';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useTheme } from '@mui/material/styles';
+import { alpha, useTheme } from '@mui/material/styles';
 import logo from '../images/logo.webp';
 import { useTranslation } from 'react-i18next';
 
@@ -137,9 +138,16 @@ export const Navbar = () => {
         <ListItemButton onClick={() => handleNavigation('#about')}><ListItemText primary={t('nav_about')} /></ListItemButton>
         <Collapse in={mobileSolutionsOpen} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            {['supermarket', 'traffic', 'security', 'industry', 'construction'].map((path) => (
-              <ListItemButton key={path} sx={{ pl: 4 }} onClick={() => handleNavigation(`/${path}`)}>
-                <ListItemText primary={t(`nav_${path.replace('-', '')}`)} />
+            {[
+              { path: '/supermarket', label: t('nav_supermarket') },
+              { path: '/traffic', label: t('nav_traffic') },
+              { path: '/security', label: t('nav_security') },
+              { path: '/industry', label: t('nav_industry') },
+              { path: '/construction', label: t('nav_construction') },
+              { path: '/data-recovery', label: t('dataRecovery.menuItem') }
+            ].map((item) => (
+              <ListItemButton key={item.path} sx={{ pl: 4 }} onClick={() => handleNavigation(item.path)}>
+                <ListItemText primary={item.label} />
               </ListItemButton>
             ))}
           </List>
@@ -156,7 +164,8 @@ export const Navbar = () => {
         sx={{ 
           backgroundColor: 'white', 
           transition: 'all 0.3s ease',
-          borderBottom: scrolled ? 'none' : '1px solid #eee'
+          borderBottom: scrolled ? 'none' : '1px solid',
+          borderColor: scrolled ? 'transparent' : 'custom.navbarBorder'
         }}
       >
         <Toolbar disableGutters sx={{ justifyContent: 'space-between', minHeight: '70px !important' }}>
@@ -200,7 +209,7 @@ export const Navbar = () => {
                   <MenuItem onClick={() => changeLanguage('ar')}>{t('lang_ar')}</MenuItem>
                 </Menu>
 
-                <Divider orientation="vertical" flexItem sx={{ mx: 1, height: 24, alignSelf: 'center', bgcolor: 'rgba(255,255,255,0.2)' }} />
+                <Divider orientation="vertical" flexItem sx={{ mx: 1, height: 24, alignSelf: 'center', bgcolor: alpha(theme.palette.custom.whitePure, 0.2) }} />
 
                 <Button onClick={handleMenuClick} endIcon={<KeyboardArrowDownIcon />} sx={navButtonStyle}>
                   {t('nav_solutions')}
@@ -211,13 +220,14 @@ export const Navbar = () => {
                   <MenuItem onClick={() => handleNavigation('/security')}>{t('nav_security')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/industry')}>{t('nav_industry')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/construction')}>{t('nav_construction')}</MenuItem>
+                  <MenuItem onClick={() => handleNavigation('/data-recovery')}>{t('dataRecovery.menuItem')}</MenuItem>
                 </Menu>
 
                 <Button onClick={() => handleNavigation('#home')} sx={navButtonStyle}>{t('nav_home')}</Button>
                 
                 
                 <Button variant="outlined" onClick={() => handleNavigation('/contact')} 
-                  sx={{ ...navButtonStyle, borderColor: 'rgba(255,255,255,0.5)', ml: 2 }}>
+                  sx={{ ...navButtonStyle, borderColor: alpha(theme.palette.custom.whitePure, 0.5), ml: 2 }}>
                   {t('nav_contact')}
                 </Button>
                 <Button onClick={() => handleNavigation('#about')} sx={navButtonStyle}>{t('nav_about')}</Button>

@@ -3,6 +3,7 @@ import {
   Box, Container, Typography, List, ListItem, ListItemIcon, ListItemText, Skeleton
 } from '@mui/material';
 import { useTranslation } from 'react-i18next'; // استيراد الترجمة
+import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion'; // استيراد مكتبة التحريك
 import videoThumbnail from '../images/y.webp';
 import dashboard1 from '../images/dashboard1_.webp'; 
@@ -74,6 +75,7 @@ const useLazyVideo = () => {
 // تحسين: استخدام React.memo لمنع إعادة رندر الأقسام غير المتغيرة
 const FeatureSection = memo(({ title, subtitle, features, importance, mediaItems, icon, reverse }) => {
   const { t, i18n } = useTranslation();
+  const theme = useTheme();
   const isAr = i18n.language === 'ar';
 
   const getFlexDirection = () => {
@@ -89,7 +91,7 @@ const FeatureSection = memo(({ title, subtitle, features, importance, mediaItems
       dir={isAr ? 'rtl' : 'ltr'} 
       sx={{ 
         py: { xs: 6, md: 8 }, 
-        borderBottom: '1px solid rgba(0,0,0,0.05)',
+        borderBottom: `1px solid ${theme.palette.divider}`,
         textAlign: 'initial',
         overflow: 'hidden' // لمنع ظهور شريط تمرير أثناء الحركة
       }} 
@@ -120,7 +122,7 @@ const FeatureSection = memo(({ title, subtitle, features, importance, mediaItems
             alignItems: 'flex-start' 
           }}>
             <Box component={motion.div} variants={fadeInUp}>
-              <Typography variant="h3" gutterBottom sx={{ fontWeight: 800, fontSize: { xs: '2rem', md: '2.5rem' }, lineHeight: 1.2 }}>
+              <Typography variant="h4" gutterBottom sx={{ fontWeight: 800, fontSize: { xs: '1.8rem', md: '2.2rem' }, lineHeight: 1.2 }}>
                 {title}
               </Typography>
               <Typography variant="h6" color="text.secondary" sx={{ mb: 4, fontWeight: 400, lineHeight: 1.6 }}>
@@ -204,13 +206,14 @@ const FeatureSection = memo(({ title, subtitle, features, importance, mediaItems
 
 export const RetailSolutions = () => {
   const { t, i18n} = useTranslation();
+  const theme = useTheme();
   const isAr = i18n.language === 'ar';
   const videoRef = useLazyVideo();
 
   return (
     <Box>
       {/* Hero Header */}
-      <Box sx={{ bgcolor: '#0f1220', color: 'white', py: { xs: 8, md: 12 }, textAlign: { xs: isAr ? 'right' : 'left' },
+      <Box sx={{ bgcolor: 'custom.darkGradientStart', color: 'white', py: { xs: 8, md: 12 }, textAlign: { xs: isAr ? 'right' : 'left' },
       backgroundColor: 'background.dark',
         }}>
         <Container maxWidth="md">
@@ -223,9 +226,9 @@ export const RetailSolutions = () => {
             <Typography 
               component={motion.h1} 
               variants={fadeInUp} 
-              variant="h3" 
+              variant="h4" 
               gutterBottom 
-              sx={{ fontWeight: 800, fontSize: { xs: '2.5rem', md: '3.5rem' } }}
+              sx={{ fontWeight: 800, fontSize: { xs: '2rem', md: '2.8rem' } }}
             >
               {t('retail_hero_title')}
             </Typography>
@@ -233,7 +236,7 @@ export const RetailSolutions = () => {
               component={motion.h5} 
               variants={fadeInUp}
               variant="h5" 
-              sx={{ opacity: 0.8, fontWeight: 300, maxWidth: '800px', mx: 'auto' }}
+              sx={{ opacity: 0.8, fontWeight: 300, fontSize: { xs: '1rem', md: '1.15rem' }, maxWidth: '800px', mx: 'auto' }}
             >
               {t('retail_hero_subtitle')}
             </Typography>
@@ -284,7 +287,7 @@ export const RetailSolutions = () => {
       
 
       {/* Mobile App Section */}
-      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#fafafa' }}>
+      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'custom.surfaceSoft' }}>
         <Container maxWidth="lg">
           <Box 
             component={motion.div}
@@ -309,7 +312,7 @@ export const RetailSolutions = () => {
               variants={scaleIn}
               sx={{ width: { xs: '100%', md: '40%' }, display: 'flex', justifyContent: 'center' }}
             >
-              <Box sx={{ width: '280px', height: '640px', borderRadius: '28px', border: 'solid 4px black', overflow: 'hidden', bgcolor: 'black', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}>
+              <Box sx={{ width: '280px', height: '640px', borderRadius: '28px', border: `solid 4px ${theme.palette.custom.blackPure}`, overflow: 'hidden', bgcolor: 'custom.blackPure', boxShadow: theme.shadows[8] }}>
                 <video 
                   ref={videoRef} 
                   data-src={mobileDashboardVideo} 
@@ -327,7 +330,7 @@ export const RetailSolutions = () => {
               <Typography 
                 component={motion.h3} 
                 variants={fadeInUp} 
-                variant="h3" 
+                variant="h4" 
                 fontWeight={800} 
                 gutterBottom 
                 sx={{ display: { xs: 'none', md: 'block' } }}

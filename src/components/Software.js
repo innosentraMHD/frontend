@@ -62,9 +62,9 @@ export const Software = () => {
             {/* أيقونة اختيارية في الهيرو لتعزيز مظهر البرمجيات */}
             <TerminalIcon sx={{ fontSize: 50, mb: 2, opacity: 0.9, color: 'secondary.main' }} />
             
-            <Typography variant="h4" sx={{ 
+            <Typography variant="h5" sx={{ 
               fontWeight: 800, 
-              fontSize: { xs: '2.2rem', md: '3.5rem' },
+              fontSize: { xs: '1.7rem', md: '2.3rem', lg: '2.6rem' },
               mb: 2 
             }}>
               {t('software_hero_title')}
@@ -72,7 +72,7 @@ export const Software = () => {
             <Typography variant="h5" sx={{ 
               opacity: 0.9,
               fontWeight: 400, 
-              fontSize: {xs: '1.1rem', md: '1.4rem'},
+              fontSize: { xs: '1rem', md: '1.15rem' },
               maxWidth: '800px',
               mx: 'auto'
             }}>
@@ -101,7 +101,7 @@ export const Software = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               sx={{ width: { xs: '100%', md: '55%' } }}
             >
-              <Typography variant="h3" gutterBottom sx={{ 
+              <Typography variant="h4" gutterBottom sx={{ 
                 fontWeight: 700, 
                 color: 'primary.main', // استخدام الأزرق للعناوين
                 fontSize: { xs: '2rem', md: '2.8rem' } 
@@ -197,7 +197,7 @@ export const Software = () => {
                 p: 1, 
                 bgcolor: 'background.paper', 
                 borderRadius: 4, 
-                boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                boxShadow: 8,
                 border: '1px solid',
                 borderColor: 'divider'
               }}>

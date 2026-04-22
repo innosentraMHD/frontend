@@ -11,7 +11,7 @@ export const CookiesSettings = () => {
     dir={isAr ? 'rtl' : 'ltr'} 
 
 sx={{ py: 10, minHeight: '100vh', textAlign: { xs: 'center', md: isAr ? 'right' : 'left' }}}>
-      <Typography variant="h3" gutterBottom>
+      <Typography variant="h4" gutterBottom>
         {t('cookies_title')}
       </Typography>
       <Divider sx={{ mb: 4 }} />

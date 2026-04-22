@@ -5,12 +5,14 @@ import {
   CircularProgress,
   Paper,
 } from '@mui/material';
+import { alpha, useTheme } from '@mui/material/styles';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import PauseIcon from '@mui/icons-material/Pause';
 import { useTranslation } from 'react-i18next'; // استيراد الترجمة
 
 const MediaGallery = ({ mediaItems }) => {
   const { t } = useTranslation(); // تفعيل الترجمة (للاستخدام المستقبلي أو الألتس)
+  const theme = useTheme();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showControls, setShowControls] = useState(true);
@@ -91,7 +93,7 @@ const MediaGallery = ({ mediaItems }) => {
           height: { xs: 250, sm: 350, md: 450 },
           borderRadius: 4,
           overflow: 'hidden',
-          bgcolor: '#ffffffff',
+          bgcolor: 'custom.whitePure',
           mb: 2,
           display: 'flex',
           alignItems: 'center',
@@ -165,7 +167,7 @@ const MediaGallery = ({ mediaItems }) => {
             position: 'absolute',
             bottom: 0,
             width: '100%',
-            background: 'linear-gradient(transparent, rgba(0,0,0,0.8))',
+            background: `linear-gradient(transparent, ${alpha(theme.palette.custom.blackPure, 0.8)})`,
             p: 2,
             color: 'white',
             zIndex: 2,
@@ -188,7 +190,7 @@ const MediaGallery = ({ mediaItems }) => {
           display: 'flex', gap: 2, width: '100%', overflowX: 'auto', p: 0.5,
           justifyContent: 'center',
           '&::-webkit-scrollbar': { height: '6px' },
-          '&::-webkit-scrollbar-thumb': { backgroundColor: '#ddd', borderRadius: '3px' }
+          '&::-webkit-scrollbar-thumb': { backgroundColor: 'custom.mediaScrollbarThumb', borderRadius: '3px' }
         }}
       >
         {mediaItems.map((item, index) => (
@@ -198,7 +200,7 @@ const MediaGallery = ({ mediaItems }) => {
             onClick={() => activateMedia(index)}
             sx={{
               width: 90, height: 65, borderRadius: 2, overflow: 'hidden', cursor: 'pointer',
-              border: index === selectedIndex ? '3px solid #00d8fe' : '2px solid transparent',
+              border: index === selectedIndex ? `3px solid ${theme.palette.secondary.main}` : '2px solid transparent',
               opacity: index === selectedIndex ? 1 : 0.6,
               transform: index === selectedIndex ? 'scale(1.05)' : 'scale(1)',
                transition: 'all 0.3s ease-in-out', 
