@@ -1,32 +1,42 @@
 import React from 'react';
-import { Container, Typography, Box } from '@mui/material';
+import { Container, Typography, Box,Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { alpha, useTheme } from '@mui/material/styles';
 import headImage from '../images/head.webp';
+import { useNavigate, useLocation } from 'react-router-dom';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+
 
 export const Hero = () => {
   const { t, i18n } = useTranslation();
   const theme = useTheme();
   const isAr = i18n.language === 'ar';
+  const navigate = useNavigate();
 
   const keyframesStyle = `
     /* الأنميشن الخاص بالشريط المتحرك */
-  @keyframes marquee {
-  0% { transform: translateX(-100%); } /* يبدأ من خارج الشاشة تماماً من جهة اليسار */
-  100% { transform: translateX(100%); } /* ينتهي خارج الشاشة تماماً من جهة اليمين */
-}
+    @keyframes marquee {
+      0% { transform: translateX(-100%); } 
+      100% { transform: translateX(100%); } 
+    }
 
     @keyframes shinePass {
-        0% { left: -100%; opacity: 0; }
-        10% { opacity: 0.8; }
-        40% { left: 120%; opacity: 0.8; }
-        41%, 100% { left: 120%; opacity: 0; }
+      0% { left: -100%; opacity: 0; }
+      10% { opacity: 0.8; }
+      40% { left: 120%; opacity: 0.8; }
+      41%, 100% { left: 120%; opacity: 0; }
     }
 
     @keyframes attentionSequence {
-        0% { filter: brightness(1); transform: scale(1); }
-        20% { filter: brightness(1.5); transform: scale(1.08); }
-        100% { filter: brightness(1); transform: scale(1); }
+      0% { filter: brightness(1); transform: scale(1); }
+      20% { filter: brightness(1.5); transform: scale(1.08); }
+      100% { filter: brightness(1); transform: scale(1); }
+    }
+
+    /* حركة الأيقونة داخل الزر للفت الانتباه */
+    @keyframes bounceIcon {
+      0%, 100% { transform: translateX(0) scale(1); }
+      50% { transform: translateX(${isAr ? '-5px' : '5px'}) scale(1.2); }
     }
   `;
 
@@ -90,6 +100,39 @@ export const Hero = () => {
             >
               {t('hero_subtitle')}
             </Typography>
+            <br/>
+            <Button
+              variant="contained"
+              onClick={() => navigate('/request-demo')}
+              endIcon={
+                <RocketLaunchIcon 
+                  sx={{ 
+                    animation: 'bounceIcon 1.5s infinite ease-in-out',
+                    transform: isAr ? 'rotate(180deg)' : 'none',
+                    ml: isAr ? 0 : 1.5,
+                    mr: isAr ? 1.5 : 0
+                  }} 
+                />
+              }
+              sx={{
+                background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
+                color: 'white',
+                py: { xs: 1.5, md: 1.8 },
+                px: { xs: 4, md: 6 },
+                borderRadius: '50px', // شكل حبة دواء جذاب
+                fontSize: { xs: '1.1rem', md: '1.2rem' },
+                fontWeight: 'bold',
+                boxShadow: '0 8px 20px rgba(0,0,0,0.2)',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-3px)',
+                  boxShadow: '0 12px 25px rgba(0,0,0,0.3)',
+                  background: `linear-gradient(135deg, ${theme.palette.primary.dark} 0%, ${theme.palette.primary.main} 100%)`,
+                }
+              }}
+            >
+              {t('demo_button')}
+            </Button>
           </Box>
 
           {/* العمود الأيمن: الصورة */}

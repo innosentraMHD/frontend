@@ -50,8 +50,8 @@ export const Contact = () => {
       setLoading(true);
       try {
         await emailjs.send(
-          'service_u4q9l2k',
-          'template_3xj3lz5',
+          process.env.REACT_APP_EMAILJS_SERVICE_ID,
+          process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
           {
             to_name: 'RetailTech Team',
             from_name: values.name,
@@ -61,7 +61,7 @@ export const Contact = () => {
             reply_to: values.email,
             date: new Date().toLocaleDateString('en-US'),
           },
-          'xkZqAFq0QEaeUIYpd'
+          process.env.REACT_APP_EMAILJS_PUBLIC_KEY
         );
         setSnackbarMessage(t('contact_success_msg'));
         setSnackbarSeverity('success');
