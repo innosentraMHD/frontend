@@ -31,6 +31,7 @@ import { TermsOfUse } from './components/TermsOfUse';
 import { CookiesSettings } from './components/CookiesSettings';
 import { SecurityInfo } from './components/SecurityInfo';
 import { SiteInfo } from './components/SiteInfo';
+import { DemoRequest } from './components/DemoRequest';
 import heroImage from './images/logo.webp';
 
 
@@ -245,6 +246,7 @@ function AppContent() {
           <Route path="/cookies" element={<CookiesSettings />} />
           <Route path="/terms" element={<TermsOfUse />} />
           <Route path="/security-info" element={<SecurityInfo />} />
+          <Route path="/request-demo" element={<DemoRequest />} />
         </Routes>
 
         <Footer />

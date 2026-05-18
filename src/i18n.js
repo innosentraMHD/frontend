@@ -391,6 +391,21 @@ ar: {
       "software_c6": "اختبار البرمجيات (QA Testing) وضمان الجودة والأداء",
       "software_c7": "تحليل البيانات واستخراج الرؤى (Data Analytics & Reporting)",
       "software_c8": "تأمين الأنظمة وحماية البيانات وتشفير الاتصالات",
+
+
+      // بيانات الديمو 
+      "demo_button": "اطلب ديمو مخصص",
+      "demo_btn_request": "اطلب ديمو مخصص الآن",
+"demo_page_title": "طلب ديمو للنظام",
+"demo_page_subtitle": "يرجى تزويدنا ببيانات بيئة العمل والمواصفات المطلوبة لنتمكن من تصميم ديمو يلبي احتياجاتك بدقة.",
+"demo_label_company": "اسم الشركة / المؤسسة",
+"demo_label_industry": "قطاع العمل (تجزئة، مرور، أمن..)",
+"demo_label_reqs": "المواصفات والبيانات المطلوبة",
+"demo_placeholder_reqs": "مثال: عدد الكاميرات، نوع البيانات المراد تحليلها، المشكلة التي ترغب بحلها...",
+"demo_btn_submit": "إرسال طلب الديمو",
+"val_company_req": "اسم الشركة مطلوب",
+"val_industry_req": "قطاع العمل مطلوب",
+"val_req_req": "يرجى كتابة بعض التفاصيل لطلب الديمو",
   }
 },
 
@@ -783,6 +798,20 @@ ar: {
       "software_c6": "Software Testing (QA), Performance & Quality Assurance",
       "software_c7": "Data Analytics, Reporting & Business Intelligence",
       "software_c8": "System Security, Data Protection & Encryption",
+      
+      // الديمو
+      "demo_button": "Request a Custom Demo",
+      "demo_btn_request": "Request a Custom Demo",
+"demo_page_title": "Request a System Demo",
+"demo_page_subtitle": "Please provide details about your environment and required specifications so we can design a demo tailored to your needs.",
+"demo_label_company": "Company / Organization Name",
+"demo_label_industry": "Industry (Retail, Traffic, Security..)",
+"demo_label_reqs": "Required Specifications & Data",
+"demo_placeholder_reqs": "E.g.: Number of cameras, type of data to analyze, the problem you want to solve...",
+"demo_btn_submit": "Submit Demo Request",
+"val_company_req": "Company name is required",
+"val_industry_req": "Industry is required",
+"val_req_req": "Please provide some details for the demo",
 
 }
   },
@@ -1170,6 +1199,21 @@ ar: {
       "software_c6": "Softwaretests (QA), Leistungs- & Qualitätssicherung",
       "software_c7": "Datenanalyse, Reporting & Business Intelligence",
       "software_c8": "Systemsicherheit, Datenschutz & Verschlüsselung",
+
+      // معلومات الديمو 
+
+      "demo_button": "Individuelle Demo anfordern",
+      "demo_btn_request": "Individuelle Demo anfordern",
+"demo_page_title": "System-Demo anfordern",
+"demo_page_subtitle": "Bitte geben Sie Details zu Ihrer Umgebung und den gewünschten Spezifikationen an, damit wir eine auf Ihre Bedürfnisse zugeschnittene Demo entwerfen können.",
+"demo_label_company": "Name des Unternehmens",
+"demo_label_industry": "Branche (Einzelhandel, Verkehr..)",
+"demo_label_reqs": "Erforderliche Spezifikationen & Daten",
+"demo_placeholder_reqs": "Z.B.: Anzahl der Kameras, Art der zu analysierenden Daten, das Problem, das Sie lösen möchten...",
+"demo_btn_submit": "Demo-Anfrage senden",
+"val_company_req": "Firmenname ist erforderlich",
+"val_industry_req": "Branche ist erforderlich",
+"val_req_req": "Bitte geben Sie einige Details für die Demo an",
 }
   }
 };
