@@ -32,6 +32,7 @@ import { CookiesSettings } from './components/CookiesSettings';
 import { SecurityInfo } from './components/SecurityInfo';
 import { SiteInfo } from './components/SiteInfo';
 import { DemoRequest } from './components/DemoRequest';
+import { Agriculture } from './components/Agriculture';
 import heroImage from './images/logo.webp';
 
 
@@ -245,6 +246,7 @@ function AppContent() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/cookies" element={<CookiesSettings />} />
           <Route path="/terms" element={<TermsOfUse />} />
+          <Route path="/agriculture" element={<Agriculture />} />
           <Route path="/security-info" element={<SecurityInfo />} />
           <Route path="/request-demo" element={<DemoRequest />} />
         </Routes>
