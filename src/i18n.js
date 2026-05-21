@@ -406,6 +406,24 @@ ar: {
 "val_company_req": "اسم الشركة مطلوب",
 "val_industry_req": "قطاع العمل مطلوب",
 "val_req_req": "يرجى كتابة بعض التفاصيل لطلب الديمو",
+
+
+  "nav_agriculture": "الزراعة",
+  "agriculture_hero_title": "الذكاء الاصطناعي في الزراعة",
+  "agriculture_hero_subtitle": "نرتقي بالزراعة الحديثة من خلال حلول الرؤية الحاسوبية الذكية لتحليل المحاصيل وزيادة الإنتاجية.",
+  "agriculture_section_title": "إدارة المحاصيل الذكية",
+  "agriculture_section_subtitle": "استخدم قوة الذكاء الاصطناعي لمراقبة الأراضي الزراعية بدقة عالية، مما يساعد المزارعين والشركات الزراعية على اتخاذ قرارات مبنية على بيانات دقيقة لحظية.",
+  "agriculture_track_label": "أهم التطبيقات",
+  "agriculture_f1": "العد التلقائي والدقيق للأشجار في الأراضي الواسعة",
+  "agriculture_f2": "الاكتشاف المبكر للأمراض والآفات الزراعية",
+  "agriculture_f3": "التحليل الشامل لحالة المحصول ونموه",
+  "agriculture_f4": "تقدير حجم الإنتاجية المتوقعة",
+  "agriculture_f5": "تحسين إدارة الموارد (المياه والأسمدة)",
+  "agriculture_matters_label": "لماذا هذا مهم؟",
+  "agriculture_i1": "التدخل المبكر لحماية النباتات وتقليل الخسائر",
+  "agriculture_i2": "زيادة الإنتاجية الزراعية بأقل التكاليف",
+  "agriculture_i3": "توفير الوقت والجهد في عمليات المسح الميداني"
+
   }
 },
 
@@ -813,6 +831,22 @@ ar: {
 "val_industry_req": "Industry is required",
 "val_req_req": "Please provide some details for the demo",
 
+"nav_agriculture": "Agriculture",
+  "agriculture_hero_title": "AI in Agriculture",
+  "agriculture_hero_subtitle": "Elevating modern farming with intelligent computer vision solutions for crop analysis and increased yield.",
+  "agriculture_section_title": "Smart Crop Management",
+  "agriculture_section_subtitle": "Leverage the power of AI to monitor farmlands with high precision, enabling farmers to make data-driven decisions in real-time.",
+  "agriculture_track_label": "Key Applications",
+  "agriculture_f1": "Accurate and automated tree counting in large fields",
+  "agriculture_f2": "Early detection of agricultural diseases and pests",
+  "agriculture_f3": "Comprehensive crop health and growth analysis",
+  "agriculture_f4": "Yield estimation and forecasting",
+  "agriculture_f5": "Resource management optimization (water and fertilizers)",
+  "agriculture_matters_label": "Why it matters?",
+  "agriculture_i1": "Early intervention to protect plants and reduce losses",
+  "agriculture_i2": "Maximize harvest yield with minimized costs",
+  "agriculture_i3": "Save time and effort in field surveying"
+
 }
   },
 
@@ -1214,6 +1248,23 @@ ar: {
 "val_company_req": "Firmenname ist erforderlich",
 "val_industry_req": "Branche ist erforderlich",
 "val_req_req": "Bitte geben Sie einige Details für die Demo an",
+
+"nav_agriculture": "Landwirtschaft",
+  "agriculture_hero_title": "KI in der Landwirtschaft",
+  "agriculture_hero_subtitle": "Verbesserung der modernen Landwirtschaft mit intelligenten Computer-Vision-Lösungen für die Pflanzenanalyse und Ertragssteigerung.",
+  "agriculture_section_title": "Intelligentes Pflanzenmanagement",
+  "agriculture_section_subtitle": "Nutzen Sie die Leistungsfähigkeit der KI, um landwirtschaftliche Flächen mit hoher Präzision zu überwachen und datengesteuerte Entscheidungen in Echtzeit zu treffen.",
+  "agriculture_track_label": "Wichtige Anwendungen",
+  "agriculture_f1": "Genaue und automatisierte Baumzählung auf großen Feldern",
+  "agriculture_f2": "Früherkennung von Pflanzenkrankheiten und Schädlingen",
+  "agriculture_f3": "Umfassende Analyse der Pflanzengesundheit",
+  "agriculture_f4": "Ertragsschätzung und -prognose",
+  "agriculture_f5": "Optimierung der Ressourcenverwaltung (Wasser und Dünger)",
+  "agriculture_matters_label": "Warum ist das wichtig?",
+  "agriculture_i1": "Frühzeitiges Eingreifen zum Schutz der Pflanzen und zur Reduzierung von Verlusten",
+  "agriculture_i2": "Maximierung der Ernteerträge bei minimierten Kosten",
+  "agriculture_i3": "Zeit- und Arbeitsersparnis bei der Feldvermessung"
+  
 }
   }
 };
