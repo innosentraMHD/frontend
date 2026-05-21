@@ -144,6 +144,7 @@ export const Navbar = () => {
               { path: '/security', label: t('nav_security') },
               { path: '/industry', label: t('nav_industry') },
               { path: '/construction', label: t('nav_construction') },
+              { path: '/agriculture', label: t('nav_agriculture') },
               { path: '/data-recovery', label: t('dataRecovery.menuItem') }
             ].map((item) => (
               <ListItemButton key={item.path} sx={{ pl: 4 }} onClick={() => handleNavigation(item.path)}>
@@ -220,6 +221,7 @@ export const Navbar = () => {
                   <MenuItem onClick={() => handleNavigation('/security')}>{t('nav_security')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/industry')}>{t('nav_industry')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/construction')}>{t('nav_construction')}</MenuItem>
+                  <MenuItem onClick={() => handleNavigation('/agriculture')}>{t('nav_agriculture')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/data-recovery')}>{t('dataRecovery.menuItem')}</MenuItem>
                 </Menu>
 
