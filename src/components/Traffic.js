@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { 
-  Box, Container, Typography, List, ListItem, ListItemIcon, ListItemText 
+  Box, Container, Typography, List, ListItem, ListItemIcon, ListItemText, useMediaQuery 
 } from '@mui/material';
 import TrafficIcon from '@mui/icons-material/Traffic';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
@@ -8,8 +8,11 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
 
+// قم بتغيير هذه المسارات لتشمل الفيديو الثاني إذا كان لديك واحد مختلف
 import trafficVideo from '../videos/traffic-demo.mp4';
 import videoPoster from '../images/cars.webp';
+import trafficVideo2 from '../videos/traffic-demo2.mp4';
+import videoPoster2 from '../images/cars2.webp';
 
 const MotionBox = motion(Box);
 
@@ -17,10 +20,12 @@ export const Traffic = () => {
   const { t, i18n } = useTranslation();
   const theme = useTheme();
   const isAr = i18n.language === 'ar';
+  
+  // التحقق من حجم الشاشة (أصغر من md تعني موبايل أو تابلت صغير)
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
-  // استعادة كافة البيانات كاملة كما في الكود الأصلي
   const features = [
     t('traffic_f1'), t('traffic_f2'), t('traffic_f3'), 
     t('traffic_f4'), t('traffic_f5')
@@ -28,6 +33,30 @@ export const Traffic = () => {
   const importance = [
     t('traffic_i1'), t('traffic_i2'), t('traffic_i3')
   ];
+
+  // قمنا بتعريف الفيديو الثاني هنا لسهولة إعادة استخدامه حسب حجم الشاشة
+  const secondVideoNode = (
+    <MotionBox
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      sx={{ 
+        width: '100%', 
+        mt: { xs: 4, md: 4 }, // مسافة من الأعلى
+        mb: { xs: 5, md: 0 }  // مسافة من الأسفل في الموبايل فقط
+      }}
+    >
+      <Box 
+        component="video" autoPlay muted loop playsInline poster={videoPoster2}
+        // تم عكس الـ border-radius ليعطي شكلاً جمالياً متكاملاً مع الفيديو الأول
+        sx={{ width: '100%', borderRadius: '5px 50px 5px 50px', boxShadow: theme.shadows[8], bgcolor: 'custom.blackPure' }}
+      >
+        {/* استبدل src بمسار الفيديو الثاني إذا توفر */}
+        <source src={trafficVideo2} type="video/mp4" />
+      </Box>
+    </MotionBox>
+  );
 
   return (
     <Box dir={isAr ? 'rtl' : 'ltr'} sx={{ overflowX: 'hidden', bgcolor: 'background.default' }}>
@@ -42,7 +71,6 @@ export const Traffic = () => {
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
-        // إضافة لمسة انسيابية للخلفية
         background: 'black',
       }}>
         <Container maxWidth="md">
@@ -66,14 +94,11 @@ export const Traffic = () => {
         <Container maxWidth="lg">
           <Box sx={{ 
             display: 'flex', 
-            flexDirection: { xs: 'column', md: 'row' }, // لابتوب بجانب بعض، موبايل فوق بعض
+            flexDirection: { xs: 'column', md: 'row' },
             alignItems: 'flex-start', 
             gap: { xs: 6, md: 10 } 
           }}>
             
-            {/* جهة الفيديو: تصميم مرن مع بوكس انسيابي */}
-            
-
             {/* جهة النص: Flex Column */}
             <Box sx={{ 
               width: { xs: '100%', md: '60%' },
@@ -93,10 +118,15 @@ export const Traffic = () => {
                   </Typography>
                 </Box>
 
-                <Typography variant="h6" color="text.secondary" sx={{ mb: 6, lineHeight: 1.8, textAlign: {xs: 'center', md: 'justify'} }}>
+                <Typography variant="h6" color="text.secondary" sx={{ mb: { xs: 2, md: 6 }, lineHeight: 1.8, textAlign: {xs: 'center', md: 'justify'} }}>
                   {t('traffic_section_subtitle')}
                 </Typography>
               </MotionBox>
+
+              {/* ---------------------------------------------------- */}
+              {/* عرض الفيديو الثاني هنا في حالة الموبايل فقط (بين النصوص) */}
+              {isMobile && secondVideoNode}
+              {/* ---------------------------------------------------- */}
 
               {/* القوائم: Flex Row للأجهزة الكبيرة و Column للصغيرة */}
               <Box sx={{ 
@@ -149,6 +179,8 @@ export const Traffic = () => {
                 </Box>
               </Box>
             </Box>
+
+            {/* جهة الفيديو */}
             <MotionBox 
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -156,21 +188,29 @@ export const Traffic = () => {
               sx={{ 
                 width: { xs: '100%', md: '40%' },
                 position: 'sticky',
-                top: '100px'
+                top: '100px',
+                display: 'flex',
+                flexDirection: 'column'
               }}
             >
+              {/* الفيديو الأول */}
               <Box sx={{ flex: 1, width: '100%', position: 'relative' }}>
-            <Box 
-              component="video" autoPlay muted loop playsInline poster={videoPoster}
-              sx={{ width: '100%', borderRadius: '50px 5px 50px 5px', boxShadow: theme.shadows[8], bgcolor: 'custom.blackPure' }}
-            >
-              <source src={trafficVideo} type="video/mp4" />
-            </Box>
-          </Box>
+                <Box 
+                  component="video" autoPlay muted loop playsInline poster={videoPoster}
+                  sx={{ width: '100%', borderRadius: '50px 5px 50px 5px', boxShadow: theme.shadows[8], bgcolor: 'custom.blackPure' }}
+                >
+                  <source src={trafficVideo} type="video/mp4" />
+                </Box>
+              </Box>
+
+              {/* ---------------------------------------------------- */}
+              {/* عرض الفيديو الثاني هنا في حالة اللابتوب فقط (تحت الأول) */}
+              {!isMobile && secondVideoNode}
+              {/* ---------------------------------------------------- */}
+
             </MotionBox>
 
           </Box>
-          
         </Container>
       </Box>
     </Box>
