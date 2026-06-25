@@ -5,7 +5,7 @@ import { alpha, useTheme } from '@mui/material/styles';
 import headImage from '../images/head.webp';
 import { useNavigate, useLocation } from 'react-router-dom';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-
+import monImage from '../images/mon.jpg';
 
 export const Hero = () => {
   const { t, i18n } = useTranslation();
@@ -78,6 +78,20 @@ export const Hero = () => {
               maxWidth: { md: '600px' },
             }}
           >
+            <Box
+              component="img"
+              src={monImage} // استخدام الصورة الجديدة هنا
+              alt="Mon AI Platform Banner"
+              sx={{
+                width: '100%', 
+                height: 'auto',
+                mb:1,
+                // تنسيقات إضافية لضمان المظهر المستطيل المناسب
+                borderRadius: '5px', 
+                
+                objectFit: 'cover' // لضمان عدم تشوه الصورة
+              }}
+            />
             <Typography
               variant="h3"
               sx={{
@@ -102,15 +116,18 @@ export const Hero = () => {
             </Typography>
             <br/>
             <Button
+            
               variant="contained"
               onClick={() => navigate('/request-demo')}
+              
               endIcon={
                 <RocketLaunchIcon 
                   sx={{ 
                     animation: 'bounceIcon 1.5s infinite ease-in-out',
                     transform: isAr ? 'rotate(180deg)' : 'none',
                     ml: isAr ? 0 : 1.5,
-                    mr: isAr ? 1.5 : 0
+                    mr: isAr ? 1.5 : 0,
+                    
                   }} 
                 />
               }
@@ -119,6 +136,7 @@ export const Hero = () => {
                 color: 'white',
                 py: { xs: 1.5, md: 1.8 },
                 px: { xs: 4, md: 6 },
+                mb:1,
                 borderRadius: '50px', // شكل حبة دواء جذاب
                 fontSize: { xs: '1.1rem', md: '1.2rem' },
                 fontWeight: 'bold',
@@ -159,7 +177,12 @@ export const Hero = () => {
                   animation: 'shinePass 1.5s ease-in-out infinite 3s',
                 }}
               />
-            </Box>
+             
+            
+         
+
+          
+          </Box>
           </Box>
         </Box>
       </Container>
