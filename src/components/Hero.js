@@ -5,7 +5,7 @@ import { alpha, useTheme } from '@mui/material/styles';
 import headImage from '../images/head.webp';
 import { useNavigate, useLocation } from 'react-router-dom';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import monImage from '../images/mon.jpg';
+
 
 export const Hero = () => {
   const { t, i18n } = useTranslation();
@@ -78,20 +78,6 @@ export const Hero = () => {
               maxWidth: { md: '600px' },
             }}
           >
-            <Box
-              component="img"
-              src={monImage} // استخدام الصورة الجديدة هنا
-              alt="Mon AI Platform Banner"
-              sx={{
-                width: '100%', 
-                height: 'auto',
-                mb:1,
-                // تنسيقات إضافية لضمان المظهر المستطيل المناسب
-                borderRadius: '5px', 
-                
-                objectFit: 'cover' // لضمان عدم تشوه الصورة
-              }}
-            />
             <Typography
               variant="h3"
               sx={{
