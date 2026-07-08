@@ -15,7 +15,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { alpha, useTheme } from '@mui/material/styles';
 import logo from '../images/logo.webp';
 import { useTranslation } from 'react-i18next';
-
+ 
 // استيراد السياق من App.js (تأكد من المسار الصحيح)
 import { LanguageContext } from '../App'; 
 
@@ -145,6 +145,7 @@ export const Navbar = () => {
               { path: '/industry', label: t('nav_industry') },
               { path: '/construction', label: t('nav_construction') },
               { path: '/agriculture', label: t('nav_agriculture') },
+              { path: '/products', label: t('nav_products') },
               { path: '/data-recovery', label: t('dataRecovery.menuItem') }
             ].map((item) => (
               <ListItemButton key={item.path} sx={{ pl: 4 }} onClick={() => handleNavigation(item.path)}>
@@ -222,6 +223,7 @@ export const Navbar = () => {
                   <MenuItem onClick={() => handleNavigation('/industry')}>{t('nav_industry')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/construction')}>{t('nav_construction')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/agriculture')}>{t('nav_agriculture')}</MenuItem>
+                  <MenuItem onClick={() => handleNavigation('/products')}>{t('nav_products')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/data-recovery')}>{t('dataRecovery.menuItem')}</MenuItem>
                 </Menu>
 

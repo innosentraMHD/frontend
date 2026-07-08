@@ -394,7 +394,8 @@ ar: {
 
 
       // بيانات الديمو 
-      "demo_button": "اطلب ديمو مخصص",
+      "demo_button": "اطلب ديمو",
+      "hero_products_button": "تفقد المنتجات",
       "demo_btn_request": "اطلب ديمو مخصص الآن",
 "demo_page_title": "طلب ديمو للنظام",
 "demo_page_subtitle": "يرجى تزويدنا ببيانات بيئة العمل والمواصفات المطلوبة لنتمكن من تصميم ديمو يلبي احتياجاتك بدقة.",
@@ -409,6 +410,7 @@ ar: {
 
 
   "nav_agriculture": "الزراعة",
+  "nav_products": "المنتجات الجاهزة",
   "agriculture_hero_title": "الذكاء الاصطناعي في الزراعة",
   "agriculture_hero_subtitle": "نرتقي بالزراعة الحديثة من خلال حلول الرؤية الحاسوبية الذكية لتحليل المحاصيل وزيادة الإنتاجية.",
   "agriculture_section_title": "إدارة المحاصيل الذكية",
@@ -422,7 +424,35 @@ ar: {
   "agriculture_matters_label": "لماذا هذا مهم؟",
   "agriculture_i1": "التدخل المبكر لحماية النباتات وتقليل الخسائر",
   "agriculture_i2": "زيادة الإنتاجية الزراعية بأقل التكاليف",
-  "agriculture_i3": "توفير الوقت والجهد في عمليات المسح الميداني"
+  "agriculture_i3": "توفير الوقت والجهد في عمليات المسح الميداني",
+  "products_title": "جهاز تحليلات المتجر بالذكاء الاصطناعي (Edge AI)",
+  "products_subtitle": "جهاز ذكي يعالج بيانات الكاميرات محليا لحماية الخصوصية وتقليل استهلاك الإنترنت، مع لوحة تحكم موحدة تمنحك رؤية تشغيلية دقيقة لكل متجر.",
+  "products_no_cloud": "لا يوجد سحابة (Cloud) 0%",
+  "products_hw_title": "الهاردوير: جهاز Edge AI على كل متجر",
+  "products_hw_desc": "يقوم الجهاز بمعالجة بيانات الكاميرات محليا على مستوى الحافة لتقليل نقل البيانات، والحفاظ على الخصوصية، وتقليل استهلاك الإنترنت مع استجابة فورية.",
+  "products_hw_f1": "معالجة الفيديو على الجهاز دون إرسال البيانات الخام",
+  "products_hw_f2": "Edge AI لتشغيل التحليل بسرعة وتحقيق زمن استجابة منخفض",
+  "products_hw_f3": "تخصيص الجهاز حسب عدد الكاميرات وحجم المشروع",
+  "products_hw_f4": "تكامل مع كاميراتك الحالية مع الحفاظ على خصوصية البيانات",
+  "products_hw_f5": "تصميم مخصص للتشغيل في بيئة المتجر وتثبيت سريع",
+  "products_sw_title": "السوفتوير: داشبورد موحد وتحليلات ذكية",
+  "products_sw_desc": "يحوّل نتائج التحليل إلى مؤشرات قابلة للتنفيذ، خرائط حرارية، وتنبيهات مخصصة حسب سيناريوهات التشغيل التي تختارها.",
+  "products_image_alt": "صورة المنتج",
+  "products_section_value_title": "ماذا يقدم هذا المنتج لعملك؟",
+  "products_section_value_desc": "نحوّل الكاميرات الحالية في متجرك إلى نظام تحليلي متكامل يراقب سلوك الزبائن لحظيا ويمنحك مؤشرات قابلة للتنفيذ. يتم تخصيص الجهاز حسب حجم المشروع، ومع سلاسل المتاجر نوفر جهازا لكل فرع ثم نوحد جميع البيانات في داشبورد مركزية واحدة.",
+  "products_kpi_title": "الإحصائيات الرئيسية التي يغطيها النظام",
+  "products_kpi_visitors": "عدد الزوار أو الزبائن خلال أي فترة زمنية تختارها.",
+  "products_kpi_age": "تحليل الفئات العمرية للزوار.",
+  "products_kpi_gender": "توزيع الجنس: ذكر أو أنثى.",
+  "products_kpi_dwell": "متوسط زمن الوقوف داخل مناطق المتجر وزمن الشراء.",
+  "products_kpi_purchase": "عدد من اشترى مقابل من لم يشترِ.",
+  "products_kpi_sentiment": "قياس حالة الرضى عبر تحليل مشاعر الوجوه.",
+  "products_kpi_heatmap": "هت ماب لفهم مناطق الجذب والازدحام داخل المتجر.",
+  "products_ops_title": "تنبيهات ذكية + دعم مستمر",
+  "products_ops_desc": "نفعّل تنبيهات مخصصة حسب احتياجك التشغيلي ونبقى مسؤولين عن المعالجة السريعة لأي مشكلة خاصة عند بداية التشغيل، مع دعم فني مستمر للخدمة.",
+  "products_alert_cashier": "تنبيه ازدحام عند الكاشير أو مناطق الانتظار.",
+  "products_alert_afterhours": "تنبيه فوري عند تسلل شخص بعد إغلاق المتجر.",
+  "products_alert_custom": "تنبيهات مرنة قابلة للتخصيص بالكامل حسب سيناريوهاتك."
 
   }
 },
@@ -818,7 +848,8 @@ ar: {
       "software_c8": "System Security, Data Protection & Encryption",
       
       // الديمو
-      "demo_button": "Request a Custom Demo",
+      "demo_button": "Request a Demo",
+      "hero_products_button": "Explore Products",
       "demo_btn_request": "Request a Custom Demo",
 "demo_page_title": "Request a System Demo",
 "demo_page_subtitle": "Please provide details about your environment and required specifications so we can design a demo tailored to your needs.",
@@ -832,6 +863,7 @@ ar: {
 "val_req_req": "Please provide some details for the demo",
 
 "nav_agriculture": "Agriculture",
+  "nav_products": "Products",
   "agriculture_hero_title": "AI in Agriculture",
   "agriculture_hero_subtitle": "Elevating modern farming with intelligent computer vision solutions for crop analysis and increased yield.",
   "agriculture_section_title": "Smart Crop Management",
@@ -845,7 +877,35 @@ ar: {
   "agriculture_matters_label": "Why it matters?",
   "agriculture_i1": "Early intervention to protect plants and reduce losses",
   "agriculture_i2": "Maximize harvest yield with minimized costs",
-  "agriculture_i3": "Save time and effort in field surveying"
+  "agriculture_i3": "Save time and effort in field surveying",
+  "products_title": "Edge AI Retail Analytics Device",
+  "products_subtitle": "A smart edge device that processes camera data locally to protect privacy and reduce internet usage, with one unified dashboard for complete operational visibility.",
+  "products_no_cloud": "0% Cloud Services Used",
+  "products_hw_title": "Hardware: Edge AI Device per Store",
+  "products_hw_desc": "The device processes camera data locally on the edge to minimize data transfer, protect privacy, and reduce internet usage—while keeping response times fast.",
+  "products_hw_f1": "On-device processing without sending raw footage",
+  "products_hw_f2": "Edge AI for low-latency real-time analysis",
+  "products_hw_f3": "Sizing tailored to your number of cameras & project scale",
+  "products_hw_f4": "Works with your existing cameras with privacy by design",
+  "products_hw_f5": "Built for store environments with quick installation",
+  "products_sw_title": "Software: Unified Dashboard & Smart Analytics",
+  "products_sw_desc": "We turn analysis outputs into action-ready KPIs, heatmaps, and configurable alerts—across your stores in one place.",
+  "products_image_alt": "Product image",
+  "products_section_value_title": "What does this product deliver?",
+  "products_section_value_desc": "We turn your existing store cameras into a full analytics engine that tracks customer behavior in real time and translates it into business-ready insights. Device sizing is tailored to project scale, and for chain businesses we deploy one device per branch and unify all stores in one dashboard.",
+  "products_kpi_title": "Key statistics your team can track",
+  "products_kpi_visitors": "Visitor and customer counts across any selected time range.",
+  "products_kpi_age": "Age group analytics for incoming customers.",
+  "products_kpi_gender": "Gender distribution: male and female.",
+  "products_kpi_dwell": "Average dwell time and average buying time.",
+  "products_kpi_purchase": "How many bought versus how many did not buy.",
+  "products_kpi_sentiment": "Customer satisfaction indicators from facial emotion analysis.",
+  "products_kpi_heatmap": "Heatmaps to understand attraction points and congestion areas.",
+  "products_ops_title": "Smart alerts + full support",
+  "products_ops_desc": "We configure custom alerts based on your priorities and stay accountable for smooth rollout and issue handling, especially during the initial deployment phase, with continuous technical support.",
+  "products_alert_cashier": "Crowding alert at cashier and checkout zones.",
+  "products_alert_afterhours": "Instant alert for unauthorized entry after store closing.",
+  "products_alert_custom": "Fully customizable alerts for your own scenarios."
 
 }
   },
@@ -1236,7 +1296,8 @@ ar: {
 
       // معلومات الديمو 
 
-      "demo_button": "Individuelle Demo anfordern",
+      "demo_button": "Demo anfordern",
+      "hero_products_button": "Produkte ansehen",
       "demo_btn_request": "Individuelle Demo anfordern",
 "demo_page_title": "System-Demo anfordern",
 "demo_page_subtitle": "Bitte geben Sie Details zu Ihrer Umgebung und den gewünschten Spezifikationen an, damit wir eine auf Ihre Bedürfnisse zugeschnittene Demo entwerfen können.",
@@ -1250,6 +1311,7 @@ ar: {
 "val_req_req": "Bitte geben Sie einige Details für die Demo an",
 
 "nav_agriculture": "Landwirtschaft",
+  "nav_products": "Produkte",
   "agriculture_hero_title": "KI in der Landwirtschaft",
   "agriculture_hero_subtitle": "Verbesserung der modernen Landwirtschaft mit intelligenten Computer-Vision-Lösungen für die Pflanzenanalyse und Ertragssteigerung.",
   "agriculture_section_title": "Intelligentes Pflanzenmanagement",
@@ -1263,7 +1325,35 @@ ar: {
   "agriculture_matters_label": "Warum ist das wichtig?",
   "agriculture_i1": "Frühzeitiges Eingreifen zum Schutz der Pflanzen und zur Reduzierung von Verlusten",
   "agriculture_i2": "Maximierung der Ernteerträge bei minimierten Kosten",
-  "agriculture_i3": "Zeit- und Arbeitsersparnis bei der Feldvermessung"
+  "agriculture_i3": "Zeit- und Arbeitsersparnis bei der Feldvermessung",
+  "products_title": "Edge-AI-Analysegerat fur den Einzelhandel",
+  "products_subtitle": "Ein intelligentes Gerat, das Kameradaten lokal verarbeitet, um Datenschutz zu sichern und Internetverbrauch zu reduzieren - mit einem zentralen Dashboard fur volle Transparenz.",
+  "products_no_cloud": "0% Cloud-Dienste",
+  "products_hw_title": "Hardware: Edge-AI-Gerät pro Filiale",
+  "products_hw_desc": "Das Gerät verarbeitet Kameradaten lokal am Edge, um Datenübertragung zu minimieren, die Privatsphäre zu schützen und den Internetverbrauch zu reduzieren—bei schnellen Reaktionszeiten.",
+  "products_hw_f1": "On-Device-Verarbeitung ohne Übertragung von Rohmaterial",
+  "products_hw_f2": "Edge AI für Analyse mit geringer Latenz in Echtzeit",
+  "products_hw_f3": "Gerätegröße passend zu Kamerazahl & Projektumfang",
+  "products_hw_f4": "Kompatibel mit bestehenden Kameras (Datenschutz by Design)",
+  "products_hw_f5": "Für den Filialbetrieb gebaut: schnelle Installation",
+  "products_sw_title": "Software: Einheitliches Dashboard & smarte Analytik",
+  "products_sw_desc": "Wir machen aus Analyseergebnissen umsetzbare KPIs, Heatmaps und konfigurierbare Warnungen—für alle Filialen an einem Ort.",
+  "products_image_alt": "Produktbild",
+  "products_section_value_title": "Welchen Mehrwert bietet das Produkt?",
+  "products_section_value_desc": "Wir verwandeln Ihre vorhandenen Kameras in ein vollstandiges Analysesystem, das Kundenverhalten in Echtzeit auswertet und in klare Kennzahlen uberfuhrt. Die GerategroBe wird an das Projektvolumen angepasst. Fur Filialketten liefern wir pro Standort ein Gerat und bundeln alle Daten in einem gemeinsamen Dashboard.",
+  "products_kpi_title": "Wichtige Kennzahlen im Uberblick",
+  "products_kpi_visitors": "Anzahl von Besuchern und Kunden fur frei wahlbare Zeitraume.",
+  "products_kpi_age": "Auswertung der Altersgruppen.",
+  "products_kpi_gender": "Geschlechterverteilung: mannlich und weiblich.",
+  "products_kpi_dwell": "Durchschnittliche Verweildauer und Kaufdauer.",
+  "products_kpi_purchase": "Anzahl der Kaufer im Vergleich zu Nichtkaufern.",
+  "products_kpi_sentiment": "Kundenzufriedenheit durch Analyse von Gesichtsemotionen.",
+  "products_kpi_heatmap": "Heatmaps zur Erkennung von Hotspots und Stauzonen im Store.",
+  "products_ops_title": "Intelligente Warnungen + technischer Support",
+  "products_ops_desc": "Wir richten individuelle Warnregeln nach Ihren Anforderungen ein und ubernehmen die technische Begleitung, besonders in der Startphase, mit kontinuierlichem Support.",
+  "products_alert_cashier": "Warnung bei Uberlastung im Kassenbereich.",
+  "products_alert_afterhours": "Sofortwarnung bei unbefugtem Zutritt nach Ladenschluss.",
+  "products_alert_custom": "Flexible, vollstandig anpassbare Warnszenarien."
   
 }
   }
