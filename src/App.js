@@ -33,7 +33,9 @@ import { SecurityInfo } from './components/SecurityInfo';
 import { SiteInfo } from './components/SiteInfo';
 import { DemoRequest } from './components/DemoRequest';
 import { Agriculture } from './components/Agriculture';
-import { ReadyProducts } from './components/ReadyProducts';
+import { EdgeAnalytics } from './components/EdgeAnalytics';
+import { SurveillanceTower } from './components/SurveillanceTower';
+import { HomeMonitor } from './components/HomeMonitor';
 import heroImage from './images/logo.webp';
 
 
@@ -248,7 +250,9 @@ function AppContent() {
           <Route path="/cookies" element={<CookiesSettings />} />
           <Route path="/terms" element={<TermsOfUse />} />
           <Route path="/agriculture" element={<Agriculture />} />
-          <Route path="/products" element={<ReadyProducts />} />
+          <Route path="/edge-analytics" element={<EdgeAnalytics />} />
+          <Route path="/surveillance-tower" element={<SurveillanceTower />} />
+          <Route path="/home-monitor" element={<HomeMonitor />} />
           <Route path="/security-info" element={<SecurityInfo />} />
           <Route path="/request-demo" element={<DemoRequest />} />
         </Routes>
