@@ -29,11 +29,14 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const [langAnchorEl, setLangAnchorEl] = useState(null);
+  const [productsAnchorEl, setProductsAnchorEl] = useState(null);
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [mobileLangOpen, setMobileLangOpen] = useState(false);
 
   const openMenu = Boolean(anchorEl);
   const openLangMenu = Boolean(langAnchorEl);
+  const openProductsMenu = Boolean(productsAnchorEl);
   const navigate = useNavigate();
   const location = useLocation();
   const theme = useTheme();
@@ -43,6 +46,8 @@ export const Navbar = () => {
   const handleMenuClose = () => setAnchorEl(null);
   const handleLangMenuClick = (event) => setLangAnchorEl(event.currentTarget);
   const handleLangMenuClose = () => setLangAnchorEl(null);
+  const handleProductsMenuClick = (event) => setProductsAnchorEl(event.currentTarget);
+  const handleProductsMenuClose = () => setProductsAnchorEl(null);
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   // دالة تغيير اللغة المعدلة
@@ -54,6 +59,7 @@ export const Navbar = () => {
 
   const handleNavigation = (path) => {
     handleMenuClose();
+    handleProductsMenuClose();
     setMobileOpen(false);
     if (path.startsWith('#') && location.pathname !== '/') {
       navigate('/');
@@ -145,8 +151,25 @@ export const Navbar = () => {
               { path: '/industry', label: t('nav_industry') },
               { path: '/construction', label: t('nav_construction') },
               { path: '/agriculture', label: t('nav_agriculture') },
-              { path: '/products', label: t('nav_products') },
               { path: '/data-recovery', label: t('dataRecovery.menuItem') }
+            ].map((item) => (
+              <ListItemButton key={item.path} sx={{ pl: 4 }} onClick={() => handleNavigation(item.path)}>
+                <ListItemText primary={item.label} />
+              </ListItemButton>
+            ))}
+          </List>
+        </Collapse>
+        
+        <ListItemButton onClick={() => setMobileProductsOpen(!mobileProductsOpen)}>
+          <ListItemText primary={t('nav_products')} />
+          {mobileProductsOpen ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+        <Collapse in={mobileProductsOpen} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            {[
+              { path: '/edge-analytics', label: t('nav_product_edge_analytics') },
+              { path: '/surveillance-tower', label: t('nav_product_surveillance_tower') },
+              { path: '/home-monitor', label: t('nav_product_home_monitor') }
             ].map((item) => (
               <ListItemButton key={item.path} sx={{ pl: 4 }} onClick={() => handleNavigation(item.path)}>
                 <ListItemText primary={item.label} />
@@ -223,8 +246,16 @@ export const Navbar = () => {
                   <MenuItem onClick={() => handleNavigation('/industry')}>{t('nav_industry')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/construction')}>{t('nav_construction')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/agriculture')}>{t('nav_agriculture')}</MenuItem>
-                  <MenuItem onClick={() => handleNavigation('/products')}>{t('nav_products')}</MenuItem>
                   <MenuItem onClick={() => handleNavigation('/data-recovery')}>{t('dataRecovery.menuItem')}</MenuItem>
+                </Menu>
+
+                <Button onClick={handleProductsMenuClick} endIcon={<KeyboardArrowDownIcon />} sx={navButtonStyle}>
+                  {t('nav_products')}
+                </Button>
+                <Menu anchorEl={productsAnchorEl} open={openProductsMenu} onClose={handleProductsMenuClose}>
+                  <MenuItem onClick={() => handleNavigation('/edge-analytics')}>{t('nav_product_edge_analytics')}</MenuItem>
+                  <MenuItem onClick={() => handleNavigation('/surveillance-tower')}>{t('nav_product_surveillance_tower')}</MenuItem>
+                  <MenuItem onClick={() => handleNavigation('/home-monitor')}>{t('nav_product_home_monitor')}</MenuItem>
                 </Menu>
 
                 <Button onClick={() => handleNavigation('#home')} sx={navButtonStyle}>{t('nav_home')}</Button>
