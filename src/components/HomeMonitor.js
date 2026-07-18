@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material/styles';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CloseIcon from '@mui/icons-material/Close';
-import img1 from '../images/rassperry.png';
-import img2 from '../images/homeman.png';
+import img1 from '../images/rassperry.webp';
+import img2 from '../images/homeman.webp';
 
 export const HomeMonitor = () => {
   const { t, i18n } = useTranslation();
