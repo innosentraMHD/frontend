@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material/styles';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CloseIcon from '@mui/icons-material/Close';
-import img1 from '../images/tt1.png';
-import img2 from '../images/tt2.png';
+import img1 from '../images/tt1.webp';
+import img2 from '../images/tt2.webp';
 
 export const SurveillanceTower = () => {
   const { t, i18n } = useTranslation();
